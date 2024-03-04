@@ -1,23 +1,19 @@
-import React from 'react';
+/**
+ * 📝 Notes for Contributors:
+ * 
+ * - When creating an interactive component, we recommend consuming the
+ * component hook created.
+ * 
+ * For example, if you wanted to build an accordion component,
+ * you'll first create a `useAccordion` hook and then create an `Accordion` component
+ * 
+ */
 
-function TextField() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import * as React from "react"
+
+export interface TextFieldProps {
 }
 
-export default TextField;
+export function TextField(props: TextFieldProps) {
+  return <div>TextField</div>;
+}

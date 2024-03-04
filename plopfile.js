@@ -10,7 +10,7 @@ const workspaces = ["components", "hooks", "utilities", "integrations"]
 
 /**
  * @param {import("plop").NodePlopAPI} plop
- */
+*/
 module.exports = function main(plop) {
   plop.setHelper("capitalize", (text) => {
     return capitalize(camelCase(text))
@@ -38,7 +38,7 @@ module.exports = function main(plop) {
       },
     ],
     actions(answers) {
-      const actions: unknown[] = []
+      const actions = []
 
       if (!answers) return actions
 

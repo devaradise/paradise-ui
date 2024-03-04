@@ -1,20 +1,18 @@
 {
-  "name": "@paradise-ui/textfield",
+  "name": "@pui/TextField",
   "version": "1.0.0",
-  "description": "A simple and accessible textfield component",
+  "description": "Enhanced version of common text field component &lt;input&gt;",
   "keywords": [
-    "react",
-    "component",
-    "text field"
+    "TextField"
   ],
   "author": "Muhammad Syakirurohman <syakirurahman@gmail.com>",
-  "homepage": "https://github.com/chakra-ui/chakra-ui#readme",
+  "homepage": "https://github.com/devaradise/pui#readme",
   "license": "MIT",
   "main": "src/index.ts",
+  "sideEffects": false,
   "files": [
     "dist"
   ],
-  "sideEffects": false,
   "publishConfig": {
     "access": "public"
   },
@@ -24,12 +22,24 @@
     "directory": "packages/components/TextField"
   },
   "bugs": {
-    "url": "https://github.com/chakra-ui/chakra-ui/issues"
+    "url": "https://github.com/devaradise/pui/issues"
   },
-  "devDependencies": {
-    "react": "^18.2.0"
+  "scripts": {
+    "build": "tsup src --dts",
+    "dev": "pnpm build:fast -- --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "build:fast": "tsup src",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore",
+    "typedocs": "tsx ../../../scripts/generate-type-docs.ts"
   },
   "peerDependencies": {
     "react": ">=18"
-  }
+  },
+  "devDependencies": {
+    "clean-package": "2.1.1",
+    "react": "^18.0.0"
+  },
+  "clean-package": "../../../clean-package.config.json"
 }
