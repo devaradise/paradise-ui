@@ -1,19 +1,63 @@
-/**
- * 📝 Notes for Contributors:
- * 
- * - When creating an interactive component, we recommend consuming the
- * component hook created.
- * 
- * For example, if you wanted to build an accordion component,
- * you'll first create a `useAccordion` hook and then create an `Accordion` component
- * 
- */
+import React, { forwardRef, useId } from 'react';
+import { TextFieldProps } from "./type"
+import "./style.scss"
 
-import * as React from "react"
+export const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, ref) => {
+  const {
+    label = "",
+    secondaryLabel = "",
+    variant = "box",
+    name = "",
+    className = "",
+    placeholder = "",
+    defaultValue = "",
+    value,
+    disabled = false,
+    prefix = "",
+    suffix = "",
+    errorMessage = "",
+    helperText = "",
+    onChange,
+    ...rest
+  } = props
 
-export interface TextFieldProps {
-}
+  const id = useId()
+  const inputId = `${id}-${name}`
+  const descriptionId = `${id}-description`
 
-export function TextField(props: TextFieldProps) {
-  return <div>TextField</div>;
-}
+  return <div className={`pui-text-field pui-text-field-${variant} ${!!errorMessage && `pui-text-field-error`} ${className}`} aria-disabled={disabled}>
+    <div className='pui-text-field-label-block'>
+      <label className='pui-text-field-label'>{label}</label>
+      { !!secondaryLabel && <label className='pui-text-field-label-secondary'>{secondaryLabel}</label> }
+    </div>
+    <div className='pui-text-field-input-block'>
+      <div className='pui-text-field-input-prefix'>{prefix}</div>
+      <input
+        ref={ref}
+        name={name}
+        className="pui-text-field-input"
+        disabled={disabled}
+        aria-disabled={disabled}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+          if (e.target.value !== value) {
+            !!onChange && onChange(e.target.value)
+          }
+        }}
+        defaultValue={defaultValue}
+        placeholder={placeholder}
+        value={value}
+        id={inputId}
+        aria-describedby={descriptionId}
+        {...rest}
+          />
+      <div className='pui-text-field-input-suffix'>{suffix}</div>
+    </div>
+    <div className='pui-text-field-message-block'>
+      {
+        !errorMessage 
+          ? <div className='pui-text-field-helper-text'>{helperText}</div>
+          : <div className='pui-text-field-error-message'>{errorMessage}</div>
+      }
+    </div>
+  </div>;
+})

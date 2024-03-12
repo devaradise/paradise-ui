@@ -2,14 +2,13 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { {{componentName}} } from '../src';
 
 const meta = {
-  title: 'Example/{{componentName}}',
+  title: 'Component/{{category}}/{{componentName}}',
   component: {{componentName}},
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {
-    backgroundColor: { control: 'color' },
   },
 } satisfies Meta<typeof {{componentName}}>;
 

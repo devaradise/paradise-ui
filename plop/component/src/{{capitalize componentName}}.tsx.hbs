@@ -8,12 +8,9 @@
  * you'll first create a `useAccordion` hook and then create an `Accordion` component
  * 
  */
+import React from 'react';
+import { {{capitalize componentName}}Props } from "./type"
 
-import * as React from "react"
-
-export interface {{capitalize componentName}}Props {
-}
-
-export function {{capitalize componentName}}(props: {{capitalize componentName}}Props) {
-  return <div>{{componentName}}</div>;
+export const {{capitalize componentName}}(props: {{capitalize componentName}}Props) {
+  return <div className="pui-{{kebabCase componentName}}">{{componentName}}</div>;
 }

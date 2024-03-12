@@ -2,11 +2,15 @@ const capitalize = (str) => {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
+const kebabCase = (str) => {
+  return str.replace(/([a-z0–9])([A-Z])/g, "$1-$2").toLowerCase();
+}
+
 const camelCase = (str) => {
   return str.replace(/[-_](\w)/g, (_, c) => c.toUpperCase())
 }
 
-const workspaces = ["components", "hooks", "utilities", "integrations"]
+// const workspaces = ["components", "utils", "core"]
 
 /**
  * @param {import("plop").NodePlopAPI} plop
@@ -15,6 +19,9 @@ module.exports = function main(plop) {
   plop.setHelper("capitalize", (text) => {
     return capitalize(camelCase(text))
   })
+  plop.setHelper("kebabCase", (text) => {
+    return kebabCase(text)
+  })
 
   plop.setGenerator("component", {
     description: "Generates a component package",
@@ -22,34 +29,33 @@ module.exports = function main(plop) {
       {
         type: "input",
         name: "componentName",
-        message: "Enter component name:",
+        message: "Enter component name (eg. ComponentName): ",
+      },
+      {
+        type: "list",
+        name: "category",
+        message: "Enter component category: ",
+        choices: ["Form", "Panel", "Data", "Overlay", "Message", "Menu", "Media", "Misc"]
       },
       {
         type: "input",
         name: "description",
         message: "The description of this component:",
-      },
-      {
-        type: "list",
-        name: "outDir",
-        message: "where should this component or package live?",
-        default: "packages",
-        choices: workspaces,
-      },
+      }
     ],
     actions(answers) {
       const actions = []
 
       if (!answers) return actions
 
-      const { componentName, description, outDir } = answers
+      const { componentName, category, description } = answers
 
       actions.push({
         type: "addMany",
         templateFiles: "plop/component/**",
-        destination: `./packages/{{outDir}}/{{capitalize componentName}}`,
+        destination: `./packages/components/{{capitalize componentName}}`,
         base: "plop/component",
-        data: { description, componentName, outDir },
+        data: { componentName, category, description },
         abortOnFail: true,
       })
 

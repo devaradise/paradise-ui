@@ -1,8 +1,9 @@
 {
-  "name": "@pui/TextField",
+  "name": "@pui/text-field",
   "version": "1.0.0",
-  "description": "Enhanced version of common text field component &lt;input&gt;",
+  "description": "An enhanced version of common &lt;input&gt; component",
   "keywords": [
+    "Form",
     "TextField"
   ],
   "author": "Muhammad Syakirurohman <syakirurahman@gmail.com>",
@@ -18,8 +19,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chakra-ui/chakra-ui.git",
-    "directory": "packages/components/TextField"
+    "url": "git+https://github.com/devaradise/pui.git",
+    "directory": "packages//TextField"
   },
   "bugs": {
     "url": "https://github.com/devaradise/pui/issues"

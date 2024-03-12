@@ -1,28 +1,16 @@
+/**
+ * 📝 Notes for Contributors:
+ * 
+ * - When creating an interactive component, we recommend consuming the
+ * component hook created.
+ * 
+ * For example, if you wanted to build an accordion component,
+ * you'll first create a `useAccordion` hook and then create an `Accordion` component
+ * 
+ */
 import React from 'react';
-import './button.css';
-
-interface ButtonProps {
-  /**
-   * Is this the principal call to action on the page?
-   */
-  primary?: boolean;
-  /**
-   * What background color to use
-   */
-  backgroundColor?: string;
-  /**
-   * How large should the button be?
-   */
-  size?: 'small' | 'medium' | 'large';
-  /**
-   * Button contents
-   */
-  label: string;
-  /**
-   * Optional click handler
-   */
-  onClick?: () => void;
-}
+import { ButtonProps } from "./type"
+import "./style.scss"
 
 /**
  * Primary UI component for user interaction

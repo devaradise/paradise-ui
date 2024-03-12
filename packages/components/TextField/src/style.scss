@@ -1,0 +1,63 @@
+.pui-text-field {
+  width:100%;
+  * {
+    box-sizing: border-box;
+  }
+  .pui-text-field-label-block {
+    font-size: .875em;
+    display: flex;
+    justify-content: space-between;
+    color: #555;
+  }
+  .pui-text-field-input-block {
+    display:flex;
+    margin: .1em 0;
+    input.pui-text-field-input {
+      width:100%;
+      font: inherit;
+      padding:.5em .7em;
+      border: 0;
+      outline: 0;
+      box-shadow: 0;
+    }
+  }
+  .pui-text-field-message-block {
+    font-size: .75em;
+    color: #9a9a9a;
+  }
+  &.pui-text-field-box {
+    .pui-text-field-input-block {
+      border: 1px solid #9a9a9a;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+  }
+  &.pui-text-field-line {
+    .pui-text-field-input-block {
+      border-bottom: 1px solid #9a9a9a;
+      overflow: hidden;
+      margin: 0 0 .3em;
+      input.pui-text-field-input {
+        padding:.3em 0;
+      }
+    }
+  }
+  &.pui-text-field-filled {
+    .pui-text-field-input-block {
+      border: 1px solid #eee;
+      border-radius: 5px;
+      overflow: hidden;
+      .pui-text-field-input {
+        background-color: #eee;
+      }
+    }
+  }
+  &.pui-text-field-error {
+    .pui-text-field-input-block {
+      border-color: #ee1122;
+    }
+    .pui-text-field-message-block {
+      color: #ee1122;
+    }
+  }
+}
