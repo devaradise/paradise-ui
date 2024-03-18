@@ -97,6 +97,15 @@
       border-bottom: 1px solid #c5c5cb;
       overflow: hidden;
       margin: 0 0 .3em;
+      input.pui-text-field-input {
+        padding:0;
+      }
+      .pui-text-field-input-prefix {
+        padding-right: .75em;
+      }
+      .pui-text-field-input-suffix {
+        padding-left: .75em;
+      }
     }
   }
   &.pui-text-field-filled {
@@ -134,7 +143,7 @@
     }
     &.pui-text-field-filled {
       .pui-text-field-input-block {
-        background-color: #ffeaea;
+        background-color: #ffefef;
       }
     }
   }

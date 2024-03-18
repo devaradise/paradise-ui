@@ -12,6 +12,7 @@
     "create-component": "plop component"
   },
   "dependencies": {
+    "@phosphor-icons/react": "^2.0.15",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
