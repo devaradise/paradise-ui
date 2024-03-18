@@ -1,5 +1,7 @@
 .pui-text-field {
   width:100%;
+  color: #63636e;
+  font-size: 16px;
   * {
     box-sizing: border-box;
   }
@@ -7,57 +9,133 @@
     font-size: .875em;
     display: flex;
     justify-content: space-between;
-    color: #555;
   }
   .pui-text-field-input-block {
     display:flex;
     margin: .1em 0;
+    color: #45454c;
+    .pui-text-field-input-prefix, .pui-text-field-input-suffix {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
     input.pui-text-field-input {
       width:100%;
       font: inherit;
-      padding:.5em .7em;
+      color: inherit;
+      height: 100%;
+      padding:0 .75em;
       border: 0;
       outline: 0;
-      box-shadow: 0;
+      box-shadow: none;
+      &:disabled {
+        background-color: inherit;
+        cursor: not-allowed;
+      }
     }
   }
   .pui-text-field-message-block {
     font-size: .75em;
-    color: #9a9a9a;
+    color: #63636e;
+  }
+  &.pui-text-field-disabled {
+    .pui-text-field-input-block {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+  &.pui-text-field-sm {
+    .pui-text-field-label-block {
+      font-size: .75em;
+    }
+    .pui-text-field-input-block {
+      height: 2em;
+      font-size: .875em;
+    }
+    &.pui-text-field-line {
+      .pui-text-field-input-block {
+        height: 1.625em;
+      }
+    }
+  }
+  &.pui-text-field-md {
+    .pui-text-field-input-block {
+      height: 2.5em;
+    }
+    &.pui-text-field-line {
+      .pui-text-field-input-block {
+        height: 1.875em;
+      }
+    }
+  }
+  &.pui-text-field-lg {
+    .pui-text-field-input-block {
+      height: 3em;
+      font-size: 1.125em;
+    }
+    &.pui-text-field-line {
+      .pui-text-field-input-block {
+        height: 2em;
+      }
+    }
   }
   &.pui-text-field-box {
     .pui-text-field-input-block {
-      border: 1px solid #9a9a9a;
+      border: 1px solid #c5c5cb;
       border-radius: 5px;
       overflow: hidden;
+      .pui-text-field-input-prefix {
+        padding-left: .75em;
+      }
+      .pui-text-field-input-suffix {
+        padding-right: .75em;
+      }
     }
   }
   &.pui-text-field-line {
     .pui-text-field-input-block {
-      border-bottom: 1px solid #9a9a9a;
+      border-bottom: 1px solid #c5c5cb;
       overflow: hidden;
       margin: 0 0 .3em;
-      input.pui-text-field-input {
-        padding:.3em 0;
-      }
     }
   }
   &.pui-text-field-filled {
     .pui-text-field-input-block {
-      border: 1px solid #eee;
+      border: 1px solid #f0f0f2;
       border-radius: 5px;
       overflow: hidden;
-      .pui-text-field-input {
-        background-color: #eee;
+      background-color: #f0f0f2;
+      input.pui-text-field-input {
+        background-color: inherit;
       }
+      .pui-text-field-input-prefix {
+        padding-left: .75em;
+      }
+      .pui-text-field-input-suffix {
+        padding-right: .75em;
+      }
+    }
+  }
+  &.pui-text-field-focus {
+    .pui-text-field-input-block {
+      border-color: #4D96FF;
+      border-width: 1.5px;
     }
   }
   &.pui-text-field-error {
     .pui-text-field-input-block {
-      border-color: #ee1122;
+      border-color: #ff2b2b;
+      border-width: 1.5px;
     }
     .pui-text-field-message-block {
-      color: #ee1122;
+      .pui-text-field-error-message {
+        color: #ff2b2b;
+      }
+    }
+    &.pui-text-field-filled {
+      .pui-text-field-input-block {
+        background-color: #ffeaea;
+      }
     }
   }
 }

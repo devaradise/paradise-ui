@@ -5,25 +5,15 @@ import { TextField, TextFieldProps } from '../src';
 const meta = {
   title: 'Component/Form/TextField',
   component: TextField,
-  parameters: {
-    layout: 'centered',
-  },
   tags: ['autodocs'],
   argTypes: {
     label: {
-      defaultValue: '',
-      description: 'Label for text field'
+      type: 'string'
     },
     secondaryLabel: {
-      defaultValue: '',
-      description: 'Secondary label. Can be used to show any additional information about the field'
-    },
-    placeholder: {
-      defaultValue: '',
-      description: 'Placeholder text when the text field is unfilled'
+      type: 'string'
     },
     variant: {
-      description: 'Style variant for text field',
       options: ['box', 'line', 'filled'],
       control: { type: 'select' },
       table: {
@@ -31,51 +21,49 @@ const meta = {
         defaultValue: { summary: 'box' },
       },
     },
-    name: {
-      defaultValue: '',
-      description: 'It is the same attribute as \'name\' in native < input > element'
+    size: {
+      options: ['sm', 'md', 'lg'],
+      control: { type: 'select' },
+      table: {
+        type: { summary: 'select' },
+        defaultValue: { summary: 'md' },
+      },
     },
-    className: {
-      defaultValue: '',
-      description: 'Additional class names for the textfield component container'
+    readOnly: {
+      control: { type: 'boolean' },
+      defaultValue: false,
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      }
     },
-  // overridingClass?: { [key:string]: string }
+    invalid: {
+      control: { type: 'boolean' },
+      defaultValue: false,
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      }
+    },
     disabled: {
       control: { type: 'boolean' },
       defaultValue: false,
-      description: 'To disable text field. It is the same attribute as \'disabled\' in native < input > element'
-    },
-    defaultValue: {
-      defaultValue: '',
-      description: 'To set default value for textfield, usually used for uncontrolled component'
-    },
-    value: {
-      defaultValue: '',
-      description: 'To set value for textfield, used to control component'
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      }
     },
     prefix: {
-      defaultValue: '',
-      type: 'string',
-      description: 'A text, icon or another element to put before text field input'
+      type: 'string'
     },
     suffix: {
-      defaultValue: '',
-      type: 'string',
-      description: 'A text, icon or another element to put after text field input'
+      type: 'string'
     },
     helperText: {
-      defaultValue: '',
-      type: 'string',
-      description: 'A text to describe the text field. Placed under the text field input'
+      type: 'string'
     },
     errorMessage: {
-      defaultValue: '',
-      type: 'string',
-      description: 'Error message for the text field. It will be replaced the helper text when defined'
-    },
-    onChange: {
-      defaultValue: '',
-      description: 'A function that pass text field value when its changed'
+      type: 'string'
     }
   },
 } satisfies Meta<typeof TextField>;
@@ -85,9 +73,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Basic: Story = (args: TextFieldProps) => {
   return (
-    <div style={{ width: '500px'}}>
       <TextField {...args}/>
-    </div>
   )
 }
 Basic.args = {
@@ -95,9 +81,12 @@ Basic.args = {
   secondaryLabel: 'Secondary label',
   placeholder: 'Placeholder',
   variant: 'box',
+  size: 'md',
+  readOnly: false,
+  invalid: false,
   disabled: false,
-  prefix: '',
-  suffix: '',
+  prefix: 'Prefix',
+  suffix: 'Suffix',
   helperText: 'A note, description or instruction for this text field',
   errorMessage: '',
 }

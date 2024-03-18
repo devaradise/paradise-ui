@@ -1,4 +1,4 @@
-import React, { forwardRef, useId } from 'react';
+import React, { forwardRef, useId, useState } from 'react';
 import { TextFieldProps } from "./type"
 import "./style.scss"
 
@@ -7,11 +7,13 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, re
     label = "",
     secondaryLabel = "",
     variant = "box",
+    size = "md",
     name = "",
     className = "",
     placeholder = "",
     defaultValue = "",
     value,
+    invalid = false,
     disabled = false,
     prefix = "",
     suffix = "",
@@ -21,17 +23,19 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, re
     ...rest
   } = props
 
+  const [focus, setFocus] = useState<boolean>()
+
   const id = useId()
   const inputId = `${id}-${name}`
   const descriptionId = `${id}-description`
 
-  return <div className={`pui-text-field pui-text-field-${variant} ${!!errorMessage && `pui-text-field-error`} ${className}`} aria-disabled={disabled}>
+  return <div className={`pui-text-field ${focus && `pui-text-field-focus`} ${disabled && `pui-text-field-disabled`} pui-text-field-${variant} pui-text-field-${size} ${(!!errorMessage || invalid) && `pui-text-field-error`} ${className}`} aria-disabled={disabled}>
     <div className='pui-text-field-label-block'>
       <label className='pui-text-field-label'>{label}</label>
       { !!secondaryLabel && <label className='pui-text-field-label-secondary'>{secondaryLabel}</label> }
     </div>
     <div className='pui-text-field-input-block'>
-      <div className='pui-text-field-input-prefix'>{prefix}</div>
+      { prefix && <div className='pui-text-field-input-prefix'>{prefix}</div> }
       <input
         ref={ref}
         name={name}
@@ -43,6 +47,8 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, re
             !!onChange && onChange(e.target.value)
           }
         }}
+        onFocus={() => setFocus(true)}
+        onBlur={() => setFocus(false)}
         defaultValue={defaultValue}
         placeholder={placeholder}
         value={value}
@@ -50,7 +56,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, re
         aria-describedby={descriptionId}
         {...rest}
           />
-      <div className='pui-text-field-input-suffix'>{suffix}</div>
+      { suffix && <div className='pui-text-field-input-suffix'>{suffix}</div> }
     </div>
     <div className='pui-text-field-message-block'>
       {
