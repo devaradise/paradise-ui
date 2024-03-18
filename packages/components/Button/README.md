@@ -1,4 +1,4 @@
-# @pui/Button
+# @paradise-ui/Button
 
 A Quick description of the component
 
@@ -7,9 +7,9 @@ A Quick description of the component
 ## Installation
 
 ```sh
-yarn add @pui/Button
+yarn add @paradise-ui/Button
 # or
-npm i @pui/Button
+npm i @paradise-ui/Button
 ```
 
 ## Contribution

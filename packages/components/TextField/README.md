@@ -1,4 +1,4 @@
-# @pui/TextField
+# @paradise-ui/TextField
 
 A Quick description of the component
 
@@ -7,9 +7,9 @@ A Quick description of the component
 ## Installation
 
 ```sh
-yarn add @pui/TextField
+yarn add @paradise-ui/TextField
 # or
-npm i @pui/TextField
+npm i @paradise-ui/TextField
 ```
 
 ## Contribution
