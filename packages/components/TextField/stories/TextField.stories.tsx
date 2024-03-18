@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+import { fn } from '@storybook/test';
 import { TextField, TextFieldProps } from '../src';
 import { LockKey, User, Eye, WarningCircle } from '@phosphor-icons/react'
 
@@ -67,6 +68,7 @@ const meta = {
       type: 'string'
     }
   },
+  args: { onClick: fn(), onFocus: fn(), onBlur: fn(), onChange: fn() }
 } satisfies Meta<typeof TextField>;
 
 export default meta;
