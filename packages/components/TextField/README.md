@@ -1,15 +1,13 @@
-# @paradise-ui/TextField
+# @paradise-ui/text-field
 
-A Quick description of the component
-
-> This is an internal utility, not intended for public usage.
+An enhanced version of common &lt;input&gt; component for React
 
 ## Installation
 
 ```sh
-yarn add @paradise-ui/TextField
+yarn add @paradise-ui/text-field
 # or
-npm i @paradise-ui/TextField
+npm i @paradise-ui/text-field
 ```
 
 ## Contribution
