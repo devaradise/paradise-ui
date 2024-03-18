@@ -20,7 +20,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devaradise/pui.git",
-    "directory": "packages//TextField"
+    "directory": "packages/components/TextField"
   },
   "bugs": {
     "url": "https://github.com/devaradise/pui/issues"
@@ -32,8 +32,7 @@
     "typecheck": "tsc --noEmit",
     "build:fast": "tsup src",
     "prepack": "clean-package",
-    "postpack": "clean-package restore",
-    "typedocs": "tsx ../../../scripts/generate-type-docs.ts"
+    "postpack": "clean-package restore"
   },
   "peerDependencies": {
     "react": ">=18"
