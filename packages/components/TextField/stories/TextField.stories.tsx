@@ -101,7 +101,7 @@ export const Basic: Story = {
     }
   },
   render: () => (<>
-    <TextField placeholder="Placeholder"/>
+    <TextField placeholder="Placeholder" label="Label"/>
   </>
   )
 }
