@@ -13,5 +13,5 @@
       "./package.json": "./package.json"
     }
   },
-  "remove": ["clean-package", "scripts"]
+  "remove": ["clean-package", "scripts", "devDependencies"]
 }

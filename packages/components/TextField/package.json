@@ -26,9 +26,8 @@
     "url": "https://github.com/devaradise/pui/issues"
   },
   "scripts": {
-    "build": "tsup src --dts",
+    "build": "rm -rf dist && tsup src && tsup src/*.ts src/*.tsx --dts-only",
     "dev": "pnpm build:fast -- --watch",
-    "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "build:fast": "tsup src",
     "prepack": "clean-package",
