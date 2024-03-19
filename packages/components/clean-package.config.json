@@ -13,6 +13,5 @@
       "./package.json": "./package.json"
     }
   },
-  "remove": ["clean-package"]
-  
+  "remove": ["clean-package", "scripts"]
 }
