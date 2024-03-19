@@ -7,7 +7,7 @@
     "Button"
   ],
   "author": "Muhammad Syakirurohman <syakirurahman@gmail.com>",
-  "homepage": "https://github.com/devaradise/pui#readme",
+  "homepage": "https://github.com/devaradise/paradise-ui#readme",
   "license": "MIT",
   "main": "src/index.ts",
   "sideEffects": false,
@@ -19,11 +19,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/devaradise/pui.git",
+    "url": "git+https://github.com/devaradise/paradise-ui.git",
     "directory": "packages//Button"
   },
   "bugs": {
-    "url": "https://github.com/devaradise/pui/issues"
+    "url": "https://github.com/devaradise/paradise-ui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",
