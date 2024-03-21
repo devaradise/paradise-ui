@@ -1,10 +1,13 @@
 {
   "name": "@paradise-ui/text-field",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "An enhanced version of common &lt;input&gt; component",
   "keywords": [
     "Form",
-    "TextField"
+    "TextField",
+    "Text field",
+    "Input",
+    "React component"
   ],
   "author": "Muhammad Syakirurohman <syakirurahman@gmail.com>",
   "homepage": "https://github.com/devaradise/paradise-ui#readme",
