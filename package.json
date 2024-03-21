@@ -13,6 +13,7 @@
     "chromatic": "npx chromatic --project-token=chpt_759808943085b1a"
   },
   "dependencies": {
+    "@storybook/client-api": "^7.6.17",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -23,6 +24,7 @@
     "@storybook/addon-links": "^8.0.0",
     "@storybook/addon-storysource": "^8.0.0",
     "@storybook/blocks": "^8.0.0",
+    "@storybook/preview-api": "^8.0.2",
     "@storybook/react": "^8.0.0",
     "@storybook/react-vite": "^8.0.0",
     "@storybook/test": "^8.0.0",
@@ -38,6 +40,13 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "eslint-plugin-storybook": "^0.8.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.2",
+    "prettier": "2.8.4",
     "plop": "^4.0.1",
     "sass": "^1.71.1",
     "storybook": "^8.0.0",

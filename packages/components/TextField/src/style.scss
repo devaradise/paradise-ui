@@ -28,6 +28,7 @@
       border: 0;
       outline: 0;
       box-shadow: none;
+      background-color: inherit;
       &:disabled {
         background-color: inherit;
         cursor: not-allowed;
@@ -36,14 +37,9 @@
   }
   .pui-text-field-message-block {
     font-size: .75em;
-    color: #63636e;
   }
-  &.pui-text-field-disabled {
-    .pui-text-field-input-block {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-  }
+
+  /* Textfield size styles */
   &.pui-text-field-sm {
     .pui-text-field-label-block {
       font-size: .75em;
@@ -79,6 +75,8 @@
       }
     }
   }
+
+  /* Textfield variant styles */
   &.pui-text-field-box {
     .pui-text-field-input-block {
       border: 1px solid #c5c5cb;
@@ -97,9 +95,9 @@
       border-bottom: 1px solid #c5c5cb;
       overflow: hidden;
       margin: 0 0 .3em;
+      background-color: transparent;
       input.pui-text-field-input {
         padding:0;
-        background-color: transparent;
       }
       .pui-text-field-input-prefix {
         padding-right: .75em;
@@ -124,6 +122,45 @@
       .pui-text-field-input-suffix {
         padding-right: .75em;
       }
+    }
+  }
+
+  /* Textfield dark mode styles */
+  &.pui-text-field-dark {
+    color: #aeb1c3;
+    .pui-text-field-input-block {
+      color: #dfe3f7;
+      border-color: #434547;
+    }
+    &:not(.pui-text-field-focus) {
+      .pui-text-field-input-block:hover {
+        border-color: #aeb1c3;
+      }
+    }
+    &.pui-text-field-filled {
+      .pui-text-field-input-block {
+        border-color: #313437;
+        background-color: #313437;
+      }
+      &.pui-text-field-focus {
+        .pui-text-field-input-block {
+          border-color: #4D96FF;
+        }
+      }
+      &.pui-text-field-error {
+        .pui-text-field-input-block {
+          background-color: #313437;
+          border-color: #ff2b2b;
+        }
+      }
+    }
+  }
+
+  /* Textfield state styles */
+  &.pui-text-field-disabled {
+    .pui-text-field-input-block {
+      opacity: 0.5;
+      cursor: not-allowed;
     }
   }
   &.pui-text-field-focus {

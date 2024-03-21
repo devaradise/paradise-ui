@@ -1,2 +1,2 @@
-export { TextField } from "./TextField"
-export * from "./type"
+export { TextField } from './TextField';
+export * from './type';
