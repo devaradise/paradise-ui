@@ -100,8 +100,8 @@ export const Usage: Story = (args: TextFieldProps, { globals }) => {
 	const [, updateArgs] = useArgs();
 	// Update themeMode when global background changed by user
 	useEffect(() => {
-		updateArgs({ themeMode: globals.backgrounds.value === '#17202A' ? 'dark' : 'light' });
-		args.themeMode = globals.backgrounds.value === '#17202A' ? 'dark' : 'light';
+		updateArgs({ themeMode: globals?.backgrounds?.value === '#17202A' ? 'dark' : 'light' });
+		args.themeMode = globals?.backgrounds?.value === '#17202A' ? 'dark' : 'light';
 	}, [globals.backgrounds]);
 	return <TextField {...args} />;
 };
