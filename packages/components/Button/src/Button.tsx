@@ -8,7 +8,6 @@
  * you'll first create a `useAccordion` hook and then create an `Accordion` component
  *
  */
-import React from 'react';
 import { ButtonProps } from './type';
 import './style.scss';
 

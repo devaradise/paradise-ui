@@ -1,10 +1,11 @@
 {
-  "name": "@paradise-ui/button",
+  "name": "@paradise-ui/theme",
   "version": "0.0.0",
-  "description": "Button component with enhanced functionality",
+  "description": "Theme provider for paradise UI components",
   "keywords": [
-    "Form",
-    "Button"
+    "Paradise UI",
+    "Theme",
+    "React"
   ],
   "author": "Muhammad Syakirurohman <syakirurahman@gmail.com>",
   "homepage": "https://github.com/devaradise/paradise-ui#readme",
@@ -20,7 +21,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devaradise/paradise-ui.git",
-    "directory": "packages//Button"
+    "directory": "packages/theme"
   },
   "bugs": {
     "url": "https://github.com/devaradise/paradise-ui/issues"

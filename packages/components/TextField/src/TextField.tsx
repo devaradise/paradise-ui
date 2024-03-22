@@ -1,4 +1,4 @@
-import React, { forwardRef, useId, useState } from 'react';
+import { forwardRef, useId, useState } from 'react';
 import { TextFieldProps } from './type';
 import './style.scss';
 

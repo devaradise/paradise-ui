@@ -1,10 +1,11 @@
 {
-  "name": "@paradise-ui/button",
+  "name": "@paradise-ui/react",
   "version": "0.0.0",
-  "description": "Button component with enhanced functionality",
+  "description": "A Headless, Simple, Modular and Highly customizable React UI components",
   "keywords": [
-    "Form",
-    "Button"
+    "Paradise UI",
+    "Theme",
+    "React"
   ],
   "author": "Muhammad Syakirurohman <syakirurahman@gmail.com>",
   "homepage": "https://github.com/devaradise/paradise-ui#readme",
@@ -20,7 +21,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devaradise/paradise-ui.git",
-    "directory": "packages//Button"
+    "directory": "packages/react"
   },
   "bugs": {
     "url": "https://github.com/devaradise/paradise-ui/issues"
@@ -33,6 +34,11 @@
     "prepack": "clean-package",
     "postpack": "clean-package restore",
     "release": "pnpm publish && pnpm postpack"
+  },
+  "dependencies": {
+    "@paradise-ui/theme": "workspace:*",
+    "@paradise-ui/text-field": "workspace:*",
+    "@paradise-ui/button": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=18"
