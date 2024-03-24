@@ -1,0 +1,46 @@
+{
+  "name": "@paradise-ui/common",
+  "version": "0.0.0",
+  "description": "Shared types and functions among ParadiseUI components",
+  "keywords": [
+    "Paradise UI",
+    "Shared function",
+    "React"
+  ],
+  "author": "Muhammad Syakirurohman <syakirurahman@gmail.com>",
+  "homepage": "https://github.com/devaradise/paradise-ui#readme",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devaradise/paradise-ui.git",
+    "directory": "packages/theme"
+  },
+  "bugs": {
+    "url": "https://github.com/devaradise/paradise-ui/issues"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsup src --dts",
+    "dev": "pnpm build:fast -- --watch",
+    "typecheck": "tsc --noEmit",
+    "build:fast": "tsup src",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore",
+    "release": "pnpm publish && pnpm postpack"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "devDependencies": {
+    "clean-package": "2.1.1",
+    "react": "^18.0.0"
+  },
+  "clean-package": "./../clean-package.config.json"
+}
