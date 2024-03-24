@@ -36,6 +36,7 @@
     "release": "pnpm publish && pnpm postpack"
   },
   "dependencies": {
+    "@paradise-ui/common": "workspace:*",
     "@paradise-ui/theme": "workspace:*",
     "@paradise-ui/text-field": "workspace:*",
     "@paradise-ui/button": "workspace:*"
