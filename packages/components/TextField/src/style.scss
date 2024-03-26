@@ -1,3 +1,4 @@
+@use 'sass:color';
 .pui-text-field {
   width:100%;
   color: #63636e;
@@ -154,7 +155,8 @@
       }
       &.pui-text-field-error {
         .pui-text-field-input-block {
-          background-color: #313437;
+          // background-color: #313437;
+          background-color: color.scale($color: #ff2b2b, $lightness: -80%);
           border-color: #ff2b2b;
         }
       }
