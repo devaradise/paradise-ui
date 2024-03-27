@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeProvider } from '../src';
 import { useArgs } from '@storybook/client-api';
 import { defaultColors } from '@paradise-ui/common';
-import { TextField } from '@paradise-ui/text-field';
+import { TextField } from '../../components/TextField/src';
 import { ThemeProviderProps } from '../src/type';
 
 const meta = {
