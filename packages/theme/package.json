@@ -1,6 +1,6 @@
 {
   "name": "@paradise-ui/theme",
-  "version": "0.0.0",
+  "version": "1.0.0-alpha.1",
   "description": "Theme provider for paradise UI components",
   "keywords": [
     "Paradise UI",
