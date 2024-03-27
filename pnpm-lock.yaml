@@ -201,6 +201,9 @@ importers:
         specifier: workspace:*
         version: link:../common
     devDependencies:
+      '@paradise-ui/text-field':
+        specifier: workspace:*
+        version: link:../components/TextField
       clean-package:
         specifier: 2.1.1
         version: 2.1.1

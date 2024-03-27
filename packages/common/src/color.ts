@@ -1,8 +1,36 @@
 import { Colors } from './type';
 
 export const defaultColors: Colors = {
-	error: '#ff2b2b'
+	primary: '#1BA7F1',
+	secondary: '#FC8833',
+	success: '#6BCB77',
+	info: '#4D96FF',
+	warning: '#FFD93D',
+	error: '#FF6B6B',
+	text: '#27272c',
+	textInDark: '#e7e7e9',
+	textSecondary: '#63636e',
+	textSecondaryInDark: '#a4a4ad',
+	themeBackground: '#fff',
+	themeBackgroundDark: '#101317',
+	componentSurface: '#fff',
+	componentSurfaceDark: '#212327',
+	inputFiller: '#f0f0f2',
+	inputFillerDark: '#313437',
+	border: '#c3c7d0',
+	borderInDark: '#4a4c4f',
+	softBorder: '#dadce3',
+	softBorderInDark: '#373a3a'
 };
+
+/**
+ * A function that mimic sass.scale(color, $lightness: percent)
+ * Relatively lighten / darken hexadecimal color
+ *
+ * @param hexColor
+ * @param percent
+ * @returns string
+ */
 export const lightenColor = (hexColor: string, percent: number): string => {
 	const isHex = /^#[0-9A-F]{6}$/i.test(hexColor);
 	// const value = valueInPercent / 100;

@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import { TextField, TextFieldProps } from '../src';
-import { Eye, LockKey, User, WarningCircle } from '@phosphor-icons/react';
-import { useArgs } from '@storybook/client-api';
+import { TextField } from '../src';
+import { Eye, EyeSlash, LockKey, User, WarningCircle } from '@phosphor-icons/react';
 
 const meta = {
 	title: 'Component/Form/TextField',
@@ -22,14 +21,6 @@ const meta = {
 			table: {
 				type: { summary: 'select' },
 				defaultValue: { summary: 'box' }
-			}
-		},
-		themeMode: {
-			options: ['light', 'dark'],
-			control: { type: 'radio' },
-			table: {
-				type: { summary: 'radio' },
-				defaultValue: { summary: 'light' }
 			}
 		},
 		value: {
@@ -84,9 +75,6 @@ const meta = {
 		}
 	},
 	parameters: {
-		backgrounds: {
-			disable: true
-		},
 		controls: {
 			disable: true
 		}
@@ -96,47 +84,34 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Usage: Story = (args: TextFieldProps, { globals }) => {
-	const [, updateArgs] = useArgs();
-	// Update themeMode when global background changed by user
-	useEffect(() => {
-		updateArgs({ themeMode: globals?.backgrounds?.value === '#17202A' ? 'dark' : 'light' });
-		args.themeMode = globals?.backgrounds?.value === '#17202A' ? 'dark' : 'light';
-	}, [globals.backgrounds]);
-	return <TextField {...args} />;
-};
-
-Usage.parameters = {
-	backgrounds: {
-		disable: false
+export const Usage: Story = {
+	parameters: {
+		controls: {
+			disable: false
+		}
 	},
-	controls: {
-		disable: false
+	args: {
+		label: 'Main label',
+		secondaryLabel: 'Secondary label',
+		placeholder: 'Placeholder',
+		variant: 'box',
+		size: 'md',
+		readOnly: false,
+		invalid: false,
+		disabled: false,
+		prefix: 'Prefix',
+		suffix: 'Suffix',
+		helperText: 'A note, description or instruction for this text field',
+		errorMessage: '',
+		onChange: fn()
 	}
-};
-Usage.args = {
-	label: 'Main label',
-	secondaryLabel: 'Secondary label',
-	placeholder: 'Placeholder',
-	variant: 'box',
-	themeMode: 'light',
-	size: 'md',
-	readOnly: false,
-	invalid: false,
-	disabled: false,
-	prefix: 'Prefix',
-	suffix: 'Suffix',
-	helperText: 'A note, description or instruction for this text field',
-	errorMessage: '',
-	onChange: fn()
 };
 
 export const Basic: Story = {
-	render: () => (
-		<>
-			<TextField placeholder='Placeholder' label='Label' />
-		</>
-	)
+	args: {
+		label: 'Label',
+		placeholder: 'Placeholder'
+	}
 };
 
 export const Controlled: Story = () => {
@@ -221,3 +196,24 @@ export const PrefixAndSuffix: Story = {
 		</>
 	)
 };
+
+export const PasswordField: Story = () => {
+	const [value, setValue] = useState<string>('');
+	const [visible, setVisible] = useState<boolean>(false);
+	return (
+		<TextField
+			label='Password'
+			placeholder='Placeholder'
+			type={visible ? 'text' : 'password'}
+			value={value}
+			onChange={(value) => setValue(value)}
+			prefix={<LockKey />}
+			suffix={
+				<div style={{ cursor: 'pointer' }} onClick={() => setVisible(!visible)}>
+					{visible ? <EyeSlash /> : <Eye />}
+				</div>
+			}
+		/>
+	);
+};
+PasswordField.args = {};

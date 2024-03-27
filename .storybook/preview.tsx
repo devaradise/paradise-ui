@@ -14,7 +14,7 @@ const preview: Preview = {
       },
     },
     backgrounds: {
-      default: 'light',
+      default: window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
       values: [
         {
           name: 'light',
@@ -22,7 +22,7 @@ const preview: Preview = {
         },
         {
           name: 'dark',
-          value: '#17202A',
+          value: '#101317',
         },
       ]
     }
@@ -34,15 +34,19 @@ const preview: Preview = {
       useEffect(() => {
         if (viewMode === 'story' && args.themeMode !== globals?.backgrounds?.name) {
           updateGlobals({
-            backgrounds: args.themeMode === "dark" ? { name: "dark", value: "#17202A" } : { name: "light", value: "#fff" }
+            backgrounds: args.themeMode === "dark" ? { name: "dark", value: "#101317" } : { name: "light", value: "#fff" }
           })    
         }
       }, [args.themeMode])
 
+      document.documentElement.setAttribute('style', `color-scheme:${globals?.backgrounds?.value === '#101317' ? 'dark' : 'light'}`)
+
      return (
-      <div style={{ width: '100%', maxWidth: '500px', margin: '50px auto' }}>
-        {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
-        <Story />
+      <div
+        className={globals?.backgrounds?.value === '#101317' ? 'pui-dark-mode' : 'pui-light-mode'}
+        style={{ width: '100%', maxWidth: '500px', margin: '50px auto' }}>
+          {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
+          <Story />
       </div>
     )},
   ]

@@ -9,8 +9,8 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, re
 		secondaryLabel = '',
 		variant = 'box',
 		size = 'md',
-		themeMode = 'light',
 		name = '',
+		type = 'text',
 		className = '',
 		placeholder = '',
 		value,
@@ -30,20 +30,21 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, re
 	const inputId = `${id}-${name}`;
 	const descriptionId = `${id}-description`;
 
-	injectCssVariables(defaultColors, 'pui-text-field');
+	injectCssVariables(defaultColors, 'component');
 
 	return (
 		<div
 			className={[
 				'pui-text-field',
-				`pui-text-field-${themeMode}`,
 				`pui-text-field-${variant}`,
 				`pui-text-field-${size}`,
 				!!errorMessage || invalid ? `pui-text-field-error` : '',
 				focus ? 'pui-text-field-focus' : '',
 				disabled ? `pui-text-field-disabled` : '',
 				className
-			].join(' ')}
+			]
+				.filter((className) => !!className)
+				.join(' ')}
 			aria-disabled={disabled}>
 			<div className='pui-text-field-label-block'>
 				<label className='pui-text-field-label'>{label}</label>
@@ -55,6 +56,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, re
 					ref={ref}
 					name={name}
 					className='pui-text-field-input'
+					type={type}
 					disabled={disabled}
 					aria-disabled={disabled}
 					onChange={(e: React.ChangeEvent<HTMLInputElement>) => {

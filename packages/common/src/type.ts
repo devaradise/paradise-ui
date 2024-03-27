@@ -1,25 +1,27 @@
 export type ComponentSize = 'sm' | 'md' | 'lg';
 export type ThemeMode = 'light' | 'dark';
+export type ThemeModeControl = ThemeMode & 'system';
 
 export interface Colors {
-	/**
-	 * Default: blue
-	 */
 	primary?: string;
-	/**
-	 * Default: orange
-	 */
 	secondary?: string;
 	success?: string;
 	info?: string;
 	warning?: string;
 	error?: string;
 	text?: string;
-	textDark?: string;
+	textInDark?: string;
 	textSecondary?: string;
-	textSecondaryDark?: string;
-	background?: string;
-	backgroundDark?: string;
+	textSecondaryInDark?: string;
+	themeBackground?: string;
+	themeBackgroundDark?: string;
+	componentSurface?: string;
+	componentSurfaceDark?: string;
+	inputFiller?: string;
+	inputFillerDark?: string;
 	border?: string;
-	borderDark?: string;
+	borderInDark?: string;
+	softBorder?: string;
+	softBorderInDark?: string;
+	[key: string]: string | undefined;
 }

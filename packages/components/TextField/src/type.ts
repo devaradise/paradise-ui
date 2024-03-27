@@ -1,5 +1,5 @@
 import { InputHTMLAttributes, ReactNode } from 'react';
-import { ComponentSize, ThemeMode } from '@paradise-ui/common';
+import { ComponentSize } from '@paradise-ui/common';
 
 export type TextFieldVariant = 'box' | 'line' | 'filled';
 
@@ -8,7 +8,6 @@ export interface TextFieldProps extends Omit<InputHTMLAttributes<HTMLInputElemen
 	secondaryLabel?: ReactNode;
 	variant?: TextFieldVariant;
 	size?: ComponentSize;
-	themeMode?: ThemeMode;
 	name?: string;
 	className?: string;
 	// overridingClass?: { [key:string]: string }

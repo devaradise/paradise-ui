@@ -1,0 +1,9 @@
+@import "./reset.scss";
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size:16px;
+}
+
+@import "./../../components/Button/src/style.scss";
+@import "./../../components/TextField/src/style.scss";

@@ -21,18 +21,14 @@ export const injectCssVariables = (colors: Colors, injectSource?: string) => {
 				case 'success':
 				case 'warning':
 				case 'error':
-					variables += `--pui-${kebabCase(key)}-light-80: ${lightenColor(colors[key as keyof Colors] as string, 80)};\n`;
-					variables += `--pui-${kebabCase(key)}-dark-80: ${lightenColor(colors[key as keyof Colors] as string, -80)};\n`;
+					variables += `--pui-${kebabCase(key)}-lighten: ${lightenColor(colors[key as keyof Colors] as string, 85)};\n`;
+					variables += `--pui-${kebabCase(key)}-darken: ${lightenColor(colors[key as keyof Colors] as string, -85)};\n`;
 					break;
 			}
 		}
 	}
 
-	styleElement.innerHTML = `
-    ::root {
-      ${variables}
-    }
-  `;
+	styleElement.innerHTML = `:root {\n${variables}}`;
 	const head = document.head;
 	head.insertBefore(styleElement, head.firstChild);
 };
