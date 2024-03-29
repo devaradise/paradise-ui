@@ -1,6 +1,6 @@
-import { {{capitalize componentName}}Props } from "./type"
-import "./style.scss"
+import { {{capitalize componentName}}Props } from './type'
+import './style.scss'
 
-export const {{capitalize componentName}}(props: {{capitalize componentName}}Props) {
-  return <div className="pui-{{kebabCase componentName}}">{{componentName}}</div>;
+export const {{capitalize componentName}} = (props: {{capitalize componentName}}Props) => {
+  return <div className='pui-{{kebabCase componentName}}'>{{componentName}}</div>;
 }

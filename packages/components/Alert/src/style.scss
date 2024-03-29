@@ -1,0 +1,212 @@
+.pui-alert {
+  width:100%;
+  color: var(--pui-text, #27272b);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  line-height: 1.3;
+  padding: .875em;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap:.5em;
+  .pui-alert-icon {
+    display: flex;
+    align-self: center;
+    svg {
+      height: 20px;
+      width: 20px;
+    }
+  }
+  .pui-alert-content {
+    font-size: .875em;
+  }
+  &.pui-alert-subtle {
+    &.pui-alert-info {
+      background-color: var(--pui-info-lighten, #dbeaff);
+      color: var(--pui-info-darken, #021126);
+      .pui-alert-icon svg {
+        fill: var(--pui-info, #0d70ff);
+      }
+    }  
+    &.pui-alert-success {
+      background-color: var(--pui-success-lighten, #e2f4e5);
+      color: var(--pui-success-darken, #0a1b0c);
+      .pui-alert-icon svg {
+        fill: var(--pui-success, #40b64f);
+      }
+    }  
+    &.pui-alert-warning {
+      background-color:  var(--pui-warning-lighten, #fff7d9);
+      color: var(--pui-warning-darken, #261e00);
+      .pui-alert-icon svg {
+        fill: var(--pui-warning, #fccb00);
+      }
+    }  
+    &.pui-alert-error {
+      background-color:  var(--pui-error-lighten, #FF6B6B);
+      color: var(--pui-error-darken, #260606);
+      .pui-alert-icon svg {
+        fill: var(--pui-error, #ff2b2b);
+      }
+    }  
+  }
+
+  &.pui-alert-solid {
+    color: #fff;
+    .pui-alert-icon svg {
+      fill: #fff;
+    }
+    &.pui-alert-info {
+      background-color: var(--pui-info, #0d70ff);
+    }  
+    &.pui-alert-success {
+      background-color: var(--pui-success, #40b64f);
+    }  
+    &.pui-alert-warning {
+      background-color: var(--pui-warning, #fccb00);
+    }  
+    &.pui-alert-error {
+      background-color: var(--pui-error, #ff2b2b);
+    }  
+  }
+
+  &.pui-alert-outlined {
+    &.pui-alert-info {
+      border:1px solid var(--pui-info, #0d70ff);
+      color: var(--pui-info-darken, #021126);
+      .pui-alert-icon svg {
+        fill: var(--pui-info, #0d70ff);
+      }
+    }  
+    &.pui-alert-success {
+      border:1px solid var(--pui-success, #40b64f);
+      color: var(--pui-success-darken, #0a1b0c);
+      .pui-alert-icon svg {
+        fill: var(--pui-success, #40b64f);
+      }
+    }  
+    &.pui-alert-warning {
+      border:1px solid var(--pui-warning, #fccb00);
+      color: var(--pui-warning-darken, #261e00);
+      .pui-alert-icon svg {
+        fill: var(--pui-warning, #fccb00);
+      }
+    }  
+    &.pui-alert-error {
+      border:1px solid var(--pui-error, #ff2b2b);
+      color: var(--pui-error-darken, #260606);
+      .pui-alert-icon svg {
+        fill: var(--pui-error, #ff2b2b);
+      }
+    }  
+  }
+
+  &.pui-alert-left-bordered {
+    &.pui-alert-info {
+      border-left: 5px solid var(--pui-info, #0d70ff);
+      background-color: var(--pui-info-lighten, #dbeaff);
+      color: var(--pui-info-darken, #021126);
+      .pui-alert-icon svg {
+        fill: var(--pui-info, #0d70ff);
+      }
+    }  
+    &.pui-alert-success {
+      border-left: 5px solid var(--pui-success, #40b64f);
+      background-color: var(--pui-success-lighten, #e2f4e5);
+      color: var(--pui-success-darken, #0a1b0c);
+      .pui-alert-icon svg {
+        fill: var(--pui-success, #40b64f);
+      }
+    }  
+    &.pui-alert-warning {
+      border-left: 5px solid var(--pui-warning, #fccb00);
+      background-color:  var(--pui-warning-lighten, #fff7d9);
+      color: var(--pui-warning-darken, #261e00);
+      .pui-alert-icon svg {
+        fill: var(--pui-warning, #fccb00);
+      }
+    }  
+    &.pui-alert-error {
+      border-left: 5px solid var(--pui-error, #ff2b2b);
+      background-color:  var(--pui-error-lighten, #FF6B6B);
+      color: var(--pui-error-darken, #260606);
+      .pui-alert-icon svg {
+        fill: var(--pui-error, #ff2b2b);
+      }
+    }  
+  }
+
+
+  .pui-dark-mode & {
+    &.pui-alert-subtle, &.pui-alert-left-bordered {
+      &.pui-alert-info {
+        background-color: var(--pui-info-darken, #021126);
+        color:  var(--pui-info-lighten, #dbeaff);
+        .pui-alert-icon svg {
+          fill: var(--pui-info, #0d70ff);
+        }
+      }  
+      &.pui-alert-success {
+        background-color: var(--pui-success-darken, #0a1b0c);
+        color:  var(--pui-success-lighten, #e2f4e5);
+        .pui-alert-icon svg {
+          fill: var(--pui-success, #40b64f);
+        }
+      }  
+      &.pui-alert-warning {
+        background-color: var(--pui-warning-darken, #261e00);
+        color:  var(--pui-warning-lighten, #fff7d9);
+        .pui-alert-icon svg {
+          fill: var(--pui-warning, #fccb00);
+        }
+      }  
+      &.pui-alert-error {
+        background-color: var(--pui-error-darken, #260606);
+        color:  var(--pui-error-lighten, #FF6B6B);
+        .pui-alert-icon svg {
+          fill: var(--pui-error, #ff2b2b);
+        }
+      }  
+    }
+    &.pui-alert-solid {
+      &.pui-alert-info {
+        color: var(--pui-info-darken, #021126);
+        .pui-alert-icon svg {
+          fill: var(--pui-info-darken, #021126);
+        }
+      }
+      &.pui-alert-success {
+        color: var(--pui-success-darken, #0a1b0c);
+        .pui-alert-icon svg {
+          fill: var(--pui-success-darken, #0a1b0c);
+        }
+      }  
+      &.pui-alert-warning {
+        color: var(--pui-warning-darken, #261e00);
+        .pui-alert-icon svg {
+          fill: var(--pui-warning-darken, #261e00);
+        }
+      }  
+      &.pui-alert-error {
+        color: var(--pui-error-darken, #260606);
+        .pui-alert-icon svg {
+          fill: var(--pui-error-darken, #260606);
+        }
+      }
+    }
+    &.pui-alert-outlined {
+      &.pui-alert-info {
+        color: var(--pui-info-lighten, #dbeaff);
+      }  
+      &.pui-alert-success {
+        color: var(--pui-success-lighten, #e2f4e5);
+      }  
+      &.pui-alert-warning {
+        color:  var(--pui-warning-lighten, #fff7d9);
+      }  
+      &.pui-alert-error {
+        color:  var(--pui-error-lighten, #FF6B6B);
+      }  
+    }
+  }
+}

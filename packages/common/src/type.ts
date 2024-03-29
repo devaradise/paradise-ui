@@ -1,6 +1,8 @@
 export type ComponentSize = 'sm' | 'md' | 'lg';
 export type ThemeMode = 'light' | 'dark';
 export type ThemeModeControl = ThemeMode & 'system';
+export type SemanticColorType = 'info' | 'success' | 'warning' | 'error';
+export type AlertVariant = 'subtle' | 'solid' | 'outlined' | 'left-bordered';
 
 export interface Colors {
 	primary?: string;

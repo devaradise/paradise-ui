@@ -5,6 +5,7 @@ import { useArgs } from '@storybook/client-api';
 import { defaultColors } from '@paradise-ui/common';
 import { TextField } from '../../components/TextField/src';
 import { ThemeProviderProps } from '../src/type';
+import { Alert } from '../../components/Alert/src';
 
 const meta = {
 	title: 'Provider/ThemeProvider',
@@ -45,6 +46,14 @@ export const Usage: Story = (args: ThemeProviderProps, { globals }: { globals: {
 		<ThemeProvider {...args}>
 			<h2>Paradise UI Components</h2>
 			<TextField label='Textfield inside theme' />
+			<br />
+			<Alert>Info alert inside theme</Alert>
+			<br />
+			<Alert type='success'>Success alert inside theme</Alert>
+			<br />
+			<Alert type='warning'>Warning alert inside theme</Alert>
+			<br />
+			<Alert type='error'>Error alert inside theme</Alert>
 		</ThemeProvider>
 	);
 };

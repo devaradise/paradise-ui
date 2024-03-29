@@ -151,6 +151,19 @@ importers:
         specifier: ^18.0.0
         version: 18.2.0
 
+  packages/components/Alert:
+    dependencies:
+      '@paradise-ui/common':
+        specifier: workspace:*
+        version: link:../../common
+    devDependencies:
+      clean-package:
+        specifier: 2.1.1
+        version: 2.1.1
+      react:
+        specifier: ^18.0.0
+        version: 18.2.0
+
   packages/components/Button:
     devDependencies:
       clean-package:
@@ -161,6 +174,19 @@ importers:
         version: 18.2.0
 
   packages/components/TextField:
+    dependencies:
+      '@paradise-ui/common':
+        specifier: workspace:*
+        version: link:../../common
+    devDependencies:
+      clean-package:
+        specifier: 2.1.1
+        version: 2.1.1
+      react:
+        specifier: ^18.0.0
+        version: 18.2.0
+
+  packages/components/Toast:
     dependencies:
       '@paradise-ui/common':
         specifier: workspace:*

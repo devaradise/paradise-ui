@@ -1,0 +1,35 @@
+import { Canvas, Meta, Source } from '@storybook/blocks';
+
+import * as ToastStories from './Toast.stories';
+
+<Meta of={ToastStories} />
+
+# Toast
+
+A checkbox is a square box that can be activated or deactivated when ticked. 
+
+Use checkboxes to select one or more options from a list of choices.
+
+
+<Canvas of={ToastStories.Usage} sourceState="none"/>
+
+<Source code={`
+import { ToastProvider, useToast } from '../src';
+
+const ComponentWhereToastIsTriggered = () => {
+  const toast = useToast();
+  return (
+    <>
+      <Button label='Trigger a toast' onClick={() => toast.add({})} />
+    </>
+  );
+};
+
+const Usage: Story = {
+  render: () => (
+    <ToastProvider>
+      <ComponentWhereToastIsTriggered />
+    </ToastProvider>
+  )
+};
+`} />
