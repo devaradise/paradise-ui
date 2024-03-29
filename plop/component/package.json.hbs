@@ -1,6 +1,6 @@
 {
   "name": "@paradise-ui/{{kebabCase componentName}}",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "{{description}}",
   "keywords": [
     "{{ category }}",
@@ -20,20 +20,23 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devaradise/paradise-ui.git",
-    "directory": "packages/{{outDir}}/{{capitalize componentName}}"
+    "directory": "packages/components/{{capitalize componentName}}"
   },
   "bugs": {
     "url": "https://github.com/devaradise/paradise-ui/issues"
   },
   "scripts": {
-    "build": "tsup src --dts",
+    "build": "rm -rf dist && tsup src && tsup src/*.ts src/*.tsx --dts-only",
     "dev": "pnpm build:fast -- --watch",
-    "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "build:fast": "tsup src",
     "prepack": "clean-package",
-    "postpack": "clean-package restore"
+    "postpack": "clean-package restore",
+    "release": "pnpm publish && pnpm postpack"
   },
+  "dependencies": {
+    "@paradise-ui/common": "workspace:*"
+  }
   "peerDependencies": {
     "react": ">=18"
   },
@@ -41,5 +44,5 @@
     "clean-package": "2.1.1",
     "react": "^18.0.0"
   },
-  "clean-package": "../../../clean-package.config.json"
+  "clean-package": "./../clean-package.config.json"
 }
