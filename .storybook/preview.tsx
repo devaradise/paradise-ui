@@ -6,6 +6,25 @@ const preview: Preview = {
   parameters: {
     layout: 'padded',
     actions: {},
+    options: {
+      storySort: {
+        order: [
+          'Component',
+            [
+              'Form',
+              'Panel',
+              'Data',
+              'Overlay', 
+              'Feedback',
+                ['Alert', 'Toast'],
+              'Menu',
+              'Media',
+              'Misc'
+            ], 
+          'Provider'
+        ]
+      }
+    },
     controls: {
       expanded: true,
       matchers: {

@@ -1,6 +1,6 @@
 {
   "name": "@paradise-ui/alert",
-  "version": "0.0.0",
+  "version": "1.0.0-aplha.1",
   "description": "A component to display contextual messages such as information, success, warning and error messages",
   "keywords": [
     "Feedback",

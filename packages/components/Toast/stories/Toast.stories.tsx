@@ -1,12 +1,13 @@
 import type { Args, Meta, StoryObj } from '@storybook/react';
 import { Toast, ToastProvider, useToast } from '../src';
 import { Button } from '../../Button/src/Button';
+import { Alert } from '../../Alert/src';
 
 const meta = {
 	title: 'Component/Feedback/Toast',
 	component: Toast,
 	parameters: {
-		layout: 'centered'
+		layout: 'padded'
 	},
 	tags: [],
 	argTypes: {}
@@ -33,6 +34,6 @@ export const Usage: Story = {
 };
 
 export const ToastComponent: Story = (args: Args) => {
-	return <Toast {...args}>This is only for style demo</Toast>;
+	return <Alert {...args}>This is only for style demo</Alert>;
 };
 ToastComponent.args = {};

@@ -4,7 +4,7 @@ import { AlertVariant, SemanticColorType } from '../../../common/src';
 export interface AlertProps {
 	variant?: AlertVariant;
 	type?: SemanticColorType;
-	customIcon?: ReactNode;
+	icon?: ReactNode | 'none';
 	closeable?: boolean;
 	onClose?: () => void;
 	className?: string;

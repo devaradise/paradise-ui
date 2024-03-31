@@ -7,7 +7,7 @@ export const defaultColors: Colors = {
 	info: '#0d70ff',
 	warning: '#fccb00',
 	error: '#ff2b2b',
-	text: '#27272c',
+	text: '#31333e',
 	textInDark: '#e7e7e9',
 	textSecondary: '#63636e',
 	textSecondaryInDark: '#a4a4ad',
