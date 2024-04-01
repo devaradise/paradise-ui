@@ -13,23 +13,26 @@ Use checkboxes to select one or more options from a list of choices.
 
 <Canvas of={ToastStories.Usage} sourceState="none"/>
 
-<Source code={`
+```tsx
 import { ToastProvider, useToast } from '../src';
 
-const ComponentWhereToastIsTriggered = () => {
+const ComponentWhereToastIsTriggered = (toastProps: ToastProps) => {
   const toast = useToast();
-  return (
-    <>
-      <Button label='Trigger a toast' onClick={() => toast.add({})} />
-    </>
-  );
+  return <Button label='Trigger a toast' onClick={() => toast.add({ ...toastProps })} />
 };
 
-const Usage: Story = {
-  render: () => (
+export const Usage: Story = {
+  args: {
+    position: 'topCenter',
+    variant: 'subtle',
+    type: 'info',
+    autoDismiss: 3000,
+    description: 'This is an example toast'
+  },
+  render: (args: Args) => (
     <ToastProvider>
-      <ComponentWhereToastIsTriggered />
+      <ComponentWhereToastIsTriggered {...args} />
     </ToastProvider>
   )
 };
-`} />
+```

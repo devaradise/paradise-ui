@@ -7,8 +7,14 @@ export const useToast = () => {
 
 	const add = (props: ToastProps) => {
 		const toastId = `pui-${Math.random().toString(36).substring(3)}`;
-		console.log([...toasts, { id: toastId, ...props }]);
-		setToasts([...toasts, { id: toastId, ...props }]);
+		const defaultNewToast: ToastProps = {
+			id: toastId,
+			position: 'topCenter',
+			variant: 'subtle',
+			type: 'info',
+			autoDismiss: 3000
+		};
+		setToasts([...toasts, { ...defaultNewToast, ...props }]);
 	};
 
 	const remove = (toastId: string) => {

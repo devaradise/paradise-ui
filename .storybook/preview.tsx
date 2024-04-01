@@ -59,14 +59,15 @@ const preview: Preview = {
       }, [args.themeMode])
 
       document.documentElement.setAttribute('style', `color-scheme:${globals?.backgrounds?.value === '#101317' ? 'dark' : 'light'}`)
+      document.body.classList.remove(globals?.backgrounds?.value === '#101317' ? 'pui-light-mode' : 'pui-dark-mode')
+      document.body.classList.add(globals?.backgrounds?.value === '#101317' ? 'pui-dark-mode' : 'pui-light-mode')
 
-     return (
-      <div
-        className={globals?.backgrounds?.value === '#101317' ? 'pui-dark-mode' : 'pui-light-mode'}
-        style={{ width: '100%', maxWidth: '500px', margin: '50px auto' }}>
-          {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
-          <Story />
-      </div>
+      return (
+        <div
+          style={{ width: '100%', maxWidth: '500px', margin: '50px auto' }}>
+            {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
+            <Story />
+        </div>
     )},
   ]
 };

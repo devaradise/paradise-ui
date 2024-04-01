@@ -1,8 +1,6 @@
 import { ToastProps } from './type';
 import { Alert } from '@paradise-ui/alert';
 import '@paradise-ui/alert/dist/style.css';
-import './style.scss';
-import { ReactNode, useEffect, useState } from 'react';
 
 export const Toast = (props: ToastProps) => {
 	const {
@@ -13,14 +11,20 @@ export const Toast = (props: ToastProps) => {
 		icon,
 		title,
 		description,
-		autoDismiss = 0,
+		autoDismiss = 3000,
 		customComponent,
 		onClose
 	} = props;
 
 	if (autoDismiss) {
 		setTimeout(() => {
-			onClose && onClose();
+			document
+				.getElementById(id || '')
+				?.getElementsByClassName('pui-alert')[0]
+				?.classList.add('pui-alert-fade-out');
+			setTimeout(() => {
+				onClose && onClose();
+			}, 300);
 		}, autoDismiss);
 	}
 	return (

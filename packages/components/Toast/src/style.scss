@@ -1,3 +1,38 @@
+.pui-toast-container {
+  position:fixed;
+  z-index: 999;
+  max-width: 360px;
+  &.pui-top-left-toast-container {
+    top: 12px;
+    left:12px;
+  }
+  &.pui-top-center-toast-container {
+    top: 12px;
+    left:50%;
+    transform: translateX(-50%);
+  }
+  &.pui-top-right-toast-container {
+    top: 12px;
+    right:12px;
+  }
+  &.pui-bottom-left-toast-container {
+    bottom: 12px;
+    left:12px;
+  }
+  &.pui-bottom-center-toast-container {
+    bottom: 12px;
+    left:50%;
+    transform: translateX(-50%);
+  }
+  &.pui-bottom-right-toast-container {
+    bottom: 12px;
+    right:12px;
+  }
+}
 .pui-toast {
   // component css here
+  width: fit-content;
+  min-width: 200px;
+  max-width: 400px;
+  margin-bottom: 12px;
 }

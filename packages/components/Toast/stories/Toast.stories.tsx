@@ -1,39 +1,36 @@
 import type { Args, Meta, StoryObj } from '@storybook/react';
-import { Toast, ToastProvider, useToast } from '../src';
+import { Toast, ToastProps, ToastProvider, useToast } from '../src';
 import { Button } from '../../Button/src/Button';
-import { Alert } from '../../Alert/src';
 
 const meta = {
 	title: 'Component/Feedback/Toast',
 	component: Toast,
 	parameters: {
-		layout: 'padded'
+		layout: 'centered'
 	},
-	tags: [],
+	tags: ['autodocs'],
 	argTypes: {}
 } satisfies Meta<typeof Toast>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const ComponentWhereToastIsTriggered = () => {
+const ComponentWhereToastIsTriggered = (toastProps: ToastProps) => {
 	const toast = useToast();
-	return (
-		<>
-			<Button label='Trigger a toast' onClick={() => toast.add({})} />
-		</>
-	);
+	return <Button label='Trigger a toast' onClick={() => toast.add({ ...toastProps })} />;
 };
 
 export const Usage: Story = {
-	render: () => (
+	args: {
+		position: 'topCenter',
+		variant: 'subtle',
+		type: 'info',
+		autoDismiss: 3000,
+		description: 'This is an example toast'
+	},
+	render: (args: Args) => (
 		<ToastProvider>
-			<ComponentWhereToastIsTriggered />
+			<ComponentWhereToastIsTriggered {...args} />
 		</ToastProvider>
 	)
 };
-
-export const ToastComponent: Story = (args: Args) => {
-	return <Alert {...args}>This is only for style demo</Alert>;
-};
-ToastComponent.args = {};

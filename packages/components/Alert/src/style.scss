@@ -1,4 +1,7 @@
-
+@keyframes fadingIn {
+  from { opacity: 0; max-height: 0; padding-bottom: 0; padding-top: 0; }
+  to { opacity: 1; max-height: 100%; padding: .875em }
+}
 .pui-alert {
   width:100%;
   color: var(--pui-text, #31333e);
@@ -11,6 +14,7 @@
   overflow: hidden;
   max-height: 100%;
   transition: all .3s ease-out;
+  animation: fadingIn .3s;
   .pui-alert-icon {
     flex-shrink: 0;
     height:1.5em;
