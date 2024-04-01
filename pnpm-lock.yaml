@@ -188,6 +188,9 @@ importers:
 
   packages/components/Toast:
     dependencies:
+      '@paradise-ui/alert':
+        specifier: workspace:*
+        version: link:../Alert
       '@paradise-ui/common':
         specifier: workspace:*
         version: link:../../common

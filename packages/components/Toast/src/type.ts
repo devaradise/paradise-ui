@@ -6,14 +6,14 @@ export interface ToastProps {
 	id?: string;
 	className?: string;
 	position?: ToastPosition;
-	duration?: number;
 	variant?: AlertVariant;
 	type?: SemanticColorType;
-	customIcon?: ReactNode;
+	icon?: ReactNode;
 	title?: string;
 	description?: string;
-	autoDismiss?: boolean;
+	autoDismiss?: number;
 	customComponent?: ReactNode;
+	onClose?: () => void;
 }
 
 export interface ToastContextProps {

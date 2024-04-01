@@ -6,7 +6,9 @@ export const useToast = () => {
 	const { toasts, setToasts } = useContext(ToastContext);
 
 	const add = (props: ToastProps) => {
-		setToasts([...toasts, props]);
+		const toastId = `pui-${Math.random().toString(36).substring(3)}`;
+		console.log([...toasts, { id: toastId, ...props }]);
+		setToasts([...toasts, { id: toastId, ...props }]);
 	};
 
 	const remove = (toastId: string) => {
