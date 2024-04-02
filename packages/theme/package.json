@@ -33,7 +33,7 @@
     "build:fast": "tsup src",
     "prepack": "clean-package",
     "postpack": "clean-package restore",
-    "release": "pnpm publish && pnpm postpack"
+    "release": "pnpm build && pnpm publish && pnpm postpack"
   },
   "dependencies": {
     "@paradise-ui/common": "workspace:*"
