@@ -1,4 +1,4 @@
-import type { Args, Meta, StoryObj } from '@storybook/react';
+import type { Args, Meta, StoryFn, StoryObj } from '@storybook/react';
 import { Toast, ToastProps, ToastProvider, useToast } from '../src';
 import { Button } from '../../Button/src/Button';
 
@@ -6,10 +6,38 @@ const meta = {
 	title: 'Component/Feedback/Toast',
 	component: Toast,
 	parameters: {
-		layout: 'centered'
+		layout: 'centered',
+		controls: {
+			disable: true
+		}
 	},
 	tags: ['autodocs'],
-	argTypes: {}
+	argTypes: {
+		position: {
+			options: ['topLeft', 'topCenter', 'topRight', 'bottomLeft', 'bottomCenter', 'bottomRight'],
+			control: { type: 'select' },
+			table: {
+				type: { summary: 'topLeft | topCenter | topRight | bottomLeft | bottomCenter | bottomRight' },
+				defaultValue: { summary: 'topCenter' }
+			}
+		},
+		variant: {
+			options: ['subtle', 'solid', 'outlined', 'left-bordered'],
+			control: { type: 'inline-radio' },
+			table: {
+				type: { summary: 'subtle | solid | outlined | left-bordered' },
+				defaultValue: { summary: 'subtle' }
+			}
+		},
+		type: {
+			options: ['info', 'success', 'warning', 'error'],
+			control: { type: 'inline-radio' },
+			table: {
+				type: { summary: 'info | success | warning | error' },
+				defaultValue: { summary: 'info' }
+			}
+		}
+	}
 } satisfies Meta<typeof Toast>;
 
 export default meta;
@@ -21,6 +49,32 @@ const ComponentWhereToastIsTriggered = (toastProps: ToastProps) => {
 };
 
 export const Usage: Story = {
+	parameters: {
+		docs: {
+			format: true,
+			source: {
+				code: `
+import { ToastProvider, useToast } from '../src';
+
+const ComponentWhereToastIsTriggered = (toastProps: ToastProps) => {
+  const toast = useToast();
+  return <Button label='Trigger a toast' onClick={() => toast.add({ ...toastProps })} />;
+};
+
+const Usage: Story = {
+  render: (args) => (
+    <ToastProvider>
+      <ComponentWhereToastIsTriggered {...args}/>
+    </ToastProvider>
+  )
+};
+        `
+			}
+		},
+		controls: {
+			disable: false
+		}
+	},
 	args: {
 		position: 'topCenter',
 		variant: 'subtle',
@@ -33,4 +87,22 @@ export const Usage: Story = {
 			<ComponentWhereToastIsTriggered {...args} />
 		</ToastProvider>
 	)
+};
+
+export const Examples: StoryFn = () => {
+	const ChildComponent = () => {
+		const toast = useToast();
+		return (
+			<div style={{ display: 'flex', gap: '8px' }}>
+				<Button label='Info (Top left)' onClick={() => toast.add({ position: 'topLeft' })} />
+				<Button label='Success (Top center)' onClick={() => toast.add({ position: 'topCenter', type: 'success' })} />
+				<Button label='Warning (Top right)' onClick={() => toast.add({ position: 'topRight', type: 'warning' })} />
+			</div>
+		);
+	};
+	return (
+		<ToastProvider>
+			<ChildComponent />
+		</ToastProvider>
+	);
 };

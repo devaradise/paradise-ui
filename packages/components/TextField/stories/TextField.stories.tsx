@@ -19,7 +19,7 @@ const meta = {
 			options: ['box', 'line', 'filled'],
 			control: { type: 'select' },
 			table: {
-				type: { summary: 'select' },
+				type: { summary: 'box | line | filled' },
 				defaultValue: { summary: 'box' }
 			}
 		},
@@ -30,7 +30,7 @@ const meta = {
 			options: ['sm', 'md', 'lg'],
 			control: { type: 'select' },
 			table: {
-				type: { summary: 'select' },
+				type: { summary: 'sm | md | lg' },
 				defaultValue: { summary: 'md' }
 			}
 		},

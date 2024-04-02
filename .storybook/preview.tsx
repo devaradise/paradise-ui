@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import type { Preview } from "@storybook/react";
 import { useGlobals } from '@storybook/preview-api';
+import { Title, Subtitle, Description, Primary, Controls, Stories } from '@storybook/blocks';
 
 const preview: Preview = {
   parameters: {
@@ -16,7 +17,6 @@ const preview: Preview = {
               'Data',
               'Overlay', 
               'Feedback',
-                ['Alert', 'Toast'],
               'Menu',
               'Media',
               'Misc'
@@ -44,7 +44,18 @@ const preview: Preview = {
           value: '#101317',
         },
       ]
-    }
+    },
+    docs: {
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Primary />
+          <Controls />
+        </>
+      ),
+    },
   },
   decorators: [
     (Story, { args, viewMode }) =>  {

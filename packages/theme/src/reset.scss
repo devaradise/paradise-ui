@@ -66,7 +66,7 @@ textarea, select {
 
 /* Make sure textareas without a rows attribute are not tiny */
 textarea:not([rows]) {
-  min-height: 10em;
+  min-height: 2em;
 }
 
 /* Anything that has been anchored to should have extra scroll margin */

@@ -165,6 +165,10 @@ importers:
         version: 18.2.0
 
   packages/components/Button:
+    dependencies:
+      '@paradise-ui/common':
+        specifier: workspace:*
+        version: link:../../common
     devDependencies:
       clean-package:
         specifier: 2.1.1
