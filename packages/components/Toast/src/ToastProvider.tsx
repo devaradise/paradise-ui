@@ -1,8 +1,8 @@
-import * as ReactDom from 'react-dom';
 import { PropsWithChildren, createContext, useState } from 'react';
 import { ToastContextProps, ToastProps } from './type';
 import { Toast } from '.';
 import './style.scss';
+import { createPortal } from 'react-dom';
 
 export const ToastContext = createContext({} as ToastContextProps);
 
@@ -85,7 +85,7 @@ export const ToastProvider = (props: PropsWithChildren<object>) => {
 
 	return (
 		<ToastContext.Provider value={{ toasts, setToasts }}>
-			{ReactDom.createPortal(toastContainers, document.body)}
+			{createPortal(toastContainers, document.body)}
 			{props.children}
 		</ToastContext.Provider>
 	);

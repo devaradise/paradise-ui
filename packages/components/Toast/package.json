@@ -1,6 +1,6 @@
 {
   "name": "@paradise-ui/toast",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.3",
   "description": "A component to show message / notification after users took an action",
   "keywords": [
     "Feedback",
@@ -39,7 +39,8 @@
   },
   "dependencies": {
     "@paradise-ui/common": "workspace:*",
-    "@paradise-ui/alert": "workspace:*"
+    "@paradise-ui/alert": "workspace:*",
+    "react-dom": "^18.2.0"
   },
   "peerDependencies": {
     "react": ">=18"
