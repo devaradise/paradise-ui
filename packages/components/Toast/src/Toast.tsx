@@ -1,6 +1,6 @@
 import { ToastProps } from './type';
 import { Alert } from '@paradise-ui/alert';
-import '@paradise-ui/alert/dist/style.css';
+import '@paradise-ui/alert/style';
 
 export const Toast = (props: ToastProps) => {
 	const {

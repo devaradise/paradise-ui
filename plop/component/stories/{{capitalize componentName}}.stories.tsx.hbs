@@ -5,16 +5,23 @@ const meta = {
   title: 'Component/{{category}}/{{componentName}}',
   component: {{componentName}},
   parameters: {
-    layout: 'centered',
+    layout: 'padded',
+    controls: {
+      disable: true
+    }
   },
   tags: ['autodocs'],
-  argTypes: {
-  },
+  argTypes: {},
 } satisfies Meta<typeof {{componentName}}>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Usage: Story = {
+  parameters: {
+    controls: {
+      disable: false
+    }
+  },
   args: {}
 };
