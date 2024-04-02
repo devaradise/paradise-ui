@@ -1,22 +1,31 @@
-export interface ButtonProps {
-	/**
-	 * Is this the principal call to action on the page?
-	 */
-	primary?: boolean;
-	/**
-	 * What background color to use
-	 */
-	backgroundColor?: string;
-	/**
-	 * How large should the button be?
-	 */
-	size?: 'small' | 'medium' | 'large';
-	/**
-	 * Button contents
-	 */
-	label: string;
-	/**
-	 * Optional click handler
-	 */
+import { ComponentSize, SemanticColorType } from '@paradise-ui/common';
+import { ComponentProps, ReactNode } from 'react';
+
+export type ButtonColor = 'primary' | 'secondary' | SemanticColorType;
+export type ButtonVariant = 'solid' | 'outlined' | 'text';
+export interface ButtonProps
+	extends Pick<ComponentProps<'button'>, 'type' | 'children'>,
+		Pick<ComponentProps<'a'>, 'href' | 'target' | 'children'> {
+	/** Custom class name that wraps whole component */
+	className?: string;
+	/** The HTML element in which the button is rendered  */
+	as?: 'button' | 'link';
+	/** The button color */
+	color?: ButtonColor;
+	/** The button style variant */
+	variant?: ButtonVariant;
+	/** The button size */
+	size?: ComponentSize;
+	/** Does the button has rounded edges? */
+	rounded?: boolean;
+	/** Indicate if button is in disabled state */
+	disabled?: boolean;
+	/** Indicate if button is in loading state */
+	loading?: boolean;
+	/** HTML element or React component for loader */
+	loader?: ReactNode;
+	/** Function to invoke when button clicked */
 	onClick?: () => void;
+	/** Function to invoke when button is focused */
+	onFocus?: () => void;
 }

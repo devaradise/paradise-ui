@@ -1,28 +1,53 @@
-/**
- * 📝 Notes for Contributors:
- *
- * - When creating an interactive component, we recommend consuming the
- * component hook created.
- *
- * For example, if you wanted to build an accordion component,
- * you'll first create a `useAccordion` hook and then create an `Accordion` component
- *
- */
 import { ButtonProps } from './type';
 import './style.scss';
+import { PropsWithChildren, forwardRef } from 'react';
+import { Spinner } from './Spinner';
 
-/**
- * Primary UI component for user interaction
- */
-export const Button = ({ primary = false, size = 'medium', backgroundColor, label, ...props }: ButtonProps) => {
-	const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+export const Button = forwardRef<HTMLButtonElement & HTMLAnchorElement, PropsWithChildren<ButtonProps>>((props, ref) => {
+	const {
+		color = 'primary',
+		variant = 'solid',
+		disabled = false,
+		loading = false,
+		rounded = false,
+		loader = (
+			<div className='pui-button-default-loader'>
+				<Spinner />
+			</div>
+		),
+		as = 'button',
+		type = 'button',
+		href = 'javascript:void(0)',
+		target,
+		className,
+		children
+	} = props;
+
+	const classNames = [
+		'pui-button',
+		`pui-button-${color}`,
+		`pui-button-${variant}`,
+		disabled ? `pui-button-disabled` : '',
+		loading ? `pui-button-loading` : '',
+		rounded ? `pui-button-rounded` : '',
+		className
+	]
+		.filter((cn) => !!cn)
+		.join(' ');
+
+	const renderedChildren = loading ? loader : children;
+
 	return (
-		<button
-			type='button'
-			className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-			style={{ backgroundColor }}
-			{...props}>
-			{label}
-		</button>
+		<>
+			{as === 'link' ? (
+				<a ref={ref} href={href} target={target} className={classNames}>
+					{renderedChildren}
+				</a>
+			) : (
+				<button ref={ref} type={type} className={classNames} disabled={disabled}>
+					{renderedChildren}
+				</button>
+			)}
+		</>
 	);
-};
+});
