@@ -93,11 +93,38 @@ export const Examples: StoryFn = () => {
 	const ChildComponent = () => {
 		const toast = useToast();
 		return (
-			<div style={{ display: 'flex', gap: '8px' }}>
-				<Button onClick={() => toast.add({ position: 'topLeft' })}>Info (Top left)</Button>
-				<Button onClick={() => toast.add({ position: 'topCenter', type: 'success' })}>Success (Top center)</Button>
-				<Button onClick={() => toast.add({ position: 'topRight', type: 'warning' })}>Warning (Top right)</Button>
-			</div>
+			<>
+				<div style={{ display: 'flex', gap: '10px', paddingBottom: '20px', justifyContent: 'center' }}>
+					<Button size='sm' onClick={() => toast.add({ position: 'topLeft', description: 'This is toast example in top left' })}>
+						Info (Top left)
+					</Button>
+					<Button
+						size='sm'
+						onClick={() => toast.add({ position: 'topCenter', description: 'This is toast example in top center', type: 'success' })}>
+						Success (Top center)
+					</Button>
+					<Button
+						size='sm'
+						onClick={() => toast.add({ position: 'topRight', description: 'This is toast example in top right', type: 'warning' })}>
+						Warning (Top right)
+					</Button>
+				</div>
+				<div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
+					<Button size='sm' onClick={() => toast.add({ position: 'bottomLeft', description: 'This is toast example in bottom left' })}>
+						Info (Bottom left)
+					</Button>
+					<Button
+						size='sm'
+						onClick={() => toast.add({ position: 'bottomCenter', description: 'This is toast example in bottom center', type: 'success' })}>
+						Success (Bottom center)
+					</Button>
+					<Button
+						size='sm'
+						onClick={() => toast.add({ position: 'bottomRight', description: 'This is toast example in bottom right', type: 'warning' })}>
+						Warning (Bottom right)
+					</Button>
+				</div>
+			</>
 		);
 	};
 	return (

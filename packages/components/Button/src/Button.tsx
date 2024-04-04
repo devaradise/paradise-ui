@@ -39,17 +39,10 @@ export const Button = forwardRef<HTMLButtonElement & HTMLAnchorElement, PropsWit
 
 	const renderedChildren = (
 		<>
-			{loading && (loaderPosition === 'overlay' || loaderPosition === 'left') ? (
-				<div className={`pui-button-loader pui-button-loader-${loaderPosition}`}>{loader}</div>
-			) : (
-				leftIcon
-			)}
+			{loading && loaderPosition === 'overlay' ? <div className={`pui-button-loader pui-button-loader-overlay`}>{loader}</div> : ''}
+			{loading && loaderPosition === 'left' ? <div className={`pui-button-loader pui-button-loader-left`}>{loader}</div> : leftIcon}
 			<span className='pui-button-label'>{children}</span>
-			{loading && loaderPosition === 'right' ? (
-				<div className={`pui-button-loader pui-button-loader-${loaderPosition}`}>{loader}</div>
-			) : (
-				rightIcon
-			)}
+			{loading && loaderPosition === 'right' ? <div className={`pui-button-loader pui-button-loader-right`}>{loader}</div> : rightIcon}
 		</>
 	);
 

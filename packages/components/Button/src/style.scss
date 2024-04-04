@@ -1,20 +1,20 @@
 $colors: (
   'primary': #1BA7F1,
   'secondary': #4a667b,
-  'info': #0d70ff,
+  'info': #008DDA,
   'success': #40b64f,
-  'warning': #fccb00,
-  'error': #ff2b2b
+  'warning': #FBA834,
+  'error': #FB6D48
 );
 $sizes: 
-  'sm' 2rem .8125rem .375rem .825rem,
-  'md' 2.5rem .9375rem .375rem 1rem,
-  'lg' 3rem 1.0625rem .375rem 1.125rem;
+  'sm' 2rem .75rem .375rem .825rem,
+  'md' 2.5rem .875rem .375rem 1rem,
+  'lg' 3rem 1rem .375rem 1.125rem;
 $disabledColor: #979797;
-
 
 .pui-button {
   font-family: inherit;
+  font-weight: 600;
   box-sizing: border-box;
   outline: none;
   box-shadow: none;
@@ -27,6 +27,7 @@ $disabledColor: #979797;
   align-items: center;
   background-color: transparent;
   color: inherit;
+  justify-content: center;
   text-decoration: none;
   overflow: hidden;
   line-height: 1;
@@ -47,7 +48,8 @@ $disabledColor: #979797;
   }
   svg {
     flex-shrink: 0;
-    font-size: 1.125em;
+    width: 1.37em;
+    height: 1.37em;
   }
   &:not(.pui-button-disabled, .pui-button-loading):hover::before {
     background-color: rgba(200,200,200, .1);
@@ -63,10 +65,6 @@ $disabledColor: #979797;
       display: flex;
       justify-content: center;
       align-items: center;
-      svg {
-        width: 20px;
-        height: 20px;
-      }
       &.pui-button-loader-overlay {
         position: absolute;
         left: 0;
