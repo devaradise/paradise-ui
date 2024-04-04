@@ -81,7 +81,17 @@ const meta = {
 		controls: {
 			disable: true
 		}
-	}
+	},
+	decorators: [
+		(Story: any) => {
+			return (
+				<div style={{ width: '100%', maxWidth: '500px', margin: '50px auto' }}>
+					{/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
+					<Story />
+				</div>
+			);
+		}
+	]
 } satisfies Meta<typeof TextField>;
 
 export default meta;

@@ -2,7 +2,7 @@ import { Colors } from './type';
 
 export const defaultColors: Colors = {
 	primary: '#1BA7F1',
-	secondary: '#FC8833',
+	secondary: '#4a667b',
 	success: '#40b64f',
 	info: '#0d70ff',
 	warning: '#fccb00',

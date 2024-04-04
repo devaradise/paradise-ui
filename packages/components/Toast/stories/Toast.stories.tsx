@@ -45,7 +45,7 @@ type Story = StoryObj<typeof meta>;
 
 const ComponentWhereToastIsTriggered = (toastProps: ToastProps) => {
 	const toast = useToast();
-	return <Button label='Trigger a toast' onClick={() => toast.add({ ...toastProps })} />;
+	return <Button onClick={() => toast.add({ ...toastProps })}>Trigger a toast</Button>;
 };
 
 export const Usage: Story = {
@@ -58,7 +58,7 @@ import { ToastProvider, useToast } from '../src';
 
 const ComponentWhereToastIsTriggered = (toastProps: ToastProps) => {
   const toast = useToast();
-  return <Button label='Trigger a toast' onClick={() => toast.add({ ...toastProps })} />;
+  return <Button onClick={() => toast.add({ ...toastProps })}>Trigger a toast</Button>;
 };
 
 const Usage: Story = {
@@ -94,9 +94,9 @@ export const Examples: StoryFn = () => {
 		const toast = useToast();
 		return (
 			<div style={{ display: 'flex', gap: '8px' }}>
-				<Button label='Info (Top left)' onClick={() => toast.add({ position: 'topLeft' })} />
-				<Button label='Success (Top center)' onClick={() => toast.add({ position: 'topCenter', type: 'success' })} />
-				<Button label='Warning (Top right)' onClick={() => toast.add({ position: 'topRight', type: 'warning' })} />
+				<Button onClick={() => toast.add({ position: 'topLeft' })}>Info (Top left)</Button>
+				<Button onClick={() => toast.add({ position: 'topCenter', type: 'success' })}>Success (Top center)</Button>
+				<Button onClick={() => toast.add({ position: 'topRight', type: 'warning' })}>Warning (Top right)</Button>
 			</div>
 		);
 	};

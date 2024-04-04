@@ -1,6 +1,18 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { Button } from '../src';
-import { PaperPlaneTilt } from '@phosphor-icons/react';
+import {
+	Bookmark,
+	Check,
+	Envelope,
+	EnvelopeSimple,
+	FacebookLogo,
+	Gear,
+	Info,
+	Lightbulb,
+	PaperPlaneTilt,
+	Warning,
+	X
+} from '@phosphor-icons/react';
 
 const meta = {
 	title: 'Component/Form/Button',
@@ -60,6 +72,16 @@ const meta = {
 				defaultValue: { summary: 'md' }
 			}
 		},
+		leftIcon: {
+			table: {
+				type: { summary: 'ReactNode' }
+			}
+		},
+		rightIcon: {
+			table: {
+				type: { summary: 'ReactNode' }
+			}
+		},
 		rounded: {
 			type: 'boolean',
 			table: {
@@ -80,11 +102,9 @@ const meta = {
 		},
 		loader: {
 			table: {
+				type: { summary: 'ReactNode' },
 				defaultValue: {
-					summary: `
-						<div className='pui-button-default-loader'>
-							<Spinner />
-						</div>`
+					summary: `<Spinner />`
 				}
 			}
 		},
@@ -117,7 +137,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const Usage: Story = {
 	parameters: {
 		controls: {
 			disable: false
@@ -132,6 +152,7 @@ export const Primary: Story = {
 		variant: 'solid',
 		size: 'md',
 		leftIcon: <PaperPlaneTilt />,
+		rightIcon: '',
 		rounded: false,
 		disabled: false,
 		loading: false,
@@ -140,31 +161,150 @@ export const Primary: Story = {
 	}
 };
 
-export const Secondary: Story = {
-	args: {
-		color: 'secondary',
-		children: 'Button'
-	}
+export const Basic: StoryFn = () => {
+	return (
+		<>
+			<div style={{ display: 'flex', gap: '10px', padding: '10px 0' }}>
+				<Button color='primary'>Primary</Button>
+				<Button color='secondary'>Secondary</Button>
+				<Button color='info'>Info</Button>
+				<Button color='success'>Success</Button>
+				<Button color='warning'>Warning</Button>
+				<Button color='error'>Error</Button>
+			</div>
+		</>
+	);
 };
 
-export const Large: Story = {
-	args: {
-		loading: true,
-		size: 'lg',
-		children: 'Button'
-	}
+export const Rounded: StoryFn = () => (
+	<div style={{ display: 'flex', gap: '10px', padding: '10px 0' }}>
+		<Button rounded color='primary'>
+			Primary
+		</Button>
+		<Button rounded color='secondary'>
+			Secondary
+		</Button>
+		<Button rounded color='info'>
+			Info
+		</Button>
+		<Button rounded color='success'>
+			Success
+		</Button>
+		<Button rounded color='warning'>
+			Warning
+		</Button>
+		<Button rounded color='error'>
+			Error
+		</Button>
+	</div>
+);
+
+export const Variants: StoryFn = () => {
+	return (
+		<>
+			<div style={{ display: 'flex', gap: '10px', padding: '10px 0', alignItems: 'center' }}>
+				<h3 style={{ width: '130px' }}>Solid</h3>
+				<Button color='primary'>Primary</Button>
+				<Button color='secondary'>Secondary</Button>
+				<Button color='info'>Info</Button>
+				<Button color='success'>Success</Button>
+				<Button color='warning'>Warning</Button>
+				<Button color='error'>Error</Button>
+			</div>
+			<div style={{ display: 'flex', gap: '10px', padding: '10px 0', alignItems: 'center' }}>
+				<h3 style={{ width: '130px' }}>Outlined</h3>
+				<Button color='primary' variant='outlined'>
+					Primary
+				</Button>
+				<Button color='secondary' variant='outlined'>
+					Secondary
+				</Button>
+				<Button color='info' variant='outlined'>
+					Info
+				</Button>
+				<Button color='success' variant='outlined'>
+					Success
+				</Button>
+				<Button color='warning' variant='outlined'>
+					Warning
+				</Button>
+				<Button color='error' variant='outlined'>
+					Error
+				</Button>
+			</div>
+			<div style={{ display: 'flex', gap: '10px', padding: '10px 0', alignItems: 'center' }}>
+				<h3 style={{ width: '130px' }}>Text</h3>
+				<Button color='primary' variant='text'>
+					Primary
+				</Button>
+				<Button color='secondary' variant='text'>
+					Secondary
+				</Button>
+				<Button color='info' variant='text'>
+					Info
+				</Button>
+				<Button color='success' variant='text'>
+					Success
+				</Button>
+				<Button color='warning' variant='text'>
+					Warning
+				</Button>
+				<Button color='error' variant='text'>
+					Error
+				</Button>
+			</div>
+		</>
+	);
 };
 
-export const Small: Story = {
-	args: {
-		size: 'sm',
-		children: 'Button'
-	}
-};
+export const ButtonWithIcons: StoryFn = () => (
+	<div style={{ display: 'flex', gap: '10px', padding: '10px 0' }}>
+		<Button leftIcon={<PaperPlaneTilt />} color='primary'>
+			Left icon
+		</Button>
+		<Button rightIcon={<PaperPlaneTilt />} color='primary'>
+			Right icon
+		</Button>
+		<Button variant='outlined' leftIcon={<EnvelopeSimple />} rightIcon={<PaperPlaneTilt />} color='primary'>
+			Left & Right icon
+		</Button>
+		<Button variant='outlined' rounded leftIcon={<PaperPlaneTilt />} color='primary'>
+			Left icon
+		</Button>
+		<Button rounded variant='text' rightIcon={<PaperPlaneTilt />} color='primary'>
+			Right icon
+		</Button>
+	</div>
+);
 
-export const Warning: Story = {
-	args: {
-		children: 'Delete now',
-		color: 'warning'
-	}
-};
+export const ButtonStates: StoryFn = () => (
+	<>
+		<div style={{ display: 'flex', gap: '10px', padding: '10px 0', alignItems: 'center' }}>
+			<h3 style={{ width: '130px' }}>Loading</h3>
+			<Button loading color='primary'>
+				Overlay
+			</Button>
+			<Button loading loaderPosition='left' color='primary'>
+				Left loader
+			</Button>
+			<Button variant='outlined' loading loaderPosition='right' color='primary'>
+				Right loader
+			</Button>
+			<Button variant='text' loading loaderPosition='right' leftIcon={<PaperPlaneTilt />} color='primary'>
+				Right loader
+			</Button>
+		</div>
+		<div style={{ display: 'flex', gap: '10px', padding: '10px 0', alignItems: 'center' }}>
+			<h3 style={{ width: '130px' }}>Disabled</h3>
+			<Button disabled color='primary'>
+				Disabled
+			</Button>
+			<Button disabled variant='outlined' color='primary'>
+				Disabled
+			</Button>
+			<Button disabled variant='text' color='primary'>
+				Disabled
+			</Button>
+		</div>
+	</>
+);

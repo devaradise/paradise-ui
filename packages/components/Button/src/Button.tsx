@@ -7,6 +7,7 @@ export const Button = forwardRef<HTMLButtonElement & HTMLAnchorElement, PropsWit
 	const {
 		color = 'primary',
 		variant = 'solid',
+		size = 'md',
 		leftIcon,
 		rightIcon,
 		disabled = false,
@@ -19,13 +20,15 @@ export const Button = forwardRef<HTMLButtonElement & HTMLAnchorElement, PropsWit
 		href,
 		target,
 		className,
-		children
+		children,
+		...rest
 	} = props;
 
 	const classNames = [
 		'pui-button',
 		`pui-button-${color}`,
 		`pui-button-${variant}`,
+		`pui-button-${size}`,
 		disabled ? `pui-button-disabled` : '',
 		loading ? `pui-button-loading` : '',
 		rounded ? `pui-button-rounded` : '',
@@ -53,11 +56,11 @@ export const Button = forwardRef<HTMLButtonElement & HTMLAnchorElement, PropsWit
 	return (
 		<>
 			{as === 'link' ? (
-				<a ref={ref} href={href} target={target} className={classNames}>
+				<a ref={ref} href={href} target={target} className={classNames} {...rest}>
 					{renderedChildren}
 				</a>
 			) : (
-				<button ref={ref} type={type} className={classNames} disabled={disabled}>
+				<button ref={ref} type={type} className={classNames} disabled={disabled} {...rest}>
 					{renderedChildren}
 				</button>
 			)}
