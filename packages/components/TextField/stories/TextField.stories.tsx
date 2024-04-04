@@ -17,7 +17,7 @@ const meta = {
 		},
 		variant: {
 			options: ['box', 'line', 'filled'],
-			control: { type: 'select' },
+			control: { type: 'inline-radio' },
 			table: {
 				type: { summary: 'box | line | filled' },
 				defaultValue: { summary: 'box' }
@@ -28,7 +28,7 @@ const meta = {
 		},
 		size: {
 			options: ['sm', 'md', 'lg'],
-			control: { type: 'select' },
+			control: { type: 'inline-radio' },
 			table: {
 				type: { summary: 'sm | md | lg' },
 				defaultValue: { summary: 'md' }
@@ -72,6 +72,9 @@ const meta = {
 		},
 		onChange: {
 			type: 'function'
+		},
+		className: {
+			type: 'string'
 		}
 	},
 	parameters: {

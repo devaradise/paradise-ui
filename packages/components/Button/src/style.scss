@@ -1,34 +1,143 @@
 .pui-button {
-  // component css here
-}
-
-.storybook-button {
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 700;
-  border: 0;
-  border-radius: 3em;
+  font-size: 1rem;
+  font-family: inherit;
+  box-sizing: border-box;
+  outline: none;
+  box-shadow: none;
+  border:0;
+  height: 2.5rem;
+  border-radius: .375rem;
+  padding:.375rem 1rem;
   cursor: pointer;
-  display: inline-block;
-  line-height: 1;
-}
-.storybook-button--primary {
-  color: white;
-  background-color: #1ea7fd;
-}
-.storybook-button--secondary {
-  color: #333;
+  position: relative;
+  display: flex;
+  gap:.5rem;
+  align-items: center;
   background-color: transparent;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
-}
-.storybook-button--small {
-  font-size: 12px;
-  padding: 10px 16px;
-}
-.storybook-button--medium {
-  font-size: 14px;
-  padding: 11px 20px;
-}
-.storybook-button--large {
-  font-size: 16px;
-  padding: 12px 24px;
+  color: inherit;
+  text-decoration: none;
+  overflow: hidden;
+  z-index: 1;
+  transition: all .3s;
+  &::before {
+    content: '';
+    transition: all .3s;
+    position: absolute;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    z-index:-1;
+  }
+  &:not(.pui-button-disabled, .pui-button-loading):hover::before {
+    background-color: rgba(200,200,200, .1);
+  }
+  &.pui-button-rounded {
+    border-radius: 100px;
+  }
+  &.pui-button-loading {
+    cursor: default;
+    opacity: 0.75;
+    .pui-button-loader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+      &.pui-button-loader-overlay {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+      }
+      &.pui-button-loader-overlay ~ * {
+        color: transparent;
+      }
+
+    }
+  }
+  &.pui-button-disabled {
+    cursor: not-allowed;
+  }
+
+  $colors: (
+    'primary': #1BA7F1,
+    'secondary': #FC8833,
+    'info': #0d70ff,
+    'success': #40b64f,
+    'warning': #fccb00,
+    'error': #ff2b2b
+  );
+  $disabledColor: #979797;
+
+  &.pui-button-solid {
+    @each $colorName, $colorHex in $colors {
+      &.pui-button-#{$colorName} {
+        border: 1px solid var(--pui-#{$colorName}, $colorHex);
+        background-color: var(--pui-#{$colorName}, $colorHex);
+        color: #fafafa;
+        &:hover {
+          color: #fff;
+        }
+        &.pui-button-disabled {
+          color: $disabledColor;
+          border-color: transparent;
+          background-color: rgba($disabledColor, .3);
+        }
+        &:not(.pui-button-disabled):hover::before {
+          background-color: rgba(100,100,100, .1);
+        }
+        &.pui-button-loading {
+          .pui-button-loader {
+            color:#fff;
+            svg {
+              stroke: #fff;
+            }
+          }
+        } 
+      }
+    }
+  }
+
+  &.pui-button-outlined {
+    @each $colorName, $colorHex in $colors {
+      &.pui-button-#{$colorName} {
+        border: 1px solid var(--pui-#{$colorName}, $colorHex);
+        color: var(--pui-#{$colorName}, $colorHex);
+        &.pui-button-disabled {
+          border-color: $disabledColor;
+          color: $disabledColor;
+        }
+        &.pui-button-loading {
+          .pui-button-loader {
+            color:var(--pui-#{$colorName}, $colorHex);;
+            svg {
+              stroke: var(--pui-#{$colorName}, $colorHex);;
+            }
+          }
+        } 
+      }
+    }
+  }
+
+  &.pui-button-text {
+    @each $colorName, $colorHex in $colors {
+      &.pui-button-#{$colorName} {
+        color: var(--pui-#{$colorName}, $colorHex);
+        &.pui-button-disabled {
+          color: $disabledColor;
+        }
+        .pui-button-loader {
+          color:var(--pui-#{$colorName}, $colorHex);;
+          svg {
+            stroke: var(--pui-#{$colorName}, $colorHex);;
+          }
+        }
+      }
+    }
+  }
+  
 }

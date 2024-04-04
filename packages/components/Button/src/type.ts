@@ -16,6 +16,9 @@ export interface ButtonProps
 	variant?: ButtonVariant;
 	/** The button size */
 	size?: ComponentSize;
+	/** The button icons */
+	leftIcon?: ReactNode;
+	rightIcon?: ReactNode;
 	/** Does the button has rounded edges? */
 	rounded?: boolean;
 	/** Indicate if button is in disabled state */
@@ -24,6 +27,8 @@ export interface ButtonProps
 	loading?: boolean;
 	/** HTML element or React component for loader */
 	loader?: ReactNode;
+	/** The loader position inside the button */
+	loaderPosition?: 'overlay' | 'left' | 'right';
 	/** Function to invoke when button clicked */
 	onClick?: () => void;
 	/** Function to invoke when button is focused */

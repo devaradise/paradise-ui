@@ -7,17 +7,16 @@ export const Button = forwardRef<HTMLButtonElement & HTMLAnchorElement, PropsWit
 	const {
 		color = 'primary',
 		variant = 'solid',
+		leftIcon,
+		rightIcon,
 		disabled = false,
 		loading = false,
 		rounded = false,
-		loader = (
-			<div className='pui-button-default-loader'>
-				<Spinner />
-			</div>
-		),
+		loader = <Spinner />,
+		loaderPosition = 'overlay',
 		as = 'button',
 		type = 'button',
-		href = 'javascript:void(0)',
+		href,
 		target,
 		className,
 		children
@@ -35,7 +34,21 @@ export const Button = forwardRef<HTMLButtonElement & HTMLAnchorElement, PropsWit
 		.filter((cn) => !!cn)
 		.join(' ');
 
-	const renderedChildren = loading ? loader : children;
+	const renderedChildren = (
+		<>
+			{loading && (loaderPosition === 'overlay' || loaderPosition === 'left') ? (
+				<div className={`pui-button-loader pui-button-loader-${loaderPosition}`}>{loader}</div>
+			) : (
+				leftIcon
+			)}
+			<span className='pui-button-label'>{children}</span>
+			{loading && loaderPosition === 'right' ? (
+				<div className={`pui-button-loader pui-button-loader-${loaderPosition}`}>{loader}</div>
+			) : (
+				rightIcon
+			)}
+		</>
+	);
 
 	return (
 		<>
