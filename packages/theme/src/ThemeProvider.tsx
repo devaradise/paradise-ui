@@ -18,6 +18,7 @@ export const ThemeProvider = (props: PropsWithChildren<ThemeProviderProps>) => {
 			document.body.classList.add('pui-light-mode');
 		}
 	}, [themeMode]);
+	console.log({ colors });
 
 	injectCssVariables({ ...defaultColors, ...colors }, 'theme');
 	return <>{children}</>;

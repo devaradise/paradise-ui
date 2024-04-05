@@ -85,10 +85,10 @@ const meta = {
 	decorators: [
 		(Story: any) => {
 			return (
-				<div style={{ width: '100%', maxWidth: '500px', margin: '50px auto' }}>
+				<form style={{ width: '100%', maxWidth: '500px', margin: 'auto' }}>
 					{/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
 					<Story />
-				</div>
+				</form>
 			);
 		}
 	]

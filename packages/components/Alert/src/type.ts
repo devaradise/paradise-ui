@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
-import { AlertVariant, SemanticColorType } from '../../../common/src';
+import { SemanticColorType } from '../../../common/src';
+export type AlertVariant = 'subtle' | 'solid' | 'outlined' | 'left-bordered';
 
 export interface AlertProps {
 	variant?: AlertVariant;

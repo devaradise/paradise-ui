@@ -75,7 +75,7 @@ const preview: Preview = {
 
       return (
         <div
-          style={{ width: '100%', maxWidth: '800px', margin: '50px auto' }}>
+          style={{ width: '100%', maxWidth: '800px', margin: 'auto' }}>
             {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
             <Story />
         </div>

@@ -1,4 +1,5 @@
-import { AlertVariant, SemanticColorType } from '@paradise-ui/common';
+import { SemanticColorType } from '@paradise-ui/common';
+import { AlertVariant } from '@paradise-ui/alert';
 import { Dispatch, ReactNode, SetStateAction } from 'react';
 
 export type ToastPosition = 'topLeft' | 'topCenter' | 'topRight' | 'bottomLeft' | 'bottomCenter' | 'bottomRight';

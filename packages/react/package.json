@@ -1,6 +1,6 @@
 {
   "name": "@paradise-ui/react",
-  "version": "0.0.0",
+  "version": "1.0.0-alpha.1",
   "description": "A Headless, Simple, Modular and Highly customizable React UI components",
   "keywords": [
     "Paradise UI",
@@ -49,8 +49,10 @@
   "dependencies": {
     "@paradise-ui/common": "workspace:*",
     "@paradise-ui/theme": "workspace:*",
+    "@paradise-ui/button": "workspace:*",
     "@paradise-ui/text-field": "workspace:*",
-    "@paradise-ui/button": "workspace:*"
+    "@paradise-ui/alert": "workspace:*",
+    "@paradise-ui/toast": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=18"

@@ -9,10 +9,6 @@ export const ToastContext = createContext({} as ToastContextProps);
 export const ToastProvider = (props: PropsWithChildren<object>) => {
 	const [toasts, setToasts] = useState<ToastProps[]>([]);
 
-	if (toasts === undefined || setToasts === undefined) {
-		throw new Error('useToast must be used within a ToastProvider, did you forget to wrap with ToastProvider?');
-	}
-
 	const removeToast = (id: string) => {
 		setToasts((toasts) => toasts.filter((toast) => toast.id !== id));
 	};

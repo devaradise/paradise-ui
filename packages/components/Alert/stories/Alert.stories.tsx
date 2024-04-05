@@ -11,7 +11,17 @@ const meta = {
 		}
 	},
 	tags: ['autodocs'],
-	argTypes: {}
+	argTypes: {},
+	decorators: [
+		(Story: any) => {
+			return (
+				<form style={{ width: '100%', maxWidth: '500px', margin: 'auto' }}>
+					{/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
+					<Story />
+				</form>
+			);
+		}
+	]
 } satisfies Meta<typeof Alert>;
 
 export default meta;

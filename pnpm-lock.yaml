@@ -211,6 +211,9 @@ importers:
 
   packages/react:
     dependencies:
+      '@paradise-ui/alert':
+        specifier: workspace:*
+        version: link:../components/Alert
       '@paradise-ui/button':
         specifier: workspace:*
         version: link:../components/Button
@@ -223,6 +226,9 @@ importers:
       '@paradise-ui/theme':
         specifier: workspace:*
         version: link:../theme
+      '@paradise-ui/toast':
+        specifier: workspace:*
+        version: link:../components/Toast
     devDependencies:
       clean-package:
         specifier: 2.1.1

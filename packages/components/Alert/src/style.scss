@@ -1,3 +1,9 @@
+$colors: 
+  'info' #008DDA #d9eef9 #001521,
+  'success' #40b64f #e2f4e5 #0a1b0c,
+  'warning' #FBA834 #fef2e1 #261908,
+  'error' #e74747 #fbe3e3 #230b0b
+;
 @keyframes fadingIn {
   from { opacity: 0; max-height: 0; padding-bottom: 0; padding-top: 0; }
   to { opacity: 1; max-height: 100%; padding: .875em }
@@ -5,35 +11,34 @@
 .pui-alert {
   width:100%;
   color: var(--pui-text, #31333e);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 16px;
-  padding: .875em;
+  font-size: 1rem;
+  padding: .875rem;
   border-radius: 5px;
   display: flex;
-  gap:.625em;
+  gap:.625rem;
   overflow: hidden;
   max-height: 100%;
   transition: all .3s ease-out;
   animation: fadingIn .3s;
   .pui-alert-icon {
     flex-shrink: 0;
-    height:1.5em;
-    width: 1.5em;
+    height:1.5rem;
+    width: 1.5rem;
     svg {
       width: 100%;
       height: 100%;
     }
   }
   .pui-alert-content {
-    font-size: .875em;
+    font-size: .875rem;
     line-height: 1.625;
     flex-grow: 1;
   }
   .pui-alert-close-icon {
     flex-shrink: 0;
-    height:1.5em;
-    width: 1.5em;
-    padding: .2em;
+    height:1.5rem;
+    width: 1.5rem;
+    padding: .2rem;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -56,46 +61,18 @@
   }
 
   &.pui-alert-subtle {
-    &.pui-alert-info {
-      background-color: var(--pui-info-lighten, #dbeaff);
-      color: var(--pui-info-darken, #021126);
-      .pui-alert-icon svg {
-        fill: var(--pui-info, #0d70ff);
-      }
-      .pui-alert-close-icon svg{
-        fill:  var(--pui-info-darken, #021126);
-      }
-    }  
-    &.pui-alert-success {
-      background-color: var(--pui-success-lighten, #e2f4e5);
-      color: var(--pui-success-darken, #0a1b0c);
-      .pui-alert-icon svg {
-        fill: var(--pui-success, #40b64f);
-      }
-      .pui-alert-close-icon svg{
-        fill:  var(--pui-success-darken, #0a1b0c);
-      }
-    }  
-    &.pui-alert-warning {
-      background-color:  var(--pui-warning-lighten, #fff7d9);
-      color: var(--pui-warning-darken, #261e00);
-      .pui-alert-icon svg {
-        fill: var(--pui-warning, #FFC700);
-      }
-      .pui-alert-close-icon svg{
-        fill:  var(--pui-warning-darken, #261e00);
-      }
-    }  
-    &.pui-alert-error {
-      background-color:  var(--pui-error-lighten, #ffdfdf);
-      color: var(--pui-error-darken, #260606);
-      .pui-alert-icon svg {
-        fill: var(--pui-error, #ff2b2b);
-      }
-      .pui-alert-close-icon svg{
-        fill:  var(--pui-error-darken, #260606);
-      }
-    }  
+    @each $colorName, $colorHex, $lighten, $darken in $colors {
+      &.pui-alert-#{$colorName} {
+        background-color: var(--pui-#{$colorName}-lighten, $lighten);
+        color: var(--pui-#{$colorName}-darken, $darken);
+        .pui-alert-icon svg {
+          fill: var(--pui-#{$colorName}, $colorHex);
+        }
+        .pui-alert-close-icon svg{
+          fill:  var(--pui-#{$colorName}-darken, $darken);
+        }
+      } 
+    }
   }
 
   &.pui-alert-solid {
@@ -103,108 +80,42 @@
     .pui-alert-icon svg, .pui-alert-close-icon svg {
       fill: #fff;
     }
-    &.pui-alert-info {
-      background-color: var(--pui-info, #0d70ff);
-    }  
-    &.pui-alert-success {
-      background-color: var(--pui-success, #40b64f);
-    }  
-    &.pui-alert-warning {
-      background-color: var(--pui-warning, #fccb00);
-    }  
-    &.pui-alert-error {
-      background-color: var(--pui-error, #ff2b2b);
-    }  
+    @each $colorName, $colorHex, $lighten, $darken in $colors {
+      &.pui-alert-#{$colorName} {
+        background-color: var(--pui-#{$colorName}, $colorHex);
+      } 
+    }
   }
 
   &.pui-alert-outlined {
-    &.pui-alert-info {
-      border:1px solid var(--pui-info, #0d70ff);
-      color: var(--pui-info-darken, #021126);
-      .pui-alert-icon svg {
-        fill: var(--pui-info, #0d70ff);
+    @each $colorName, $colorHex, $lighten, $darken in $colors {
+      &.pui-alert-#{$colorName} {
+        border:1px solid var(--pui-#{$colorName}, $colorHex);
+        color: var(--pui--#{$colorName}-darken, $darken);
+        .pui-alert-icon svg {
+          fill: var(--pui-#{$colorName}, $colorHex);
+        }
+        .pui-alert-close-icon svg {
+          fill: var(--pui-#{$colorName}, $colorHex);
+        }
       }
-      .pui-alert-close-icon svg {
-        fill: var(--pui-info-darken, #021126);
-      }
-    }  
-    &.pui-alert-success {
-      border:1px solid var(--pui-success, #40b64f);
-      color: var(--pui-success-darken, #0a1b0c);
-      .pui-alert-icon svg {
-        fill: var(--pui-success, #40b64f);
-      }
-      .pui-alert-close-icon svg {
-        fill: var(--pui-success-darken, #0a1b0c);
-      }
-    }  
-    &.pui-alert-warning {
-      border:1px solid var(--pui-warning, #fccb00);
-      color: var(--pui-warning-darken, #261e00);
-      .pui-alert-icon svg {
-        fill: var(--pui-warning, #fccb00);
-      }
-      .pui-alert-close-icon svg {
-        fill: var(--pui-warning-darken, #261e00);
-      }
-    }  
-    &.pui-alert-error {
-      border:1px solid var(--pui-error, #ff2b2b);
-      color: var(--pui-error-darken, #260606);
-      .pui-alert-icon svg {
-        fill: var(--pui-error, #ff2b2b);
-      }
-      .pui-alert-close-icon svg {
-        fill: var(--pui-error-darken, #260606);
-      }
-    }  
+    }
   }
 
   &.pui-alert-left-bordered {
-    &.pui-alert-info {
-      border-left: 5px solid var(--pui-info, #0d70ff);
-      background-color: var(--pui-info-lighten, #dbeaff);
-      color: var(--pui-info-darken, #021126);
-      .pui-alert-icon svg {
-        fill: var(--pui-info, #0d70ff);
+    @each $colorName, $colorHex, $lighten, $darken in $colors {
+      &.pui-alert-#{$colorName} {
+        border-left: 5px solid var(--pui-#{$colorName}, $colorHex);
+        background-color: var(--pui-#{$colorName}-lighten, $lighten);
+        color: var(--pui-#{$colorName}-darken, $darken);
+        .pui-alert-icon svg {
+          fill: var(--pui-#{$colorName}, $colorHex);
+        }
+        .pui-alert-close-icon svg{
+          fill:  var(--pui-#{$colorName}-darken, $darken);
+        }
       }
-      .pui-alert-close-icon svg {
-        fill: var(--pui-info-darken, #021126);
-      }
-    }  
-    &.pui-alert-success {
-      border-left: 5px solid var(--pui-success, #40b64f);
-      background-color: var(--pui-success-lighten, #e2f4e5);
-      color: var(--pui-success-darken, #0a1b0c);
-      .pui-alert-icon svg {
-        fill: var(--pui-success, #40b64f);
-      }
-      .pui-alert-close-icon svg {
-        fill: var(--pui-success-darken, #0a1b0c);
-      }
-    }  
-    &.pui-alert-warning {
-      border-left: 5px solid var(--pui-warning, #fccb00);
-      background-color:  var(--pui-warning-lighten, #fff7d9);
-      color: var(--pui-warning-darken, #261e00);
-      .pui-alert-icon svg {
-        fill: var(--pui-warning, #fccb00);
-      }
-      .pui-alert-close-icon svg {
-        fill: var(--pui-warning-darken, #261e00);
-      }
-    }  
-    &.pui-alert-error {
-      border-left: 5px solid var(--pui-error, #ff2b2b);
-      background-color:  var(--pui-error-lighten, #ffdfdf);
-      color: var(--pui-error-darken, #260606);
-      .pui-alert-icon svg {
-        fill: var(--pui-error, #ff2b2b);
-      }
-      .pui-alert-close-icon svg {
-        fill: var(--pui-error-darken, #260606);
-      }
-    }  
+    }
   }
 
 
@@ -215,98 +126,35 @@
       }
     }
     &.pui-alert-subtle, &.pui-alert-left-bordered {
-      &.pui-alert-info {
-        background-color: var(--pui-info-darken, #021126);
-        color:  var(--pui-info-lighten, #dbeaff);
-        .pui-alert-icon svg {
-          fill: var(--pui-info, #0d70ff);
+      @each $colorName, $colorHex, $lighten, $darken in $colors {
+        &.pui-alert-#{$colorName} {
+          background-color: var(--pui-#{$colorName}-darken, $darken);
+          color: var(--pui-#{$colorName}-lighten, $lighten);
+          .pui-alert-close-icon svg{
+            fill:  var(--pui-#{$colorName}-lighten, $lighten);
+          }
         }
-        .pui-alert-close-icon svg {
-          fill: var(--pui-info-lighten, #dbeaff);
-        }
-      }  
-      &.pui-alert-success {
-        background-color: var(--pui-success-darken, #0a1b0c);
-        color:  var(--pui-success-lighten, #e2f4e5);
-        .pui-alert-icon svg {
-          fill: var(--pui-success, #40b64f);
-        }
-        .pui-alert-close-icon svg {
-          fill: var(--pui-success-lighten, #e2f4e5);
-        }
-      }  
-      &.pui-alert-warning {
-        background-color: var(--pui-warning-darken, #261e00);
-        color:  var(--pui-warning-lighten, #fff7d9);
-        .pui-alert-icon svg {
-          fill: var(--pui-warning, #fccb00);
-        }
-        .pui-alert-close-icon svg {
-          fill: var(--pui-warning-lighten, #fff7d9);
-        }
-      }  
-      &.pui-alert-error {
-        background-color: var(--pui-error-darken, #260606);
-        color:  var(--pui-error-lighten, #ffdfdf);
-        .pui-alert-icon svg {
-          fill: var(--pui-error, #ff2b2b);
-        }
-        .pui-alert-close-icon svg {
-          fill: var(--pui-error-lighten, #ffdfdf);
-        }
-      }  
+      } 
     }
     &.pui-alert-solid {
-      &.pui-alert-info {
-        color: var(--pui-info-darken, #021126);
-        .pui-alert-icon svg, .pui-alert-close-icon svg {
-          fill: var(--pui-info-darken, #021126);
-        }
-      }
-      &.pui-alert-success {
-        color: var(--pui-success-darken, #0a1b0c);
-        .pui-alert-icon svg, .pui-alert-close-icon svg {
-          fill: var(--pui-success-darken, #0a1b0c);
-        }
-      }  
-      &.pui-alert-warning {
-        color: var(--pui-warning-darken, #261e00);
-        .pui-alert-icon svg, .pui-alert-close-icon svg {
-          fill: var(--pui-warning-darken, #261e00);
-        }
-      }  
-      &.pui-alert-error {
-        color: var(--pui-error-darken, #260606);
-        .pui-alert-icon svg, .pui-alert-close-icon svg {
-          fill: var(--pui-error-darken, #260606);
+      @each $colorName, $colorHex, $lighten, $darken in $colors {
+        &.pui-alert-#{$colorName} {
+          color: var(--pui-#{$colorName}-darken, $darken);
+          .pui-alert-icon svg, .pui-alert-close-icon svg {
+            fill:  var(--pui-#{$colorName}-darken, $darken);
+          }
         }
       }
     }
     &.pui-alert-outlined {
-      &.pui-alert-info {
-        color: var(--pui-info-lighten, #dbeaff);
-        .pui-alert-close-icon svg {
-          fill: var(--pui-info-lighten, #dbeaff);
+      @each $colorName, $colorHex, $lighten, $darken in $colors {
+        &.pui-alert-#{$colorName} {
+          color: var(--pui-#{$colorName}-lighten, $lighten);
+          .pui-alert-close-icon svg {
+            fill:  var(--pui-#{$colorName}-lighten, $lighten);
+          }
         }
-      }  
-      &.pui-alert-success {
-        color: var(--pui-success-lighten, #e2f4e5);
-        .pui-alert-close-icon svg {
-          fill: var(--pui-success-lighten, #e2f4e5);
-        }
-      }  
-      &.pui-alert-warning {
-        color: var(--pui-warning-lighten, #fff7d9);
-        .pui-alert-close-icon svg {
-          fill: var(--pui-warning-lighten, #fff7d9);
-        }
-      }  
-      &.pui-alert-error {
-        color: var(--pui-error-lighten, #ffdfdf);
-        .pui-alert-close-icon svg {
-          fill: var(--pui-error-lighten, #ffdfdf);
-        }
-      }  
+      }
     }
   }
 }
