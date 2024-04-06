@@ -1,13 +1,12 @@
 import { forwardRef, useId, useState } from 'react';
 import { TextFieldProps } from './type';
 import './style.scss';
-import { defaultColors, injectCssVariables } from '@paradise-ui/common';
 
 export const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, ref) => {
 	const {
 		label = '',
 		secondaryLabel = '',
-		variant = 'box',
+		variant = 'outlined',
 		size = 'md',
 		name = '',
 		type = 'text',
@@ -29,8 +28,6 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, re
 	const id = useId();
 	const inputId = `${id}-${name}`;
 	const descriptionId = `${id}-description`;
-
-	injectCssVariables(defaultColors, 'component');
 
 	return (
 		<div

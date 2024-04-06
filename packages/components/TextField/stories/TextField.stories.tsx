@@ -16,11 +16,11 @@ const meta = {
 			type: 'string'
 		},
 		variant: {
-			options: ['box', 'line', 'filled'],
+			options: ['outlined', 'line', 'filled'],
 			control: { type: 'inline-radio' },
 			table: {
-				type: { summary: 'box | line | filled' },
-				defaultValue: { summary: 'box' }
+				type: { summary: 'outlined | line | filled' },
+				defaultValue: { summary: 'outlined' }
 			}
 		},
 		value: {
@@ -107,7 +107,7 @@ export const Usage: Story = {
 		label: 'Main label',
 		secondaryLabel: 'Secondary label',
 		placeholder: 'Placeholder',
-		variant: 'box',
+		variant: 'outlined',
 		size: 'md',
 		readOnly: false,
 		invalid: false,
@@ -142,7 +142,7 @@ Controlled.args = {};
 export const Variants: Story = {
 	render: () => (
 		<>
-			<TextField variant='box' placeholder='Placeholder' />
+			<TextField variant='outlined' placeholder='Placeholder' />
 			<br />
 			<TextField variant='line' placeholder='Placeholder' />
 			<br />

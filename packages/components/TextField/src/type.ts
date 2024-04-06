@@ -1,7 +1,7 @@
 import { InputHTMLAttributes, ReactNode } from 'react';
 import { ComponentSize } from '@paradise-ui/common';
 
-export type TextFieldVariant = 'box' | 'line' | 'filled';
+export type TextFieldVariant = 'outlined' | 'line' | 'filled';
 
 export interface TextFieldProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'prefix' | 'size'> {
 	label?: ReactNode;

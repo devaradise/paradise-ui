@@ -33,6 +33,9 @@ $disabledColor: #979797;
   line-height: 1;
   z-index: 1;
   transition: all .3s;
+  * {
+    box-sizing: border-box;
+  }
   &::before {
     content: '';
     transition: all .3s;

@@ -6,7 +6,7 @@ $colors:
 ;
 @keyframes fadingIn {
   from { opacity: 0; max-height: 0; padding-bottom: 0; padding-top: 0; }
-  to { opacity: 1; max-height: 100%; padding: .875em }
+  to { opacity: 1; max-height: 100%; padding: .875rem }
 }
 .pui-alert {
   width:100%;
@@ -14,12 +14,16 @@ $colors:
   font-size: 1rem;
   padding: .875rem;
   border-radius: 5px;
+  box-sizing: border-box;
   display: flex;
   gap:.625rem;
   overflow: hidden;
   max-height: 100%;
   transition: all .3s ease-out;
   animation: fadingIn .3s;
+  * {
+    box-sizing: border-box;
+  }
   .pui-alert-icon {
     flex-shrink: 0;
     height:1.5rem;
