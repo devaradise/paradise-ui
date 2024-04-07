@@ -176,5 +176,5 @@ export const Usage: Story = (args: ParadiseUIProviderProps) => {
 };
 
 Usage.args = {
-	colors: { ...defaultColors, primary: '#ff0000' }
+	colors: defaultColors
 };

@@ -10,18 +10,11 @@ Every Paradise UI component is designed to be able to run as a standalone compon
 yarn add @paradise-ui/alert
 # or
 npm i @paradise-ui/alert
-```
-
-But if you are going to use multiple components from Paradise UI, its recommended to install the whole package.
-
-```sh
-yarn add @paradise-ui/react
 # or
-npm i @paradise-ui/react
+pnpm i @paradise-ui/alert
 ```
 
-## Import
-If you install the component package standalone:
+## Usage
 
 ```tsx
 import { Alert } from '@paradise-ui/alert'
@@ -32,22 +25,12 @@ const ParentComponent = () => {
 }
 ```
 
-If you install the whole paradise UI package, you dont have to import the style, but you have to wrap the component inside \<ParadiseUIProvider>
+If you install the <a href="https://npmjs.com/package/@paradise-ui/react">whole paradise UI package</a>, you dont have to import the style, but you have to wrap the component inside `ParadiseUIProvider`
 
-```tsx
-import { Alert } from '@paradise-ui/react'
+## Demo
 
-const ParentComponent = () => {
-  return <Alert>Lorem ipsum dolor sit amet</Alert>
-}
-```
+Checkout <a href="https://paradise-ui.vercel.app/?path=/docs/component-feedback-alert--docs" target="_blank">our storybook</a> for demo and more use cases.
 
-
-## Contribution
-
-Yes please! See the
-[contributing guidelines](https://github.com/devaradise/paradise-ui/blob/main/CONTRIBUTING.md)
-for details.
 
 ## Licence
 
