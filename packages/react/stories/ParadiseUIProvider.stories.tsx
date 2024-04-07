@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect } from 'react';
+import { ChangeEvent } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Alert, Button, ParadiseUIProvider, TextField, useThemeMode } from '../src';
 import { ThemeModeControl, defaultColors } from '@paradise-ui/common';
