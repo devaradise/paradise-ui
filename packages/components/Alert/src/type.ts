@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { SemanticColorType } from '../../../common/src';
+import { SemanticColorType } from '@paradise-ui/common';
 export type AlertVariant = 'subtle' | 'solid' | 'outlined' | 'left-bordered';
 
 export interface AlertProps {
