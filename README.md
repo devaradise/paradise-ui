@@ -14,7 +14,7 @@ Paradise UI is a collection of React UI components that designed to be:
 
 Paradise UI does not aim to be another React UI library with an opinionated design system. We focus to build components that can be used and match with any design system or to be used as a base to build a design system.
 
-**Checkout <a href="https://paradise-ui.vercell.app" target="_blank">Paradise UI storybook</a> to see the complete list and demo of our components**
+**Checkout <a href="https://paradise-ui.vercel.app" target="_blank">Paradise UI storybook</a> to see the complete list and demo of our components**
 
 # Installation
 
