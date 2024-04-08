@@ -38,7 +38,7 @@
     "url": "https://github.com/devaradise/paradise-ui/issues"
   },
   "scripts": {
-    "build": "rm -rf dist && tsup src && tsup src/*.ts src/*.tsx --dts-only",
+    "build": "rm -rf dist && tsup src/*.ts src/*.tsx --dts-only && tsup src",
     "dev": "pnpm build:fast -- --watch",
     "typecheck": "tsc --noEmit",
     "build:fast": "tsup src",

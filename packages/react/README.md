@@ -1,9 +1,10 @@
-<a href="https://github.com/devaradise/paradise-ui" style="display:flex; align-items:center; justify-content:center; text-decoration:none; gap:20px; color: inherit; font-size:47px; font-weight: bold;">
-  <img src="https://github.com/devaradise/paradise-ui/assets/10844342/bcfe878a-4c5e-4729-aa60-7f20bbdaacd8" alt="Paradise UI" width="70" /> Paradise UI
-</a>
-<br/>
-<h1 align="center">Modular & Highly Customizable React UI Component Library</h1>
-<br />
+<h1 align="center">
+<a id="logo" href="https://github.com/devaradise/paradise-ui">
+  <img src="https://github.com/devaradise/paradise-ui/assets/10844342/bcfe878a-4c5e-4729-aa60-7f20bbdaacd8" alt="Paradise UI" width="100" />
+</a><br/>
+  Paradise UI
+</h1>
+<h3 align="center">Modular & Highly Customizable React UI Component Library</h3>
 
 Paradise UI is a collection of React UI components that designed to be:
 - **Simple & Easy to use**
