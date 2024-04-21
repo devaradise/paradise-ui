@@ -1,6 +1,6 @@
 {
   "name": "@paradise-ui/common",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "description": "Shared types and functions among ParadiseUI components",
   "keywords": [
     "Paradise UI",
@@ -10,7 +10,9 @@
   "author": "Muhammad Syakirurohman <syakirurahman@gmail.com>",
   "homepage": "https://github.com/devaradise/paradise-ui#readme",
   "license": "MIT",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "sideEffects": false,
   "files": [
     "dist"
