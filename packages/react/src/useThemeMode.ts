@@ -1,6 +1,5 @@
-import { useMediaQuery } from '@paradise-ui/common';
+import { ParadiseUIContext, useMediaQuery } from '@paradise-ui/common';
 import { useContext, useEffect } from 'react';
-import { ParadiseUIContext } from '.';
 
 export const useThemeMode = () => {
 	const { setThemeMode, themeModeControl, setThemeModeControl } = useContext(ParadiseUIContext);

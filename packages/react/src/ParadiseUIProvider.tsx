@@ -1,17 +1,16 @@
-import { PropsWithChildren, createContext, useState } from 'react';
-import { ParadiseUIContextProps, ParadiseUIProviderProps } from './type';
-import { ThemeMode, ThemeModeControl, defaultColors } from '@paradise-ui/common';
+import { PropsWithChildren, useState } from 'react';
+import { ParadiseUIProviderProps } from './type';
+import { ParadiseUIContext, ThemeMode, ThemeModeControl, defaultColors } from '@paradise-ui/common';
 import { ThemeProvider } from '@paradise-ui/theme';
 import { ToastProvider } from '@paradise-ui/toast';
-import '@paradise-ui/theme/style';
 
-export const ParadiseUIContext = createContext({} as ParadiseUIContextProps);
+export const ParadiseUIProvider = (props: PropsWithChildren<ParadiseUIProviderProps>) => {
+	const { children, colors, componentElementClasses = {} } = props;
 
-export const ParadiseUIProvider = ({ children, colors }: PropsWithChildren<ParadiseUIProviderProps>) => {
 	const [themeModeControl, setThemeModeControl] = useState<ThemeModeControl>('system');
 	const [themeMode, setThemeMode] = useState<ThemeMode>('light');
 	return (
-		<ParadiseUIContext.Provider value={{ themeModeControl, setThemeModeControl, themeMode, setThemeMode }}>
+		<ParadiseUIContext.Provider value={{ themeModeControl, setThemeModeControl, themeMode, setThemeMode, componentElementClasses }}>
 			<ThemeProvider themeMode={themeMode} colors={{ ...defaultColors, ...colors }}>
 				<ToastProvider>{children}</ToastProvider>
 			</ThemeProvider>

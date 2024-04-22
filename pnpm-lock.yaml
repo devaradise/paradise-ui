@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      clsx:
+        specifier: ^2.0.0
+        version: 2.1.0
       react:
         specifier: ^18.2.0
         version: 18.2.0

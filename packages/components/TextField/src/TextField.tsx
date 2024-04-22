@@ -1,8 +1,14 @@
-import { forwardRef, useId, useState } from 'react';
-import { TextFieldProps } from './type';
+import { forwardRef, useContext, useEffect, useId, useState } from 'react';
+import { TextFieldElementClass, TextFieldProps } from './type';
+import { ElementClassManager, ParadiseUIContext } from '@paradise-ui/common';
+import { defaultTextFieldElementClass } from './elementClass';
+import clsx from 'clsx';
 import './style.scss';
 
-export const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, ref) => {
+export const TextField = forwardRef<
+	HTMLInputElement,
+	TextFieldProps & ElementClassManager<TextFieldProps & { focus: boolean }, TextFieldElementClass>
+>((props, ref) => {
 	const {
 		label = '',
 		secondaryLabel = '',
@@ -20,39 +26,46 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, re
 		errorMessage = '',
 		helperText = '',
 		onChange,
+		elementClass,
+		additionalElementClass,
 		...rest
 	} = props;
 
-	const [focus, setFocus] = useState<boolean>();
+	const puiContext = useContext(ParadiseUIContext);
+	const [focus, setFocus] = useState<boolean>(false);
+	const [textFieldElementClass, setTextFieldElementClass] = useState<TextFieldElementClass>(
+		defaultTextFieldElementClass({ variant, size, invalid, disabled, ...props, focus })
+	);
+
+	useEffect(() => {
+		let newElementClass = defaultTextFieldElementClass({ variant, size, invalid, disabled, ...props, focus });
+		if (puiContext) {
+			newElementClass = { ...newElementClass, ...(puiContext.componentElementClasses?.textField || {}) };
+		}
+		if (elementClass) {
+			newElementClass = { ...newElementClass, ...elementClass({ variant, size, invalid, disabled, ...props, focus }) };
+		}
+		setTextFieldElementClass(newElementClass);
+	}, [elementClass, focus]);
 
 	const id = useId();
 	const inputId = `${id}-${name}`;
 	const descriptionId = `${id}-description`;
 
 	return (
-		<div
-			className={[
-				'pui-text-field',
-				`pui-text-field-${variant}`,
-				`pui-text-field-${size}`,
-				!!errorMessage || invalid ? `pui-text-field-error` : '',
-				focus ? 'pui-text-field-focus' : '',
-				disabled ? `pui-text-field-disabled` : '',
-				className
-			]
-				.filter((className) => !!className)
-				.join(' ')}
-			aria-disabled={disabled}>
-			<div className='pui-text-field-label-block'>
-				<label className='pui-text-field-label'>{label}</label>
-				{!!secondaryLabel && <label className='pui-text-field-label-secondary'>{secondaryLabel}</label>}
+		<div className={clsx(textFieldElementClass.root, additionalElementClass?.root)} aria-disabled={disabled}>
+			<div className={clsx(textFieldElementClass.labelBlock, additionalElementClass?.labelBlock)}>
+				<label className={clsx(textFieldElementClass.label, additionalElementClass?.label)}>{label}</label>
+				{!!secondaryLabel && (
+					<label className={clsx(textFieldElementClass.secondaryLabel, additionalElementClass?.secondaryLabel)}>{secondaryLabel}</label>
+				)}
 			</div>
-			<div className='pui-text-field-input-block'>
-				{prefix && <div className='pui-text-field-input-prefix'>{prefix}</div>}
+			<div className={clsx(textFieldElementClass.inputBlock, additionalElementClass?.inputBlock)}>
+				{prefix && <div className={clsx(textFieldElementClass.inputPrefix, additionalElementClass?.inputPrefix)}>{prefix}</div>}
 				<input
 					ref={ref}
 					name={name}
-					className='pui-text-field-input'
+					className={clsx(textFieldElementClass.input, additionalElementClass?.input)}
 					type={type}
 					disabled={disabled}
 					aria-disabled={disabled}
@@ -69,13 +82,13 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, re
 					aria-describedby={descriptionId}
 					{...rest}
 				/>
-				{suffix && <div className='pui-text-field-input-suffix'>{suffix}</div>}
+				{suffix && <div className={clsx(textFieldElementClass.inputSuffix, additionalElementClass?.inputSuffix)}>{suffix}</div>}
 			</div>
-			<div className='pui-text-field-message-block'>
+			<div className={clsx(textFieldElementClass.messageBlock, additionalElementClass?.messageBlock)}>
 				{!errorMessage ? (
-					<div className='pui-text-field-helper-text'>{helperText}</div>
+					<div className={clsx(textFieldElementClass.helperText, additionalElementClass?.helperText)}>{helperText}</div>
 				) : (
-					<div className='pui-text-field-error-message'>{errorMessage}</div>
+					<div className={clsx(textFieldElementClass.errorMessage, additionalElementClass?.errorMessage)}>{errorMessage}</div>
 				)}
 			</div>
 		</div>
