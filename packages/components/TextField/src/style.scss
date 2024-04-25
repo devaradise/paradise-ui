@@ -88,10 +88,10 @@
       border-radius: 5px;
       overflow: hidden;
       .pui-text-field-input-prefix {
-        padding-left: .75em;
+        padding-left: .75rem;
       }
       .pui-text-field-input-suffix {
-        padding-right: .75em;
+        padding-right: .75rem;
       }
     }
   }
@@ -144,15 +144,9 @@
         border-color: var(--pui-input-filler-dark, #313437);
         background-color: var(--pui-input-filler-dark, #313437);
       }
-      &.pui-text-field-focus {
-        .pui-text-field-input-block {
-          border-color: var(--pui-info, #008DDA);
-        }
-      }
       &.pui-text-field-error {
         .pui-text-field-input-block {
           background-color: var(--pui-error-darken, #230b0b);
-          border-color: var(--pui-error, #e74747);
         }
       }
     }
@@ -186,7 +180,7 @@
     &.pui-text-field-line {
       .pui-text-field-input-block {
         box-shadow: none;
-        border-width:1.5px;
+        border-bottom-width:1.5px;
       }
     }
   }
@@ -198,7 +192,7 @@
     &.pui-text-field-line {
       .pui-text-field-input-block {
         box-shadow: none;
-        border-width:1.5px;
+        border-bottom-width:1.5px;
       }
     }
     .pui-text-field-message-block {

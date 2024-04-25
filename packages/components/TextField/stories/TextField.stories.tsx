@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import { TextField } from '../src';
+import { TextField, TextFieldElementClassProps } from '../src';
 import { Eye, EyeSlash, LockKey, User, WarningCircle } from '@phosphor-icons/react';
+import clsx from 'clsx';
+import { tailwindTextFieldElementClass } from '../src/elementClass';
 
 const meta = {
 	title: 'Component/Form/TextField',
@@ -117,6 +119,39 @@ export const Usage: Story = {
 		helperText: 'A note, description or instruction for this text field',
 		errorMessage: '',
 		onChange: fn()
+	},
+	render: (args) => {
+		return (
+			<>
+				<TextField {...args} />
+			</>
+		);
+	}
+};
+
+export const UsageWithTailwindClass: Story = {
+	parameters: {
+		controls: {
+			disable: false
+		}
+	},
+	args: {
+		label: 'Main label',
+		secondaryLabel: 'Secondary label',
+		placeholder: 'Placeholder',
+		variant: 'outlined',
+		size: 'md',
+		readOnly: false,
+		invalid: false,
+		disabled: false,
+		prefix: 'Prefix',
+		suffix: 'Suffix',
+		helperText: 'A note, description or instruction for this text field',
+		errorMessage: '',
+		onChange: fn()
+	},
+	render: (args) => {
+		return <TextField {...args} elementClass={tailwindTextFieldElementClass} />;
 	}
 };
 
@@ -230,3 +265,43 @@ export const PasswordField: Story = () => {
 	);
 };
 PasswordField.args = {};
+
+export const AdvancedCustomisation: Story = () => {
+	const customTextFieldElementClass = (props: TextFieldElementClassProps) => {
+		return {
+			root: clsx([
+				'custom-text-field',
+				`custom-text-field-${props.variant}`,
+				`custom-text-field-${props.size}`,
+				!!props.errorMessage || props.invalid ? `custom-text-field-error` : '',
+				props.focus ? 'custom-text-field-focus' : '',
+				props.disabled ? `custom-text-field-disabled` : '',
+				props.className
+			]),
+			labelBlock: 'custom-text-field-label-block',
+			label: 'custom-text-field-label',
+			secondaryLabel: 'custom-text-field-label-secondary',
+			inputBlock: 'custom-text-field-input-block',
+			inputPrefix: 'custom-text-field-input-prefix',
+			input: 'custom-text-field-input',
+			inputSuffix: 'custom-text-field-input-suffix',
+			messageBlock: 'custom-text-field-message-block',
+			helperText: 'custom-text-field-helper-text',
+			errorMessage: 'custom-text-field-error-message'
+		};
+	};
+	return (
+		<>
+			<h3 className='mb-4'>Inspect the component classes to see how the element classes changed.</h3>
+			<TextField
+				label='Label'
+				secondaryLabel='Secondary label'
+				prefix='prefix'
+				suffix='suffix'
+				placeholder='Placeholder'
+				elementClass={customTextFieldElementClass}
+			/>
+		</>
+	);
+};
+AdvancedCustomisation.args = {};

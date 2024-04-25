@@ -1,5 +1,5 @@
 import { forwardRef, useContext, useEffect, useId, useState } from 'react';
-import { TextFieldElementClass, TextFieldProps } from './type';
+import { TextFieldElementClass, TextFieldElementClassProps, TextFieldProps } from './type';
 import { ElementClassManager, ParadiseUIContext } from '@paradise-ui/common';
 import { defaultTextFieldElementClass } from './elementClass';
 import clsx from 'clsx';
@@ -7,7 +7,7 @@ import './style.scss';
 
 export const TextField = forwardRef<
 	HTMLInputElement,
-	TextFieldProps & ElementClassManager<TextFieldProps & { focus: boolean }, TextFieldElementClass>
+	TextFieldProps & ElementClassManager<TextFieldElementClassProps, TextFieldElementClass>
 >((props, ref) => {
 	const {
 		label = '',
@@ -46,7 +46,7 @@ export const TextField = forwardRef<
 			newElementClass = { ...newElementClass, ...elementClass({ variant, size, invalid, disabled, ...props, focus }) };
 		}
 		setTextFieldElementClass(newElementClass);
-	}, [elementClass, focus]);
+	}, [props, focus]);
 
 	const id = useId();
 	const inputId = `${id}-${name}`;

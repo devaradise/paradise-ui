@@ -49,7 +49,8 @@
     "release": "pnpm build && pnpm publish && pnpm postpack"
   },
   "dependencies": {
-    "@paradise-ui/common": "workspace:*"
+    "@paradise-ui/common": "workspace:*",
+    "clsx": "^2.0.0"
   },
   "peerDependencies": {
     "react": ">=18"
