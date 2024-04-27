@@ -32,7 +32,10 @@ export const tailwindTextFieldElementClass: ElementClassGenerator<TextFieldEleme
 	props: TextFieldElementClassProps
 ) => {
 	return {
-		root: clsx(['w-full text-[var(--pui-text,#31333e)] border-box text-[1rem]', props.className]),
+		root: clsx([
+			'w-full text-[var(--pui-text,#31333e)] dark:text-[var(--pui-text-in-dark,#e7e7e9)] border-box text-[1rem]',
+			props.className
+		]),
 		labelBlock: clsx(['text-[0.875rem] flex justify-between mb-[0.25rem]', props.size === 'sm' ? 'text-[0.75rem]' : 'text-[0.875rem]']),
 		label: '',
 		secondaryLabel: '',

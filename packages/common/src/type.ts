@@ -8,7 +8,7 @@ export type ElementClassGenerator<P, R> = (props: P) => R;
 export type ComponentElementClasses = Record<string, ElementClassGenerator<Record<string, string>, Record<string, string>>>;
 export interface ElementClassManager<P, R> {
 	elementClass?: ElementClassGenerator<P, R>;
-	additionalElementClass?: R;
+	extraElementClass?: R;
 }
 export interface Colors {
 	primary?: string;

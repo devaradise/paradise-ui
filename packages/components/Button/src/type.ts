@@ -34,3 +34,10 @@ export interface ButtonProps
 	/** Function to invoke when button is focused */
 	onFocus?: () => void;
 }
+
+export type ButtonElementClassProps = Omit<ButtonProps, 'onClick' | 'onFocus'>;
+export interface ButtonElementClass {
+	root?: string;
+	loader?: string;
+	label?: string;
+}

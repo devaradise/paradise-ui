@@ -23,6 +23,7 @@ $disabledColor: #979797;
   cursor: pointer;
   position: relative;
   display: flex;
+  width: max-content;
   gap:.5rem;
   align-items: center;
   background-color: transparent;
@@ -84,14 +85,6 @@ $disabledColor: #979797;
   &.pui-button-disabled {
     cursor: not-allowed;
     opacity: .75;
-    &.pui-button-loading {
-      .pui-button-loader {
-        color: $disabledColor;
-        svg {
-          stroke: $disabledColor;
-        }
-      }
-    }
   }
 
   @each $btnSize, $btnHeight, $btnFont, $btnPaddingY, $btnPaddingX in $sizes {
@@ -126,7 +119,24 @@ $disabledColor: #979797;
               stroke: #fff;
             }
           }
-        } 
+        }
+        .pui-dark-mode & {
+          color:#060606;
+          &:hover {
+            color: #000
+          }
+          &:not(.pui-button-disabled):hover::before {
+            background-color: rgba(250,250,250, .1);
+          }
+          &.pui-button-loading {
+            .pui-button-loader {
+              color:#000;
+              svg {
+                stroke: #000;
+              }
+            }
+          }
+        }
       }
     }
   }

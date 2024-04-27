@@ -1,18 +1,7 @@
 import type { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { Button } from '../src';
-import {
-	Bookmark,
-	Check,
-	Envelope,
-	EnvelopeSimple,
-	FacebookLogo,
-	Gear,
-	Info,
-	Lightbulb,
-	PaperPlaneTilt,
-	Warning,
-	X
-} from '@phosphor-icons/react';
+import { EnvelopeSimple, PaperPlaneTilt } from '@phosphor-icons/react';
+import { tailwindButtonElementClass } from '../src/elementClass';
 
 const meta = {
 	title: 'Component/Form/Button',
@@ -158,6 +147,17 @@ export const Usage: Story = {
 		loading: false,
 		loaderPosition: 'overlay',
 		children: 'Button'
+	},
+	render: (args) => {
+		return (
+			<>
+				<Button {...args}>Button</Button>
+				<br />
+				<Button {...args} elementClass={tailwindButtonElementClass}>
+					Button
+				</Button>
+			</>
+		);
 	}
 };
 

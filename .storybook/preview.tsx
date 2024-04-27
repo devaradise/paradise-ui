@@ -71,8 +71,8 @@ const preview: Preview = {
       }, [args.themeMode])
 
       document.documentElement.setAttribute('style', `color-scheme:${globals?.backgrounds?.value === '#101317' ? 'dark' : 'light'}`)
-      document.body.classList.remove(globals?.backgrounds?.value === '#101317' ? 'pui-light-mode' : 'pui-dark-mode')
-      document.body.classList.add(globals?.backgrounds?.value === '#101317' ? 'pui-dark-mode' : 'pui-light-mode')
+      document.documentElement.classList.remove(...(globals?.backgrounds?.value === '#101317' ? ['pui-light-mode'] : ['pui-dark-mode', 'dark']))
+      document.documentElement.classList.add(...(globals?.backgrounds?.value === '#101317' ? ['pui-dark-mode', 'dark'] : ['pui-light-mode']))
 
       return (
         <div

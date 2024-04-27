@@ -1,9 +1,15 @@
-import { ButtonProps } from './type';
+import { ButtonElementClass, ButtonElementClassProps, ButtonProps } from './type';
 import './style.scss';
-import { PropsWithChildren, forwardRef } from 'react';
+import { PropsWithChildren, forwardRef, useContext, useEffect, useState } from 'react';
 import { Spinner } from './Spinner';
+import { ElementClassManager, ParadiseUIContext } from '@paradise-ui/common';
+import { defaultButtonElementClass } from './elementClass';
+import { clsx } from 'clsx';
 
-export const Button = forwardRef<HTMLButtonElement & HTMLAnchorElement, PropsWithChildren<ButtonProps>>((props, ref) => {
+export const Button = forwardRef<
+	HTMLButtonElement & HTMLAnchorElement,
+	PropsWithChildren<ButtonProps & ElementClassManager<ButtonElementClassProps, ButtonElementClass>>
+>((props, ref) => {
 	const {
 		color = 'primary',
 		variant = 'solid',
@@ -21,39 +27,55 @@ export const Button = forwardRef<HTMLButtonElement & HTMLAnchorElement, PropsWit
 		target,
 		className,
 		children,
+		elementClass,
+		extraElementClass,
 		...rest
 	} = props;
+	const elementClassProps = { color, variant, size, disabled, loading, rounded, loader, loaderPosition, as, type, ...props };
 
-	const classNames = [
-		'pui-button',
-		`pui-button-${color}`,
-		`pui-button-${variant}`,
-		`pui-button-${size}`,
-		disabled ? `pui-button-disabled` : '',
-		loading ? `pui-button-loading` : '',
-		rounded ? `pui-button-rounded` : '',
-		className
-	]
-		.filter((cn) => !!cn)
-		.join(' ');
+	const puiContext = useContext(ParadiseUIContext);
+	const [buttonElementClass, setButtonElementClass] = useState<ButtonElementClass>(defaultButtonElementClass(elementClassProps));
+
+	useEffect(() => {
+		let newElementClass = defaultButtonElementClass(elementClassProps);
+		if (puiContext) {
+			newElementClass = { ...newElementClass, ...(puiContext.componentElementClasses?.button || {}) };
+		}
+		if (elementClass) {
+			newElementClass = { ...newElementClass, ...elementClass(elementClassProps) };
+		}
+		setButtonElementClass(newElementClass);
+	}, [props, focus]);
 
 	const renderedChildren = (
 		<>
-			{loading && loaderPosition === 'overlay' ? <div className={`pui-button-loader pui-button-loader-overlay`}>{loader}</div> : ''}
-			{loading && loaderPosition === 'left' ? <div className={`pui-button-loader pui-button-loader-left`}>{loader}</div> : leftIcon}
-			<span className='pui-button-label'>{children}</span>
-			{loading && loaderPosition === 'right' ? <div className={`pui-button-loader pui-button-loader-right`}>{loader}</div> : rightIcon}
+			{loading && loaderPosition === 'overlay' ? (
+				<div className={clsx(buttonElementClass.loader, extraElementClass?.loader)}>{loader}</div>
+			) : (
+				''
+			)}
+			{loading && loaderPosition === 'left' ? (
+				<div className={clsx(buttonElementClass.loader, extraElementClass?.loader)}>{loader}</div>
+			) : (
+				<div>{leftIcon}</div>
+			)}
+			<span className={clsx(buttonElementClass.label, extraElementClass?.label)}>{children}</span>
+			{loading && loaderPosition === 'right' ? (
+				<div className={clsx(buttonElementClass.loader, extraElementClass?.loader)}>{loader}</div>
+			) : (
+				<div>{rightIcon}</div>
+			)}
 		</>
 	);
 
 	return (
 		<>
 			{as === 'link' ? (
-				<a ref={ref} href={href} target={target} className={classNames} {...rest}>
+				<a ref={ref} href={href} target={target} className={clsx(buttonElementClass.root, extraElementClass?.root)} {...rest}>
 					{renderedChildren}
 				</a>
 			) : (
-				<button ref={ref} type={type} className={classNames} disabled={disabled} {...rest}>
+				<button ref={ref} type={type} className={clsx(buttonElementClass.root, extraElementClass?.root)} disabled={disabled} {...rest}>
 					{renderedChildren}
 				</button>
 			)}

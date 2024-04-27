@@ -27,7 +27,7 @@ export const TextField = forwardRef<
 		helperText = '',
 		onChange,
 		elementClass,
-		additionalElementClass,
+		extraElementClass,
 		...rest
 	} = props;
 
@@ -53,19 +53,19 @@ export const TextField = forwardRef<
 	const descriptionId = `${id}-description`;
 
 	return (
-		<div className={clsx(textFieldElementClass.root, additionalElementClass?.root)} aria-disabled={disabled}>
-			<div className={clsx(textFieldElementClass.labelBlock, additionalElementClass?.labelBlock)}>
-				<label className={clsx(textFieldElementClass.label, additionalElementClass?.label)}>{label}</label>
+		<div className={clsx(textFieldElementClass.root, extraElementClass?.root)} aria-disabled={disabled}>
+			<div className={clsx(textFieldElementClass.labelBlock, extraElementClass?.labelBlock)}>
+				<label className={clsx(textFieldElementClass.label, extraElementClass?.label)}>{label}</label>
 				{!!secondaryLabel && (
-					<label className={clsx(textFieldElementClass.secondaryLabel, additionalElementClass?.secondaryLabel)}>{secondaryLabel}</label>
+					<label className={clsx(textFieldElementClass.secondaryLabel, extraElementClass?.secondaryLabel)}>{secondaryLabel}</label>
 				)}
 			</div>
-			<div className={clsx(textFieldElementClass.inputBlock, additionalElementClass?.inputBlock)}>
-				{prefix && <div className={clsx(textFieldElementClass.inputPrefix, additionalElementClass?.inputPrefix)}>{prefix}</div>}
+			<div className={clsx(textFieldElementClass.inputBlock, extraElementClass?.inputBlock)}>
+				{prefix && <div className={clsx(textFieldElementClass.inputPrefix, extraElementClass?.inputPrefix)}>{prefix}</div>}
 				<input
 					ref={ref}
 					name={name}
-					className={clsx(textFieldElementClass.input, additionalElementClass?.input)}
+					className={clsx(textFieldElementClass.input, extraElementClass?.input)}
 					type={type}
 					disabled={disabled}
 					aria-disabled={disabled}
@@ -82,13 +82,13 @@ export const TextField = forwardRef<
 					aria-describedby={descriptionId}
 					{...rest}
 				/>
-				{suffix && <div className={clsx(textFieldElementClass.inputSuffix, additionalElementClass?.inputSuffix)}>{suffix}</div>}
+				{suffix && <div className={clsx(textFieldElementClass.inputSuffix, extraElementClass?.inputSuffix)}>{suffix}</div>}
 			</div>
-			<div className={clsx(textFieldElementClass.messageBlock, additionalElementClass?.messageBlock)}>
+			<div className={clsx(textFieldElementClass.messageBlock, extraElementClass?.messageBlock)}>
 				{!errorMessage ? (
-					<div className={clsx(textFieldElementClass.helperText, additionalElementClass?.helperText)}>{helperText}</div>
+					<div className={clsx(textFieldElementClass.helperText, extraElementClass?.helperText)}>{helperText}</div>
 				) : (
-					<div className={clsx(textFieldElementClass.errorMessage, additionalElementClass?.errorMessage)}>{errorMessage}</div>
+					<div className={clsx(textFieldElementClass.errorMessage, extraElementClass?.errorMessage)}>{errorMessage}</div>
 				)}
 			</div>
 		</div>
