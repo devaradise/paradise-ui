@@ -33,27 +33,28 @@ export const TextField = forwardRef<
 
 	const puiContext = useContext(ParadiseUIContext);
 	const [focus, setFocus] = useState<boolean>(false);
+	const elementClassProps = { variant, size, invalid, disabled, ...props, focus };
 	const [textFieldElementClass, setTextFieldElementClass] = useState<TextFieldElementClass>(
-		defaultTextFieldElementClass({ variant, size, invalid, disabled, ...props, focus })
+		defaultTextFieldElementClass(elementClassProps)
 	);
 
 	useEffect(() => {
-		let newElementClass = defaultTextFieldElementClass({ variant, size, invalid, disabled, ...props, focus });
+		let newElementClass = defaultTextFieldElementClass(elementClassProps);
 		if (puiContext) {
 			newElementClass = { ...newElementClass, ...(puiContext.componentElementClasses?.textField || {}) };
 		}
 		if (elementClass) {
-			newElementClass = { ...newElementClass, ...elementClass({ variant, size, invalid, disabled, ...props, focus }) };
+			newElementClass = { ...newElementClass, ...elementClass(elementClassProps) };
 		}
 		setTextFieldElementClass(newElementClass);
-	}, [props, focus]);
+	}, [elementClassProps]);
 
 	const id = useId();
 	const inputId = `${id}-${name}`;
 	const descriptionId = `${id}-description`;
 
 	return (
-		<div className={clsx(textFieldElementClass.root, extraElementClass?.root)} aria-disabled={disabled}>
+		<div className={clsx(textFieldElementClass.root, className, extraElementClass?.root)} aria-disabled={disabled}>
 			<div className={clsx(textFieldElementClass.labelBlock, extraElementClass?.labelBlock)}>
 				<label className={clsx(textFieldElementClass.label, extraElementClass?.label)}>{label}</label>
 				{!!secondaryLabel && (

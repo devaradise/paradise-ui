@@ -1,6 +1,7 @@
 import type { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { Alert } from '../src';
 import { PaperPlaneTilt } from '@phosphor-icons/react';
+import { tailwindAlertElementClass } from '../src/elementClass';
 
 const meta = {
 	title: 'Component/Feedback/Alert',
@@ -11,7 +12,24 @@ const meta = {
 		}
 	},
 	tags: ['autodocs'],
-	argTypes: {},
+	argTypes: {
+		variant: {
+			options: ['subtle', 'solid', 'outlined', 'left-bordered'],
+			control: { type: 'inline-radio' },
+			table: {
+				type: { summary: 'subtle | solid | outlined | left-bordered' },
+				defaultValue: { summary: 'subtle' }
+			}
+		},
+		type: {
+			options: ['info', 'success', 'warning', 'error'],
+			control: { type: 'inline-radio' },
+			table: {
+				type: { summary: 'info | success | warning | error' },
+				defaultValue: { summary: 'info' }
+			}
+		}
+	},
 	decorators: [
 		(Story: any) => {
 			return (
@@ -34,12 +52,29 @@ export const Usage: Story = {
 		}
 	},
 	args: {
-		children: 'Lorem ipsum dolor sit amet',
 		type: 'info',
 		variant: 'subtle',
 		closeable: true,
-		icon: '',
+		children: 'Lorem ipsum dolor sit amet',
 		onClose: () => {}
+	}
+};
+
+export const UsageWithTailwindClass: Story = {
+	parameters: {
+		controls: {
+			disable: false
+		}
+	},
+	args: {
+		type: 'info',
+		variant: 'subtle',
+		closeable: true,
+		children: 'Lorem ipsum dolor sit amet',
+		onClose: () => {}
+	},
+	render: (args) => {
+		return <Alert {...args} elementClass={tailwindAlertElementClass}></Alert>;
 	}
 };
 export const AlertTypesAndVariant: StoryFn = () => (

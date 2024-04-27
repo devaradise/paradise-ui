@@ -45,7 +45,7 @@ export const Button = forwardRef<
 			newElementClass = { ...newElementClass, ...elementClass(elementClassProps) };
 		}
 		setButtonElementClass(newElementClass);
-	}, [props, focus]);
+	}, [elementClassProps]);
 
 	const renderedChildren = (
 		<>
@@ -71,11 +71,16 @@ export const Button = forwardRef<
 	return (
 		<>
 			{as === 'link' ? (
-				<a ref={ref} href={href} target={target} className={clsx(buttonElementClass.root, extraElementClass?.root)} {...rest}>
+				<a ref={ref} href={href} target={target} className={clsx(buttonElementClass.root, className, extraElementClass?.root)} {...rest}>
 					{renderedChildren}
 				</a>
 			) : (
-				<button ref={ref} type={type} className={clsx(buttonElementClass.root, extraElementClass?.root)} disabled={disabled} {...rest}>
+				<button
+					ref={ref}
+					type={type}
+					className={clsx(buttonElementClass.root, className, extraElementClass?.root)}
+					disabled={disabled}
+					{...rest}>
 					{renderedChildren}
 				</button>
 			)}

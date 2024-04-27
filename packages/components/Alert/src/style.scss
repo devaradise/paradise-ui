@@ -4,10 +4,7 @@ $colors:
   'warning' #FBA834 #fef2e1 #261908,
   'error' #e74747 #fbe3e3 #230b0b
 ;
-@keyframes fadingIn {
-  from { opacity: 0; max-height: 0; padding-bottom: 0; padding-top: 0; }
-  to { opacity: 1; max-height: 100%; padding: .875rem }
-}
+
 .pui-alert {
   width:100%;
   color: var(--pui-text, #31333e);
@@ -20,7 +17,6 @@ $colors:
   overflow: hidden;
   max-height: 100%;
   transition: all .3s ease-out;
-  animation: fadingIn .3s;
   * {
     box-sizing: border-box;
   }
@@ -57,7 +53,7 @@ $colors:
     }
   }
 
-  &.pui-alert-fade-out {
+  &.pui-alert-hidden {
     opacity: 0;
     padding-top: 0;
     padding-bottom: 0;
@@ -96,10 +92,7 @@ $colors:
       &.pui-alert-#{$colorName} {
         border:1px solid var(--pui-#{$colorName}, $colorHex);
         color: var(--pui--#{$colorName}-darken, $darken);
-        .pui-alert-icon svg {
-          fill: var(--pui-#{$colorName}, $colorHex);
-        }
-        .pui-alert-close-icon svg {
+        svg {
           fill: var(--pui-#{$colorName}, $colorHex);
         }
       }

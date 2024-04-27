@@ -147,17 +147,33 @@ export const Usage: Story = {
 		loading: false,
 		loaderPosition: 'overlay',
 		children: 'Button'
+	}
+};
+
+export const UsageWithTailwindClass: Story = {
+	parameters: {
+		controls: {
+			disable: false
+		}
+	},
+	args: {
+		as: 'button',
+		type: 'button',
+		href: '#',
+		target: '_blank',
+		color: 'primary',
+		variant: 'solid',
+		size: 'md',
+		leftIcon: <PaperPlaneTilt />,
+		rightIcon: '',
+		rounded: false,
+		disabled: false,
+		loading: false,
+		loaderPosition: 'overlay',
+		children: 'Button'
 	},
 	render: (args) => {
-		return (
-			<>
-				<Button {...args}>Button</Button>
-				<br />
-				<Button {...args} elementClass={tailwindButtonElementClass}>
-					Button
-				</Button>
-			</>
-		);
+		return <Button {...args} elementClass={tailwindButtonElementClass} />;
 	}
 };
 

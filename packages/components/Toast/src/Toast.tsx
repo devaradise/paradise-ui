@@ -21,7 +21,7 @@ export const Toast = (props: ToastProps) => {
 			document
 				.getElementById(id || '')
 				?.getElementsByClassName('pui-alert')[0]
-				?.classList.add('pui-alert-fade-out');
+				?.classList.add('pui-alert-hidden');
 			setTimeout(() => {
 				onClose && onClose();
 			}, 300);
