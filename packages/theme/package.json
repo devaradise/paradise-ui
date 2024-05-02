@@ -1,6 +1,6 @@
 {
   "name": "@paradise-ui/theme",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-beta.0",
   "description": "Theme provider for paradise UI components",
   "keywords": [
     "Paradise UI",
@@ -19,7 +19,7 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     },
-    "./style" : "./dist/style.css",
+    "./style": "./dist/style.css",
     "./package.json": "./package.json"
   },
   "sideEffects": false,

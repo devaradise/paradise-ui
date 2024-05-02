@@ -1,6 +1,6 @@
 {
   "name": "@paradise-ui/alert",
-  "version": "1.0.0-aplha.3",
+  "version": "1.0.0-beta.0",
   "description": "A component to display contextual messages such as information, success, warning and error messages",
   "keywords": [
     "Feedback",
@@ -19,7 +19,7 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     },
-    "./style" : "./dist/style.css",
+    "./style": "./dist/style.css",
     "./package.json": "./package.json"
   },
   "sideEffects": false,

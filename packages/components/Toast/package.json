@@ -1,6 +1,6 @@
 {
   "name": "@paradise-ui/toast",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-beta.0",
   "description": "A component to show message / notification after users took an action",
   "keywords": [
     "Feedback",
@@ -21,7 +21,7 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     },
-    "./style" : "./dist/style.css",
+    "./style": "./dist/style.css",
     "./package.json": "./package.json"
   },
   "sideEffects": false,

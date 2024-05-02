@@ -1,0 +1,15 @@
+{
+  "mode": "pre",
+  "tag": "beta",
+  "initialVersions": {
+    "@paradise-ui/common": "1.0.0-alpha.2",
+    "@paradise-ui/alert": "1.0.0-alpha.3",
+    "@paradise-ui/button": "1.0.0-alpha.2",
+    "@paradise-ui/text-field": "1.1.0-alpha.1",
+    "@paradise-ui/toast": "1.0.0-alpha.4",
+    "@paradise-ui/react": "1.0.0-alpha.5",
+    "@paradise-ui/theme": "1.0.0-alpha.2",
+    "website": "0.0.0"
+  },
+  "changesets": []
+}

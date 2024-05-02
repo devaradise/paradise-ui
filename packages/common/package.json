@@ -1,6 +1,6 @@
 {
   "name": "@paradise-ui/common",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-beta.0",
   "description": "Shared types and functions among ParadiseUI components",
   "keywords": [
     "Paradise UI",
