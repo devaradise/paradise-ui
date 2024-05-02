@@ -5,11 +5,13 @@ export type ThemeMode = 'light' | 'dark';
 export type ThemeModeControl = ThemeMode | 'system';
 export type SemanticColorType = 'info' | 'success' | 'warning' | 'error';
 export type ElementClassGenerator<P, R> = (props: P) => R;
+export type ElementClassLibrary = 'pui' | 'tailwind';
 export type ComponentElementClasses = Record<string, ElementClassGenerator<Record<string, string>, Record<string, string>>>;
 export interface ElementClassManager<P, R> {
 	elementClass?: ElementClassGenerator<P, R>;
 	extraElementClass?: R;
 }
+
 export interface Colors {
 	primary?: string;
 	secondary?: string;
@@ -39,5 +41,6 @@ export interface ParadiseUIContextProps {
 	setThemeModeControl: Dispatch<SetStateAction<ThemeModeControl>>;
 	themeMode: ThemeMode;
 	setThemeMode: Dispatch<SetStateAction<ThemeMode>>;
+	elementClassLibrary: ElementClassLibrary;
 	componentElementClasses: ComponentElementClasses;
 }

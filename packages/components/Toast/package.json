@@ -51,7 +51,8 @@
   "dependencies": {
     "@paradise-ui/common": "workspace:*",
     "@paradise-ui/alert": "workspace:*",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "clsx": "^2.0.0"
   },
   "peerDependencies": {
     "react": ">=18"

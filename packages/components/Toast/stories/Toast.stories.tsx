@@ -89,6 +89,47 @@ const Usage: Story = {
 	)
 };
 
+export const UsageWithTailwindClass: Story = {
+	parameters: {
+		docs: {
+			format: true,
+			source: {
+				code: `
+import { ToastProvider, useToast } from '../src';
+
+const ComponentWhereToastIsTriggered = (toastProps: ToastProps) => {
+  const toast = useToast();
+  return <Button onClick={() => toast.add({ ...toastProps })}>Trigger a toast</Button>;
+};
+
+const Usage: Story = {
+  render: (args) => (
+    <ToastProvider elementClassLibrary='tailwind'>
+      <ComponentWhereToastIsTriggered {...args}/>
+    </ToastProvider>
+  )
+};
+        `
+			}
+		},
+		controls: {
+			disable: false
+		}
+	},
+	args: {
+		position: 'topCenter',
+		variant: 'subtle',
+		type: 'info',
+		autoDismiss: 3000,
+		description: 'This is an example toast'
+	},
+	render: (args: Args) => (
+		<ToastProvider elementClassLibrary='tailwind'>
+			<ComponentWhereToastIsTriggered {...args} />
+		</ToastProvider>
+	)
+};
+
 export const Examples: StoryFn = () => {
 	const ChildComponent = () => {
 		const toast = useToast();

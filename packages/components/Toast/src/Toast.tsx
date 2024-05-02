@@ -1,11 +1,12 @@
 import { ToastProps } from './type';
-import { Alert } from '@paradise-ui/alert';
+import { Alert, defaultAlertElementClass, tailwindAlertElementClass } from '@paradise-ui/alert';
 import '@paradise-ui/alert/style';
+import { useContext } from 'react';
+import { ToastContext } from './ToastProvider';
 
 export const Toast = (props: ToastProps) => {
 	const {
 		id,
-		position = 'topCenter',
 		variant = 'subtle',
 		type = 'info',
 		icon,
@@ -13,30 +14,30 @@ export const Toast = (props: ToastProps) => {
 		description,
 		autoDismiss = 3000,
 		customComponent,
-		onClose
+		onClose,
+		className
 	} = props;
+
+	const { elementClassLibrary } = useContext(ToastContext);
 
 	if (autoDismiss) {
 		setTimeout(() => {
-			document
-				.getElementById(id || '')
-				?.getElementsByClassName('pui-alert')[0]
-				?.classList.add('pui-alert-hidden');
-			setTimeout(() => {
-				onClose && onClose();
-			}, 300);
+			// @ts-ignore
+			document.getElementById(id)?.querySelector('button[aria-label="Close"]')?.click();
 		}, autoDismiss);
 	}
 	return (
-		<div className={`pui-toast pui-toast-${position}`} id={id}>
+		<div className={className} id={id}>
 			{customComponent ? (
-				customComponent
+				<div className='pui-toast-component'>{customComponent}</div>
 			) : (
 				<Alert
+					className='pui-toast-component'
 					type={type}
 					variant={variant}
 					icon={icon}
 					closeable={true}
+					elementClass={elementClassLibrary === 'tailwind' ? tailwindAlertElementClass : defaultAlertElementClass}
 					onClose={() => {
 						onClose && onClose();
 					}}>

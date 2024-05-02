@@ -17,12 +17,6 @@ export const defaultAlertElementClass = (props: AlertElementClassProps): AlertEl
 };
 
 export const tailwindAlertElementClass = (props: AlertElementClassProps): AlertElementClass => {
-	// 	$colors:
-	//   'info' #008DDA #d9eef9 #001521,
-	//   'success' #40b64f #e2f4e5 #0a1b0c,
-	//   'warning' #FBA834 #fef2e1 #261908,
-	//   'error' #e74747 #fbe3e3 #230b0b
-	// ;
 	const variants = {
 		subtle: clsx(
 			props.type === 'info' && [

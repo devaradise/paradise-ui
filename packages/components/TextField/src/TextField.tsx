@@ -33,7 +33,7 @@ export const TextField = forwardRef<
 
 	const puiContext = useContext(ParadiseUIContext);
 	const [focus, setFocus] = useState<boolean>(false);
-	const elementClassProps = { variant, size, invalid, disabled, ...props, focus };
+	const elementClassProps = { variant, size, type, invalid, disabled, ...props, focus };
 	const [textFieldElementClass, setTextFieldElementClass] = useState<TextFieldElementClass>(
 		defaultTextFieldElementClass(elementClassProps)
 	);
@@ -47,14 +47,14 @@ export const TextField = forwardRef<
 			newElementClass = { ...newElementClass, ...elementClass(elementClassProps) };
 		}
 		setTextFieldElementClass(newElementClass);
-	}, [elementClassProps]);
+	}, [props, focus]);
 
 	const id = useId();
 	const inputId = `${id}-${name}`;
 	const descriptionId = `${id}-description`;
 
 	return (
-		<div className={clsx(textFieldElementClass.root, className, extraElementClass?.root)} aria-disabled={disabled}>
+		<div className={clsx(textFieldElementClass.root, extraElementClass?.root)} aria-disabled={disabled}>
 			<div className={clsx(textFieldElementClass.labelBlock, extraElementClass?.labelBlock)}>
 				<label className={clsx(textFieldElementClass.label, extraElementClass?.label)}>{label}</label>
 				{!!secondaryLabel && (
