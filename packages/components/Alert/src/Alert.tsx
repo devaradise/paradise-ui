@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { AlertElementClass, AlertElementClassProps, AlertProps } from './type';
 import { CloseIcon, ErrorIcon, InfoIcon, SuccessIcon, WarningIcon } from './Icons';
 import { ElementClassManager, ParadiseUIContext } from '@paradise-ui/common';
-import { defaultAlertElementClass } from './elementClass';
+import { defaultAlertElementClass, tailwindAlertElementClass } from './elementClass';
 import './style.scss';
 
 export const Alert = (props: PropsWithChildren<AlertProps & ElementClassManager<AlertElementClassProps, AlertElementClass>>) => {
@@ -41,7 +41,13 @@ export const Alert = (props: PropsWithChildren<AlertProps & ElementClassManager<
 		// console.log(elementClassProps);
 		let newElementClass = defaultAlertElementClass(elementClassProps);
 		if (puiContext) {
-			newElementClass = { ...newElementClass, ...(puiContext.componentElementClasses?.alert || {}) };
+			if (puiContext.elementClassLibrary === 'tailwind') {
+				newElementClass = tailwindAlertElementClass(elementClassProps);
+			}
+			newElementClass = {
+				...newElementClass,
+				...((puiContext.componentElementClasses?.alert && puiContext.componentElementClasses?.alert(elementClassProps)) || {})
+			};
 		}
 		if (elementClass) {
 			newElementClass = { ...newElementClass, ...elementClass(elementClassProps) };

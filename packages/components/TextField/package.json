@@ -44,6 +44,7 @@
     "dev": "pnpm build:fast -- --watch",
     "typecheck": "tsc --noEmit",
     "build:fast": "tsup src",
+    "pack": "pnpm pack",
     "prepack": "clean-package",
     "postpack": "clean-package restore",
     "release": "pnpm build && pnpm publish && pnpm postpack"

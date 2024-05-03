@@ -5,6 +5,9 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/"]
     },
+    "pack": {
+      "dependsOn": ["build"]
+    },
     "deploy": {
       "dependsOn": ["build"]
     },

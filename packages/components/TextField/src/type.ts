@@ -16,10 +16,12 @@ export interface TextFieldElementClass {
 	messageBlock?: string;
 	helperText?: string;
 	errorMessage?: string;
+	[key: string]: string | undefined;
 }
 
 export interface TextFieldElementClassProps extends TextFieldProps {
-	focus: boolean;
+	focus?: boolean;
+	[key: string]: unknown;
 }
 
 export interface TextFieldProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'prefix' | 'size' | 'type'> {

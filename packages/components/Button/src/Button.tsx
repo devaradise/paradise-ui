@@ -3,7 +3,7 @@ import './style.scss';
 import { PropsWithChildren, forwardRef, useContext, useEffect, useState } from 'react';
 import { Spinner } from './Spinner';
 import { ElementClassManager, ParadiseUIContext } from '@paradise-ui/common';
-import { defaultButtonElementClass } from './elementClass';
+import { defaultButtonElementClass, tailwindButtonElementClass } from './elementClass';
 import { clsx } from 'clsx';
 
 export const Button = forwardRef<
@@ -39,7 +39,13 @@ export const Button = forwardRef<
 	useEffect(() => {
 		let newElementClass = defaultButtonElementClass(elementClassProps);
 		if (puiContext) {
-			newElementClass = { ...newElementClass, ...(puiContext.componentElementClasses?.button || {}) };
+			if (puiContext.elementClassLibrary === 'tailwind') {
+				newElementClass = tailwindButtonElementClass(elementClassProps);
+			}
+			newElementClass = {
+				...newElementClass,
+				...((puiContext.componentElementClasses?.button && puiContext.componentElementClasses?.button(elementClassProps)) || {})
+			};
 		}
 		if (elementClass) {
 			newElementClass = { ...newElementClass, ...elementClass(elementClassProps) };

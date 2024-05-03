@@ -12,8 +12,9 @@ export interface AlertProps {
 }
 
 export interface AlertElementClassProps extends Omit<AlertProps, 'onClose'> {
-	isFadingIn: boolean;
-	isFadingOut: boolean;
+	isFadingIn?: boolean;
+	isFadingOut?: boolean;
+	[key: string]: unknown;
 }
 
 export interface AlertElementClass {
@@ -21,4 +22,5 @@ export interface AlertElementClass {
 	icon?: string;
 	content?: string;
 	closeIcon?: string;
+	[key: string]: string | undefined;
 }

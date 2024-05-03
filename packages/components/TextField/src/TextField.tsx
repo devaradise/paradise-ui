@@ -1,7 +1,7 @@
 import { forwardRef, useContext, useEffect, useId, useState } from 'react';
 import { TextFieldElementClass, TextFieldElementClassProps, TextFieldProps } from './type';
 import { ElementClassManager, ParadiseUIContext } from '@paradise-ui/common';
-import { defaultTextFieldElementClass } from './elementClass';
+import { defaultTextFieldElementClass, tailwindTextFieldElementClass } from './elementClass';
 import clsx from 'clsx';
 import './style.scss';
 
@@ -41,7 +41,14 @@ export const TextField = forwardRef<
 	useEffect(() => {
 		let newElementClass = defaultTextFieldElementClass(elementClassProps);
 		if (puiContext) {
-			newElementClass = { ...newElementClass, ...(puiContext.componentElementClasses?.textField || {}) };
+			if (puiContext.elementClassLibrary === 'tailwind') {
+				newElementClass = tailwindTextFieldElementClass(elementClassProps);
+			}
+
+			newElementClass = {
+				...newElementClass,
+				...((puiContext.componentElementClasses?.textField && puiContext.componentElementClasses?.textField(elementClassProps)) || {})
+			};
 		}
 		if (elementClass) {
 			newElementClass = { ...newElementClass, ...elementClass(elementClassProps) };

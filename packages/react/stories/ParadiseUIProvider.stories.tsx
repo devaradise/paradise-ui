@@ -1,6 +1,15 @@
 import { ChangeEvent } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Alert, Button, ParadiseUIProvider, TextField, useThemeMode } from '../src';
+import {
+	Alert,
+	Button,
+	ParadiseUIProvider,
+	TextField,
+	TextFieldElementClass,
+	TextFieldElementClassProps,
+	defaultTextFieldElementClass,
+	useThemeMode
+} from '../src';
 import { ThemeModeControl, defaultColors } from '@paradise-ui/common';
 import { ParadiseUIProviderProps } from '../src/type';
 
@@ -176,5 +185,25 @@ export const Usage: Story = (args: ParadiseUIProviderProps) => {
 };
 
 Usage.args = {
-	colors: defaultColors
+	colors: defaultColors,
+	componentElementClasses: {
+		textField: (props: TextFieldElementClassProps): TextFieldElementClass => {
+			return {
+				root: defaultTextFieldElementClass(props).root + ' test-element-class'
+			};
+		}
+	}
+};
+
+export const UsageWithTailwindClass: Story = (args: ParadiseUIProviderProps) => {
+	return (
+		<ParadiseUIProvider {...args}>
+			<AppComponent />
+		</ParadiseUIProvider>
+	);
+};
+
+UsageWithTailwindClass.args = {
+	colors: defaultColors,
+	elementClassLibrary: 'tailwind'
 };

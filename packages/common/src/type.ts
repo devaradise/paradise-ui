@@ -6,7 +6,12 @@ export type ThemeModeControl = ThemeMode | 'system';
 export type SemanticColorType = 'info' | 'success' | 'warning' | 'error';
 export type ElementClassGenerator<P, R> = (props: P) => R;
 export type ElementClassLibrary = 'pui' | 'tailwind';
-export type ComponentElementClasses = Record<string, ElementClassGenerator<Record<string, string>, Record<string, string>>>;
+export interface ComponentElementClasses {
+	alert?: ElementClassGenerator<{ [key: string]: unknown }, { [key: string]: string | undefined }>;
+	button?: ElementClassGenerator<{ [key: string]: unknown }, { [key: string]: string | undefined }>;
+	textField?: ElementClassGenerator<{ [key: string]: unknown }, { [key: string]: string | undefined }>;
+	[key: string]: ElementClassGenerator<{ [key: string]: unknown }, { [key: string]: string | undefined }> | undefined;
+}
 export interface ElementClassManager<P, R> {
 	elementClass?: ElementClassGenerator<P, R>;
 	extraElementClass?: R;

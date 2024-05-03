@@ -35,9 +35,12 @@ export interface ButtonProps
 	onFocus?: () => void;
 }
 
-export type ButtonElementClassProps = Omit<ButtonProps, 'onClick' | 'onFocus'>;
+export interface ButtonElementClassProps extends Omit<ButtonProps, 'onClick' | 'onFocus'> {
+	[key: string]: unknown;
+}
 export interface ButtonElementClass {
 	root?: string;
 	loader?: string;
 	label?: string;
+	[key: string]: string | undefined;
 }
