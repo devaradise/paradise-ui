@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
@@ -15,6 +19,9 @@
   --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-container-width-xl: 1360px;
+  --ifm-container-width: 1280px;
+  --doc-sidebar-width: 250px!important;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -28,3 +35,68 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+.navbar__inner, .main-wrapper {
+  margin: auto;
+  width: 100%;
+  max-width: var(--ifm-container-width);
+}
+@media (min-width:1368px) {
+  .navbar__inner, .main-wrapper {
+    max-width: var(--ifm-container-width-xl);
+  }
+}
+
+@media (min-width: 997px) {
+  .theme-doc-sidebar-container {
+    border-right: 0!important;
+  }
+}
+.theme-doc-sidebar-container nav.menu {
+  padding: 1.5rem 0;
+}
+.theme-doc-sidebar-menu {
+  font-size: 0.875rem;
+}
+
+.theme-doc-sidebar-menu .menu__link:hover, .menu__list-item-collapsible:hover {
+  background-color: transparent!important;
+  color: var(--ifm-color-primary);
+}
+.theme-doc-sidebar-menu .menu__link--active:not(.menu__link--sublist),
+.menu__list-item-collapsible--active, .menu__list-item-collapsible .menu__link--active {
+  background-color: transparent!important;
+  font-weight: bold;
+  color: inherit;
+}
+.menu__caret {
+  padding: .25rem;
+}
+.menu__caret:hover {
+  color: var(--ifm-color-primary);
+}
+.menu__caret:before {
+  background: var(--ifm-menu-link-sublist-icon) 50% / 1.3rem 1.3rem;
+}
+
+.breadcrumbs__item .breadcrumbs__link:hover {
+  background-color: transparent;
+}
+.breadcrumbs__item--active .breadcrumbs__link {
+  background-color: transparent;
+  color: inherit;
+  font-weight: 600;
+}
+
+.github-link-icon {
+  display: block;
+  width:22px;
+  height: 22px;
+  background: url('/img/github-mark.svg');
+  background-size: 100%;
+}
+[data-theme='dark'] .github-link-icon {
+  background: url('/img/github-mark-white.svg') ;
+  background-size: 100%;
+}
+
