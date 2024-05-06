@@ -146,7 +146,7 @@ export const ToastProvider = (props: PropsWithChildren<{ elementClassLibrary?: E
 	return (
 		<ToastContext.Provider
 			value={{ toasts, setToasts, elementClassLibrary: props.elementClassLibrary || puiContext?.elementClassLibrary || 'pui' }}>
-			{createPortal(toastContainers, document.body)}
+			{typeof window !== 'undefined' && createPortal(toastContainers, document.body)}
 			{props.children}
 		</ToastContext.Provider>
 	);
