@@ -94,3 +94,6 @@ body.sb-show-main.pui-dark-mode, body.sb-show-main.pui-dark-mode .sb-anchor .doc
 body.sb-show-main.pui-light-mode, body.sb-show-main.pui-light-mode .sb-anchor .docs-story {
   background-color: #fff!important;
 }
+.sbdocs.sbdocs-wrapper {
+  padding: 1rem 0;
+}

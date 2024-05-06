@@ -41,7 +41,7 @@ export const PageComponent = () => {
 
 ## Demo
 
-Checkout <a href="https://paradise-ui.vercel.app/?path=/docs/component-feedback-toast--docs" target="_blank">our storybook</a> for demo and more use cases.
+Checkout <a href="https://storybook.paradise-ui.com/?path=/docs/component-feedback-toast--docs" target="_blank">our storybook</a> for demo and more use cases.
 
 ## Licence
 

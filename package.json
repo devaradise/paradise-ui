@@ -6,8 +6,8 @@
     "build": "turbo build",
     "release": "turbo release",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "storybook": "turbo build && storybook dev -p 6006",
-    "build-storybook": "turbo build && storybook build",
+    "storybook": "turbo build --filter='./packages/*' && storybook dev -p 6006",
+    "build-storybook": "turbo build --filter='./packages/*' && storybook build",
     "create-component": "plop component",
     "chromatic": "npx chromatic --project-token=chpt_759808943085b1a"
   },

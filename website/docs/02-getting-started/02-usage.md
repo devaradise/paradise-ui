@@ -17,7 +17,7 @@ function App({ children }) {
 export default App
 ```
 
-`ParadiseUIProvider` accept `colors` as a prop. You can also use `useThemeMode` hook in any component inside `ParadiseUIProvider` to control dark mode. Check the <a href="https://paradise-ui.vercel.app/?path=/docs/provider-paradiseuiprovider--docs" target="_blank">docs & demo here</a> for more details about its usage.
+`ParadiseUIProvider` accept `colors` as a prop. You can also use `useThemeMode` hook in any component inside `ParadiseUIProvider` to control dark mode. Check the <a href="https://storybook.paradise-ui.com/?path=/docs/provider-paradiseuiprovider--docs" target="_blank">docs & demo here</a> for more details about its usage.
 
 Now, you can use any Paradise UI component in your project.
 

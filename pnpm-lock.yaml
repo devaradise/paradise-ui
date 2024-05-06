@@ -294,6 +294,9 @@ importers:
       '@mdx-js/react':
         specifier: ^3.0.0
         version: 3.0.1(@types/react@18.2.46)(react@18.2.0)
+      '@paradise-ui/react':
+        specifier: workspace:*
+        version: link:../packages/react
       clsx:
         specifier: ^2.0.0
         version: 2.1.0

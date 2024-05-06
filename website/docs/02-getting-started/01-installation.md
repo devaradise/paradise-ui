@@ -17,7 +17,7 @@ yarn add @paradise-ui/react
 npm install @paradise-ui/react
 
 # or pnpm
-pnpm install @paradise-ui/react
+pnpm add @paradise-ui/react
 ```
 
 ## Install standalone component

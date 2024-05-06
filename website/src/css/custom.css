@@ -10,30 +10,38 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
+  --ifm-color-primary: #1DA4E5;
+  --ifm-color-primary-dark: #189EE4;
+  --ifm-color-primary-darker: #1296DC;
+  --ifm-color-primary-darkest: #0f87c8;
+  --ifm-color-primary-light: #22a7e9;
+  --ifm-color-primary-lighter: #30b1f2;
+  --ifm-color-primary-lightest: #3dbbf9;
+  --ifm-code-font-size: 0.875rem;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  --ifm-container-width-xl: 1360px;
+  --ifm-container-width-xl: 1330px;
   --ifm-container-width: 1280px;
-  --doc-sidebar-width: 250px!important;
+  --doc-sidebar-width: 230px!important;
+  --ifm-link-color: var(--ifm-color-primary-darkest);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #2aadee;
+  --ifm-color-primary-dark: #20a8f1;
+  --ifm-color-primary-darker: #169ce4;
+  --ifm-color-primary-darkest: #1593d7;
+  --ifm-color-primary-light: #28aef0;
+  --ifm-color-primary-lighter: #34b9fb;
+  --ifm-color-primary-lightest: #3fbefe;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 1.7rem;
 }
 
 .navbar__inner, .main-wrapper {
@@ -41,9 +49,15 @@
   width: 100%;
   max-width: var(--ifm-container-width);
 }
+.main-wrapper {
+  padding:1rem;
+}
 @media (min-width:1368px) {
   .navbar__inner, .main-wrapper {
     max-width: var(--ifm-container-width-xl);
+  }
+  .main-wrapper {
+    padding: 1rem 0;
   }
 }
 
@@ -58,16 +72,34 @@
 .theme-doc-sidebar-menu {
   font-size: 0.875rem;
 }
+.menu__list .menu__list{
+  padding:0;
+}
+.theme-doc-sidebar-menu li {
+  padding: 0.25rem 0;
+}
+.theme-doc-sidebar-menu li.theme-doc-sidebar-item-link-level-1 .menu__link,
+.theme-doc-sidebar-menu li.theme-doc-sidebar-item-category-level-1 .menu__link{
+  border-radius: 0;
+  padding: .2rem 0;
 
+}
+.theme-doc-sidebar-menu li.theme-doc-sidebar-item-link-level-2 .menu__link {
+  border-radius: 0;
+  padding: .2rem .75rem;
+}
 .theme-doc-sidebar-menu .menu__link:hover, .menu__list-item-collapsible:hover {
-  background-color: transparent!important;
+  background-color: transparent;
   color: var(--ifm-color-primary);
 }
 .theme-doc-sidebar-menu .menu__link--active:not(.menu__link--sublist),
 .menu__list-item-collapsible--active, .menu__list-item-collapsible .menu__link--active {
-  background-color: transparent!important;
+  background-color: transparent;
   font-weight: bold;
-  color: inherit;
+  color: var(--ifm-color-primary-darkest);
+}
+.theme-doc-sidebar-menu .theme-doc-sidebar-item-link-level-2 .menu__link--active:not(.menu__link--sublist) {
+  border-left: 1px solid var(--ifm-color-primary-darkest);
 }
 .menu__caret {
   padding: .25rem;
@@ -75,8 +107,8 @@
 .menu__caret:hover {
   color: var(--ifm-color-primary);
 }
-.menu__caret:before {
-  background: var(--ifm-menu-link-sublist-icon) 50% / 1.3rem 1.3rem;
+.menu__link--sublist-caret:after {
+  background: var(--ifm-menu-link-sublist-icon) 50% / 1.5rem 1.5rem;
 }
 
 .breadcrumbs__item .breadcrumbs__link:hover {

@@ -9,7 +9,6 @@ import DocItemFooter from '@theme/DocItem/Footer';
 import DocItemTOCMobile from '@theme/DocItem/TOC/Mobile';
 import DocItemTOCDesktop from '@theme/DocItem/TOC/Desktop';
 import DocItemContent from '@theme/DocItem/Content';
-import DocBreadcrumbs from '@theme/DocBreadcrumbs';
 import Unlisted from '@theme/Unlisted';
 import type { Props } from '@theme/DocItem/Layout';
 
@@ -57,7 +56,7 @@ export default function DocItemLayout({ children }: Props): JSX.Element {
 					<DocItemPaginator />
 				</div>
 			</div>
-			{docTOC.desktop && <div className='col col--2'>{docTOC.desktop}</div>}
+			{docTOC.desktop && <div className='col col--2 px-0'>{docTOC.desktop}</div>}
 		</div>
 	);
 }

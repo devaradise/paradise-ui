@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import type { Preview } from "@storybook/react";
 import { useGlobals } from '@storybook/preview-api';
-import { Title, Subtitle, Description, Primary, Controls, Stories } from '@storybook/blocks';
+import { Primary, Controls } from '@storybook/blocks';
 import '../tailwind.css'
 
 const preview: Preview = {
@@ -49,9 +49,6 @@ const preview: Preview = {
     docs: {
       page: () => (
         <>
-          <Title />
-          <Subtitle />
-          <Description />
           <Primary />
           <Controls />
         </>
