@@ -11,9 +11,7 @@
     "deploy": {
       "dependsOn": ["build"]
     },
-    "release": {
-      "dependsOn": ["build"]
-    },
+    "release": {},
     "dev": {
       "cache": false,
       "persistent": true
