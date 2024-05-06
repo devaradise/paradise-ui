@@ -295,7 +295,7 @@ importers:
         specifier: ^3.0.0
         version: 3.0.1(@types/react@18.3.1)(react@18.3.1)
       '@paradise-ui/react':
-        specifier: workspace:*
+        specifier: ^1.0.0-beta.1
         version: link:../packages/react
       clsx:
         specifier: ^2.0.0
