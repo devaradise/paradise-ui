@@ -27,7 +27,7 @@ export const tailwindButtonElementClass = (props: ButtonElementClassProps): Butt
 
 	const variants = {
 		solid: clsx([
-			`border hover:text-[#fff] dark:text-[#060606] dark:hover:text-[#000]`,
+			`border border-solid hover:text-[#fff] dark:text-[#060606] dark:hover:text-[#000]`,
 			!props.disabled && props.color === 'primary' && 'border-[var(--pui-primary,#1BA7F1)] bg-[var(--pui-primary,#1BA7F1)]',
 			!props.disabled && props.color === 'secondary' && 'border-[var(--pui-secondary,#4A667b)] bg-[var(--pui-secondary,#4A667b)]',
 			!props.disabled && props.color === 'info' && 'border-[var(--pui-info,#008DDA)] bg-[var(--pui-info,#008DDA)]',
@@ -38,7 +38,7 @@ export const tailwindButtonElementClass = (props: ButtonElementClassProps): Butt
 			!props.disabled && !props.loading && 'hover:before:bg-[rgba(100,100,100,0.1)]'
 		]),
 		outlined: clsx([
-			`bg-transparent border`,
+			`bg-transparent border border-solid`,
 			!props.disabled && props.color === 'primary' && 'border-[var(--pui-primary,#1BA7F1)] text-[var(--pui-primary,#1BA7F1)]',
 			!props.disabled && props.color === 'secondary' && 'border-[var(--pui-secondary,#4A667b)] text-[var(--pui-secondary,#4A667b)]',
 			!props.disabled && props.color === 'info' && 'border-[var(--pui-info,#008DDA)] text-[var(--pui-info,#008DDA)]',
@@ -48,7 +48,7 @@ export const tailwindButtonElementClass = (props: ButtonElementClassProps): Butt
 			props.disabled && `border-[#979797] text-[#979797]`
 		]),
 		text: clsx([
-			`bg-transparent border border-transparent`,
+			`bg-transparent border border-solid border-transparent`,
 			!props.disabled && props.color === 'primary' && 'text-[var(--pui-primary,#1BA7F1)]',
 			!props.disabled && props.color === 'secondary' && 'text-[var(--pui-secondary,#4A667b)]',
 			!props.disabled && props.color === 'info' && 'text-[var(--pui-info,#008DDA)]',

@@ -48,7 +48,7 @@ export const tailwindTextFieldElementClass: ElementClassGenerator<TextFieldEleme
 			props.size === 'lg' && (props.variant === 'line' ? 'h-[2rem]' : 'h-[3rem]'),
 			props.variant === 'outlined' && [
 				'rounded-[5px]',
-				'border',
+				'border border-solid',
 				!props.focus &&
 					!props.errorMessage &&
 					!props.invalid &&
@@ -56,7 +56,7 @@ export const tailwindTextFieldElementClass: ElementClassGenerator<TextFieldEleme
 			],
 			props.variant === 'line' && [
 				'bg-transparent mb-[0.3rem]',
-				'border-b',
+				'border-b border-solid',
 				!props.focus &&
 					!props.errorMessage &&
 					!props.invalid &&
