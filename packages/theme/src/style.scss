@@ -5,5 +5,7 @@ body {
   font-size:16px;
 }
 
+@import "./../../components/Alert/src/style.scss";
 @import "./../../components/Button/src/style.scss";
 @import "./../../components/TextField/src/style.scss";
+@import "./../../components/Toast/src/style.scss";
