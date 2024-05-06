@@ -23,6 +23,7 @@
   --ifm-container-width: 1280px;
   --doc-sidebar-width: 230px!important;
   --ifm-link-color: var(--ifm-color-primary-darkest);
+  --docusaurus-highlighted-code-line-bg: rgba(51, 85, 102, 0.3);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -130,5 +131,11 @@ h2 {
 [data-theme='dark'] .github-link-icon {
   background: url('/img/github-mark-white.svg') ;
   background-size: 100%;
+}
+.theme-code-block-highlighted-line {
+  border-left: 3px solid var(--ifm-color-primary-lightest);
+}
+.theme-doc-markdown {
+  line-height: 1.75;
 }
 

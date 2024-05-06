@@ -6,7 +6,7 @@ sidebar_position: 1
 
 There are 2 ways to install Paradise UI components to your React project.
 
-## Install the whole Paradise UI package
+## Default Installation
 It is recommended to install the whole package of Paradise UI if you're going to use multiple components and paradise UI theming.
 
 ```sh
@@ -20,7 +20,7 @@ npm install @paradise-ui/react
 pnpm add @paradise-ui/react
 ```
 
-## Install standalone component
+## Standalone Component Installation
 If you only want to install one or a few components, for a case such as when you already use another UI library, you can install the component individually. It will only install that particular component package.
 
 Suppose you want to add our Text field component into your existing project.

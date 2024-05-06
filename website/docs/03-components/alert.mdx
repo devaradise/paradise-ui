@@ -1,8 +1,60 @@
 ---
 ---
 
-import { Alert } from '@paradise-ui/alert'
+import { Alert } from '@paradise-ui/react'
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Alert
 
-<Alert>Test alert</Alert>
+Alert is a component to display contextual messages such as information, success, warning and error messages.
+
+<Tabs>
+  <TabItem value="usage" label="Usage">
+    ## Import
+    Alert Component exports:
+    - `Alert`: The alert component itself, to be called as JSX element `<Alert {...props}>{text}<Alert>`
+    - `defaultAlertElementClass`: Default element class applied to Alert component
+    - `tailwindAlertElementClass`: Tailwindcss element class
+
+    ```jsx
+    import {
+      Alert,
+      defaultAlertElementClass,
+      tailwindAlertElementClass
+    } from '@paradise-ui/react'
+
+    // For standalone installation
+    import {
+      Alert,
+      defaultAlertElementClass,
+      tailwindAlertElementClass
+    } from '@paradise-ui/alert'
+    ```
+
+    ## Examples
+    ### Default usage without any prop
+
+    <Alert className='my-5'>Lorem ipsum dolor sit amet</Alert>
+
+    ## Customize Usage
+    <iframe width="100%" height="800" src="https://storybook.paradise-ui.com/iframe?viewMode=docs&id=component-feedback-alert--docs"></iframe>
+  </TabItem>
+  <TabItem value="api" label="API">
+
+    ## Props
+
+    ## Types & Interfaces
+  
+  </TabItem>
+  <TabItem value="customization" label="Customization">
+  
+    ## Skeleton
+
+    ## Element class
+
+    ### PUI class list
+  
+  </TabItem>
+</Tabs>
+

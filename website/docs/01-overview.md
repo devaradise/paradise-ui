@@ -4,8 +4,8 @@ sidebar_position: 1
 slug: /
 ---
 
-<h1 align="center" className="mt-4">
-<a id="logo" href="https://github.com/devaradise/paradise-ui">
+<h1 align="center" class="mt-4">
+<a id="logo" href="https://github.com/devaradise/paradise-ui" class="inline-block">
   <img src="/img/logo.svg" alt="Paradise UI" width="100" />
 </a><br/>
   Paradise UI

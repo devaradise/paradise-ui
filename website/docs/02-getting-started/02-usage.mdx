@@ -1,0 +1,82 @@
+
+# Usage
+## Using Paradise UI as Component Library
+
+To use Paradise UI as your UI component library, you need to wrap your application with `ParadiseUIProvider`. By default, Paradise UI components are unstyled, so you need to import the component styles manually.
+
+```jsx
+import { ParadiseUIProvider } from '@paradise-ui/react'
+import '@paradise-ui/react/style'
+
+// Wrap your root application component (usually in App.jsx) with ParadiseUIProvider
+function App({ children }) {
+  return <ParadiseUIProvider>{children}</ParadiseUIProvider>
+}
+export default App
+```
+
+`ParadiseUIProvider` accept `colors`, `elementClassLibrary`, and `componentElementClassess` as props. You can also use `useThemeMode` hook in any component inside `ParadiseUIProvider` to control dark mode. Check the <a href="https://storybook.paradise-ui.com/?path=/docs/provider-paradiseuiprovider--docs" target="_blank">docs & demo here</a> for more details about its usage.
+
+Now, you can use any Paradise UI component in your project.
+
+```jsx
+import { Button } from '@paradise-ui/react'
+
+function PageComponent() {
+  return <Button variant='solid'>ParadiseUI Button</Button>
+}
+export default PageComponent
+```
+
+### With Tailwindcss Class
+If your project use Tailwindcss for styling, you probably want to use Tailwindcss class in Paradise UI components. You dont need to import `@paradise-ui/react/style` if you'are using Tailwindcss
+
+```jsx
+import { ParadiseUIProvider } from '@paradise-ui/react'
+
+// Wrap your root application component (usually in App.jsx) with ParadiseUIProvider
+function App({ children }) {
+  return <ParadiseUIProvider elementClassLibrary='tailwind'>{children}</ParadiseUIProvider>
+}
+export default App
+```
+
+You also need to add paradise-ui module path to `content` property in `tailwind.config.js`, so Tailwindcss can detect every class used in Paradise UI components
+
+```js
+module.exports = {
+  darkMode: 'selector',
+  content: [
+    './src/**/*.{html,scss,js,ts,jsx,tsx}',
+    // highlight-next-line
+    './node_modules/@paradise-ui/**/*.{js,jsx,ts,tsx}'
+  ],
+  plugins: []
+};
+```
+
+## Standalone Component Usage
+
+For standalone component usage, you just need to import the component directly from its package. You dont need to wrap your application with `ParadiseUIProvider`.
+
+```jsx
+import { Button } from '@paradise-ui/button'
+import '@paradise-ui/button/style'
+
+function PageComponent() {
+  return <Button variant='solid'>ParadiseUI Button</Button>
+}
+export default PageComponent
+```
+
+### With Tailwindcss Class
+To use Tailwindcss class in standalone component, you have to pass `elementClass` prop manually to your component.
+
+```jsx
+import { Button, tailwindButtonElementClass } from '@paradise-ui/button'
+
+function PageComponent() {
+  return <Button variant='solid' elementClass={tailwindButtonElementClass}>ParadiseUI Button</Button>
+}
+export default PageComponent
+```

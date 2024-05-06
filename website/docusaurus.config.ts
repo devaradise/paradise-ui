@@ -67,7 +67,15 @@ const config: Config = {
 			copyright: `Copyright © ${new Date().getFullYear()} Paradise UI.`
 		},
 		prism: {
-			theme: prismThemes.vsDark
+			theme: prismThemes.vsDark,
+			magicComments: [
+				// Remember to extend the default highlight class name as well!
+				{
+					className: 'theme-code-block-highlighted-line',
+					line: 'highlight-next-line',
+					block: { start: 'highlight-start', end: 'highlight-end' }
+				}
+			]
 		}
 	} satisfies Preset.ThemeConfig,
 	plugins: [
