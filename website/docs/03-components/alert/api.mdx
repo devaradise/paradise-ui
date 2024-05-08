@@ -1,0 +1,29 @@
+---
+title: 'Alert / API'
+sidebar_class_name: hidden
+slug: 'api'
+pagination_prev: getting-started/usage
+pagination_next: components/button
+---
+import Header from './_header'
+
+<Header activeTab={1}/>
+
+## Props
+Alert component have a list of props that can be used to customize your implementation. Each prop has their own type and default value. You have to supply them with proper value in order to make your Alert component render as expected.
+
+| Name                | Type                                                 | Default                                                           |
+|---------------------|------------------------------------------------------|-------------------------------------------------------------------|
+| `type`              | 'info' \| 'success' \| 'warning' \| 'error'          | info                                                              |
+| `variant`           | 'subtle' \| 'solid' \| 'outlined \| 'left-bordered'  | subtle                                                            |
+| `closable`          | boolean                                              | false                                                             |
+| `onClose`           | () => void                                           |                                                                   |
+| `icon`              | ReactNode                                            | `<InfoIcon/>`, `<SuccessIcon/>`, `<WarningIcon/>`, `<ErrorIcon/>` |
+| `className`         | string                                               |                                                                   |
+| `elementClass`      | (props: AlertElementClassProps) => AlertElementClass | defaultAlertElementClass                                          |
+| `extraElementClass` | AlertElementClass                                    |                                                                   |
+
+## Types & Interfaces
+
+Alert component comes with typescript Types and Interfaces that will validate props value and provide you a clear data structure if you want to customize it. 
+Checkout [src/type.ts](https://github.com/devaradise/paradise-ui/blob/main/packages/components/Alert/src/type.ts) to see all types and interfaces for Alert component.

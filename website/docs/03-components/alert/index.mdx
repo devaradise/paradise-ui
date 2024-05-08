@@ -1,0 +1,106 @@
+---
+title: 'Alert'
+pagination_next: components/button
+---
+
+import { Alert } from '@paradise-ui/react'
+import Header from './_header'
+import DemoContainer from './../../../src/components/DocComponents/DemoContainer'
+
+<Header activeTab={0}/>
+
+## Import
+Alert Component exports:
+- `Alert`: The alert component itself, to be called as JSX element `<Alert {...props}>{text}<Alert>`
+- `defaultAlertElementClass`: A function that generate default element class applied to Alert component
+- `tailwindAlertElementClass`: A function that generate Tailwindcss element class for Alert component
+
+```jsx
+import {
+  Alert,
+  defaultAlertElementClass,
+  tailwindAlertElementClass
+} from '@paradise-ui/react'
+
+// For standalone installation
+import {
+  Alert,
+  defaultAlertElementClass,
+  tailwindAlertElementClass
+} from '@paradise-ui/alert'
+```
+
+## Usage
+
+When using Alert without any prop, it will render Alert with `subtle` variant, `primary` type and closable `false`
+
+<DemoContainer>
+  <Alert>Lorem ipsum dolor sit amet</Alert>
+
+  ```jsx
+  <Alert>Lorem ipsum dolor sit amet</Alert>
+  ```
+</DemoContainer>
+
+### Variants
+
+Alert component comes with 4 variants: `subtle`, `solid`, `outlined`, `left-bordered`
+
+<DemoContainer>
+  <div class="flex flex-col gap-4">
+    <Alert variant='subtle'>Lorem ipsum dolor sit amet</Alert>
+    <Alert variant='solid'>Lorem ipsum dolor sit amet</Alert>
+    <Alert variant='outlined'>Lorem ipsum dolor sit amet</Alert>
+    <Alert variant='left-bordered'>Lorem ipsum dolor sit amet</Alert>
+  </div>
+
+  ```jsx
+  <div class="flex flex-col gap-4">
+    <Alert variant='subtle'>Lorem ipsum dolor sit amet</Alert>
+    <Alert variant='solid'>Lorem ipsum dolor sit amet</Alert>
+    <Alert variant='outlined'>Lorem ipsum dolor sit amet</Alert>
+    <Alert variant='left-bordered'>Lorem ipsum dolor sit amet</Alert>
+  </div>
+  ```
+</DemoContainer>
+
+### Types
+
+Alert component also comes with 5 types: `info`, `success`, `warning`, `error`
+
+<DemoContainer>
+  <div class="flex flex-col gap-4">
+    <Alert type='info'>Lorem ipsum dolor sit amet</Alert>
+    <Alert type='success'>Lorem ipsum dolor sit amet</Alert>
+    <Alert type='warning'>Lorem ipsum dolor sit amet</Alert>
+    <Alert type='error'>Lorem ipsum dolor sit amet</Alert>
+  </div>
+
+  ```jsx
+  <div class="flex flex-col gap-4">
+    <Alert type='info'>Lorem ipsum dolor sit amet</Alert>
+    <Alert type='success'>Lorem ipsum dolor sit amet</Alert>
+    <Alert type='warning'>Lorem ipsum dolor sit amet</Alert>
+    <Alert type='error'>Lorem ipsum dolor sit amet</Alert>
+  </div>
+  ```
+</DemoContainer>
+
+### Closable
+
+You can also set Alert component to be closable
+
+<DemoContainer>
+  <Alert closeable>Lorem ipsum dolor sit amet</Alert>
+
+  ```jsx
+  <Alert closeable>Lorem ipsum dolor sit amet</Alert>
+  ```
+</DemoContainer>
+
+## Customize Usage
+
+Customize your Alert and copy the generated code with the panel below. 
+
+<iframe width="100%" height="800" src="https://storybook.paradise-ui.com/iframe?viewMode=docs&id=component-feedback-alert--docs"></iframe>
+

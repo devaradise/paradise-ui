@@ -1,0 +1,8 @@
+{
+  "label": "Alert",
+  "collapsible": false,
+  "link": {
+    "type": "doc",
+    "id": "index"
+  }
+}

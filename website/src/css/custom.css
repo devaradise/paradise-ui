@@ -17,7 +17,8 @@
   --ifm-color-primary-light: #22a7e9;
   --ifm-color-primary-lighter: #30b1f2;
   --ifm-color-primary-lightest: #3dbbf9;
-  --ifm-code-font-size: 0.875rem;
+  --ifm-code-font-size: 0.775rem;
+  --ifm-code-background: #daf3ff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --ifm-container-width-xl: 1330px;
   --ifm-container-width: 1280px;
@@ -43,6 +44,15 @@ h1 {
 }
 h2 {
   font-size: 1.7rem;
+}
+code {
+  font-weight: 600;
+  padding: .1rem .3rem;
+  border:0;
+}
+a:not([class]) {
+  color: var(--ifm-color-primary-darkest)!important;
+  text-decoration: none;
 }
 
 .navbar__inner, .main-wrapper {
@@ -74,7 +84,11 @@ h2 {
   font-size: 0.875rem;
 }
 .menu__list .menu__list{
+  margin:0;
   padding:0;
+}
+.theme-doc-sidebar-item-category-level-1 >.menu__list-item-collapsible + .menu__list {
+  margin-top: 0.25rem;
 }
 .theme-doc-sidebar-menu li {
   padding: 0.25rem 0;
@@ -83,9 +97,9 @@ h2 {
 .theme-doc-sidebar-menu li.theme-doc-sidebar-item-category-level-1 .menu__link{
   border-radius: 0;
   padding: .2rem 0;
-
 }
-.theme-doc-sidebar-menu li.theme-doc-sidebar-item-link-level-2 .menu__link {
+.theme-doc-sidebar-menu li.theme-doc-sidebar-item-link-level-2 .menu__link,
+.theme-doc-sidebar-menu li.theme-doc-sidebar-item-category-level-2 .menu__link {
   border-radius: 0;
   padding: .2rem .75rem;
 }
@@ -99,7 +113,8 @@ h2 {
   font-weight: bold;
   color: var(--ifm-color-primary-darkest);
 }
-.theme-doc-sidebar-menu .theme-doc-sidebar-item-link-level-2 .menu__link--active:not(.menu__link--sublist) {
+.theme-doc-sidebar-menu .theme-doc-sidebar-item-link-level-2 .menu__link--active:not(.menu__link--sublist),
+.theme-doc-sidebar-menu .theme-doc-sidebar-item-category-level-2 .menu__link--active:not(.menu__link--sublist){
   border-left: 1px solid var(--ifm-color-primary-darkest);
 }
 .menu__caret {
@@ -132,10 +147,24 @@ h2 {
   background: url('/img/github-mark-white.svg') ;
   background-size: 100%;
 }
+.demo-container .theme-code-block {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+  margin: -1.1rem;
+  margin-top: 1rem;
+}
 .theme-code-block-highlighted-line {
   border-left: 3px solid var(--ifm-color-primary-lightest);
 }
 .theme-doc-markdown {
   line-height: 1.75;
+}
+.markdown h1:first-child {
+  margin-bottom: 1rem;
+}
+.markdown h2,.markdown h3,.markdown h4 {
+  margin-bottom: .875rem;
 }
 
