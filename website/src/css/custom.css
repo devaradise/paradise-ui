@@ -167,4 +167,31 @@ a:not([class]) {
 .markdown h2,.markdown h3,.markdown h4 {
   margin-bottom: .875rem;
 }
+.markdown table th, .markdown table td{
+  text-align: left;
+  font-size: .875rem;
+  padding: .7rem .75rem;
+  border:0;
+  vertical-align: top;
+  background-color: inherit;
+}
+.markdown table tr {
+  border-top: 0;
+  border-bottom: 1px solid var(--ifm-table-border-color);
+}
+.markdown table thead tr {
+  border-width: 1px;
+  border-top: 0;
+}
+.markdown table tr:nth-child(2n) {
+  background-color: inherit;
+}
+.markdown table th {
+  white-space: nowrap;
+  line-height: 1.3;
+  vertical-align: middle;
+}
+.markdown table td code {
+  white-space: nowrap;
+}
 

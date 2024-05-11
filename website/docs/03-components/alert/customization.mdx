@@ -24,7 +24,7 @@ Each HTML element has a coresponding element name. Element name is an identifier
 </div>
 ```
 
-In above code, `root`, `alertIcon`, `alertContent`, and `closeIcon` are the element names.
+In above code, `root`, `icon`, `content`, and `closeIcon` are the element names.
 
 ## Element class
 
@@ -36,8 +36,8 @@ By default, Alert component will use PUI classes for its elements.
 |--------------|------------------------|----------------------------------------------------------------------------|
 | root         | `pui-alert`            | A `<div>` element for root / outer / container element of alert component. |
 | icon    | `pui-alert-icon`       | A `<div>` element that wrap alert icon                                     |
-| content | `pui-alert-content`    | A `div` element that wrap alert content                                    |
-| closeIcon    | `pui-alert-close-icon` | A clickable `button` element that render as close button                   |
+| content | `pui-alert-content`    | A `<div>` element that wrap alert content                                    |
+| closeIcon    | `pui-alert-close-icon` | A clickable `<button>` element that render as close button                   |
 
 ### Element class generator
 
@@ -45,8 +45,9 @@ By default, Alert component will use PUI classes for its elements.
 Element class generator is a function that receive element class props as argument, and return element class object. Each component has its own type of element class props and element class object. Element class props are usually (but not always) inherited from component props.
 </Alert>
 
+Alert components has 2 element class generators, a `defaultAlertElementClass` function that will generate PUI class and `tailwindAlertElementClass` function that will generate tailwind class.
 
-Alert components has 2 element class generators, a default generator that will render PUI class and tailwind element class generator.
+Element class generator is responsible on how the Alert component will render based on supplied props. You can look in the following `elementClass.ts` file to see how it responsible for most logic in Alert component.
 
 ```ts title="elementClass.ts"
 import clsx from 'clsx';
@@ -183,7 +184,37 @@ export const tailwindAlertElementClass = (props: AlertElementClassProps): AlertE
 
 ```
 
-<Alert className='my-4' variant="left-bordered" type='warning'>
-  For advanced customization, you can use your own element class generator and passed to elementClass props. But keep in mind that incorrect implementation will cause your component not rendering as expected.
-</Alert>
+You can customize and re-define how Alert component will behave by using your own element class generator function. But you have to be careful because wrong implementation will cause the component not working properly.
 
+Before creating your own element class generator, it's recommended that you copy the `defaultAlertElementClass` function and customize from there.
+
+```tsx title="customAlertElementClass.ts"
+import clsx from 'clsx';
+import { AlertElementClass, AlertElementClassProps } from '@paradise-ui/react';
+
+export const myCustomAlertElementClass = (props: AlertElementClassProps): AlertElementClass => {
+  return {
+    root: clsx([
+      'custom-alert another-custom-class',
+      `custom-alert-${props.variant}`,
+      `custom-alert-${props.type}`,
+      props.isFadingOut || props.isFadingIn ? 'custom-alert-hidden' : '',
+      props.className
+    ])
+  };
+};
+```
+
+Then, pass it to `elementClass` prop it in Alert component
+
+```jsx
+// import
+import { myCustomAlertElementClass } from './customAlertElementClass.ts'
+
+// implementation
+<Alert elementClass={myCustomAlertElementClass}>Alert with custom element class</Alert>
+```
+
+You only have to define element class that you want to customize, but you have to include all the modifiers / props that affect that element. 
+
+Keep in mind that using new custom classes means that you have to provide the css styles for those classes as well.
