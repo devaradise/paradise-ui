@@ -56,7 +56,7 @@ export const tailwindTextFieldElementClass: ElementClassGenerator<TextFieldEleme
 			],
 			props.variant === 'line' && [
 				'bg-transparent mb-[0.3rem]',
-				'border-b border-solid',
+				'border-0 border-b border-solid',
 				!props.focus &&
 					!props.errorMessage &&
 					!props.invalid &&
