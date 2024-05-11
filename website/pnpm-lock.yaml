@@ -21,8 +21,8 @@ dependencies:
     specifier: ^3.0.0
     version: 3.0.1(@types/react@18.3.1)(react@18.3.1)
   '@paradise-ui/react':
-    specifier: ^1.0.0-beta.1
-    version: 1.0.0-beta.1(react@18.3.1)
+    specifier: ^1.0.0-beta.2
+    version: 1.0.0-beta.2(react@18.3.1)
   clsx:
     specifier: ^2.0.0
     version: 2.1.1
@@ -2531,22 +2531,22 @@ packages:
       react: 18.3.1
     dev: false
 
-  /@paradise-ui/react@1.0.0-beta.1(react@18.3.1):
-    resolution: {integrity: sha512-Y5/fYnKtA2h1BofXCqz9M2Iw6fu5rL0i5IhW6qPukNjIR9G49dLhhMRRQ/eM088zsE8lkpMLcAiAw764w3k67w==}
+  /@paradise-ui/react@1.0.0-beta.2(react@18.3.1):
+    resolution: {integrity: sha512-yyriebys0/d9sgE+BM8z0DANhu9KRLsYCNHU5h86pnONESRAyAWfuiMHWQi/GuINZNjQTMM72GxF7gQhmAEprg==}
     peerDependencies:
       react: '>=18'
     dependencies:
       '@paradise-ui/alert': 1.0.0-beta.0(react@18.3.1)
       '@paradise-ui/button': 1.0.0-beta.0(react@18.3.1)
       '@paradise-ui/common': 1.0.0-beta.0(react@18.3.1)
-      '@paradise-ui/text-field': 1.1.0-beta.0(react@18.3.1)
+      '@paradise-ui/text-field': 1.1.0-beta.1(react@18.3.1)
       '@paradise-ui/theme': 1.0.0-beta.1(react@18.3.1)
       '@paradise-ui/toast': 1.0.0-beta.0(react@18.3.1)
       react: 18.3.1
     dev: false
 
-  /@paradise-ui/text-field@1.1.0-beta.0(react@18.3.1):
-    resolution: {integrity: sha512-3fWnpMW3RVFy+DMApw9bYecqfEh0QZxXShPjNXHBpdmmt8KIn8ZKWTn+P+ZkYTzniikoXagYHCctSevVUL1pmA==}
+  /@paradise-ui/text-field@1.1.0-beta.1(react@18.3.1):
+    resolution: {integrity: sha512-FwKTrwXnxiKdtOXgKKUgDTGk/GUYSY6eRxmmBCBLJ9MmM3a1g4nBZ2HRwDhL0xmWIX2iEp6gdHYvjj7mmRJG8g==}
     peerDependencies:
       react: '>=18'
     dependencies:
