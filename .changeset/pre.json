@@ -11,5 +11,7 @@
     "@paradise-ui/theme": "1.0.0-alpha.2",
     "website": "0.0.0"
   },
-  "changesets": []
+  "changesets": [
+    "silver-planets-roll"
+  ]
 }

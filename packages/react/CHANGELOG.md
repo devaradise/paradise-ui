@@ -1,5 +1,12 @@
 # @paradise-ui/react
 
+## 1.0.0-beta.2
+
+### Patch Changes
+
+- Updated dependencies [aed58d4]
+  - @paradise-ui/text-field@1.1.0-beta.1
+
 ## 1.0.0-beta.0
 
 ### Patch Changes

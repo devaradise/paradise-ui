@@ -1,5 +1,11 @@
 # @paradise-ui/text-field
 
+## 1.1.0-beta.1
+
+### Patch Changes
+
+- aed58d4: Fixed border bugs in textfield line in tailwind preflight:false
+
 ## 1.1.0-beta.0
 
 ### Patch Changes
