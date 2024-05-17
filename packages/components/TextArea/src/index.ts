@@ -1,3 +1,3 @@
-export * from './{{capitalize componentName}}'
+export * from './TextArea'
 export * from './type'
 export * from './elementClass'

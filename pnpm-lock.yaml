@@ -201,6 +201,38 @@ importers:
         specifier: ^18.0.0
         version: 18.3.1
 
+  packages/components/Select:
+    dependencies:
+      '@paradise-ui/common':
+        specifier: workspace:*
+        version: link:../../common
+      clsx:
+        specifier: ^2.0.0
+        version: 2.1.1
+    devDependencies:
+      clean-package:
+        specifier: 2.1.1
+        version: 2.1.1
+      react:
+        specifier: ^18.0.0
+        version: 18.3.1
+
+  packages/components/TextArea:
+    dependencies:
+      '@paradise-ui/common':
+        specifier: workspace:*
+        version: link:../../common
+      clsx:
+        specifier: ^2.0.0
+        version: 2.1.1
+    devDependencies:
+      clean-package:
+        specifier: 2.1.1
+        version: 2.1.1
+      react:
+        specifier: ^18.0.0
+        version: 18.3.1
+
   packages/components/TextField:
     dependencies:
       '@paradise-ui/common':

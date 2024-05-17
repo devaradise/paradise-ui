@@ -1,35 +1,32 @@
-import { TextFieldElementClass, TextFieldElementClassProps } from './type';
+import { TextAreaElementClass, TextAreaElementClassProps } from './type';
 import { ElementClassGenerator } from '@paradise-ui/common';
 import clsx from 'clsx';
 
-export const defaultTextFieldElementClass: ElementClassGenerator<TextFieldElementClassProps, TextFieldElementClass> = (
-	props: TextFieldElementClassProps
+export const defaultTextAreaElementClass: ElementClassGenerator<TextAreaElementClassProps, TextAreaElementClass> = (
+	props: TextAreaElementClassProps
 ) => {
 	return {
 		root: clsx([
-			'pui-text-field',
-			`pui-text-field-${props.variant}`,
-			`pui-text-field-${props.size}`,
-			!!props.errorMessage || props.invalid ? `pui-text-field-error` : '',
-			props.focus ? 'pui-text-field-focus' : '',
-			props.disabled ? `pui-text-field-disabled` : '',
+			'pui-text-area',
+			`pui-text-area--${props.variant}`,
+			`pui-text-area--${props.size}`,
+			!!props.errorMessage || props.invalid ? `pui-text-area--error` : '',
+			props.focus ? 'pui-text-area--focus' : '',
+			props.disabled ? `pui-text-area--disabled` : '',
 			props.className
 		]),
-		labelBlock: 'pui-text-field-label-block',
-		label: 'pui-text-field-label',
-		secondaryLabel: 'pui-text-field-label-secondary',
-		inputBlock: 'pui-text-field-input-block',
-		inputPrefix: 'pui-text-field-input-prefix',
-		input: 'pui-text-field-input',
-		inputSuffix: 'pui-text-field-input-suffix',
-		messageBlock: 'pui-text-field-message-block',
-		helperText: 'pui-text-field-helper-text',
-		errorMessage: 'pui-text-field-error-message'
+		labelBlock: 'pui-text-area__label-block',
+		label: 'pui-text-area__label',
+		secondaryLabel: 'pui-text-area__label-secondary',
+		textarea: 'pui-text-area__textarea',
+		messageBlock: 'pui-text-area__message-block',
+		helperText: 'pui-text-area__helper-text',
+		errorMessage: 'pui-text-area__error-message'
 	};
 };
 
-export const tailwindTextFieldElementClass: ElementClassGenerator<TextFieldElementClassProps, TextFieldElementClass> = (
-	props: TextFieldElementClassProps
+export const tailwindTextAreaElementClass: ElementClassGenerator<TextAreaElementClassProps, TextAreaElementClass> = (
+	props: TextAreaElementClassProps
 ) => {
 	return {
 		root: clsx([
@@ -39,15 +36,24 @@ export const tailwindTextFieldElementClass: ElementClassGenerator<TextFieldEleme
 		labelBlock: clsx(['flex justify-between mb-[0.25rem]', props.size === 'sm' ? 'text-[0.75rem]' : 'text-[0.875rem]']),
 		label: '',
 		secondaryLabel: '',
-		inputBlock: clsx([
-			'flex overflow-hidden',
+		textarea: clsx([
+			'w-full border-box leading-[1.375] block font-[inherit] text-inherit m-0 outline-0 shadow-none disabled:cursor-not-allowed',
 			props.size === 'sm' && 'text-[0.875rem]',
-			props.size === 'sm' && (props.variant === 'line' ? 'h-[1.625rem]' : 'h-[2rem]'),
-			props.size === 'md' && (props.variant === 'line' ? 'h-[1.875rem]' : 'h-[2.5rem]'),
+			props.size === 'sm' &&
+				(props.variant === 'line'
+					? 'min-h-[1.625rem] not:([rows]):min-h-[2.45rem] px-0 py-[.125rem]'
+					: 'min-h-[2rem] not:([rows]):min-h-[3rem] px-[.75em] py-[.3125rem]'),
+			props.size === 'md' &&
+				(props.variant === 'line'
+					? 'min-h-[1.875rem] not:([rows]):min-h-[2.8125rem] px-0 py-[.125rem]'
+					: 'min-h-[2.5rem] not:([rows]):min-h-[3.75rem] px-[.75em] py-[.4375rem]'),
 			props.size === 'lg' && 'text-[1.125rem]',
-			props.size === 'lg' && (props.variant === 'line' ? 'h-[2rem]' : 'h-[3rem]'),
+			props.size === 'lg' &&
+				(props.variant === 'line'
+					? 'min-h-[2rem] not:([rows]):min-h-[3rem] px-0 py-[.125rem]'
+					: 'min-h-[3rem] not:([rows]):min-h-[4.5rem] px-[.75em] py-[.625rem]'),
 			props.variant === 'outlined' && [
-				'rounded-[5px]',
+				'bg-transparent rounded-[5px]',
 				'border border-solid',
 				!props.focus &&
 					!props.errorMessage &&
@@ -88,13 +94,6 @@ export const tailwindTextFieldElementClass: ElementClassGenerator<TextFieldEleme
 				props.variant === 'filled' &&
 				'bg-[var(--pui-error-lighten,#fbe3e3)] dark:bg-[var(--pui-error-darken,#230b0b)]'
 		]),
-		inputPrefix: clsx(['h-full flex items-center', props.variant === 'line' ? 'pr-[0.75em]' : 'pl-[0.75em]']),
-		input: clsx([
-			'w-full h-full font-inherit text-inherit border-0 outline-0 shadow-none bg-inherit disabled:cursor-not-allowed disabled:bg-inherit',
-			props.variant === 'filled' && 'bg-inherit',
-			props.variant === 'line' ? 'p-0' : 'py-0 px-[0.75em]'
-		]),
-		inputSuffix: clsx(['h-full flex items-center', props.variant === 'line' ? 'pl-[0.75em]' : 'pr-[0.75em]']),
 		messageBlock: clsx([
 			'mt-[0.25em] text-[var(--pui-text-secondary,#63636e)] dark:text-[var(--pui-text-secondary-in-dark,#a4a4ad)]',
 			props.size === 'sm' ? 'text-[0.65rem]' : 'text-[0.75rem]'

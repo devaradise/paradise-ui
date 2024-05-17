@@ -41,7 +41,7 @@ const meta = {
 			defaultValue: false,
 			table: {
 				type: { summary: 'boolean' },
-				defaultValue: { summary: false }
+				defaultValue: { summary: 'false' }
 			}
 		},
 		invalid: {
@@ -49,7 +49,7 @@ const meta = {
 			defaultValue: false,
 			table: {
 				type: { summary: 'boolean' },
-				defaultValue: { summary: false }
+				defaultValue: { summary: 'false' }
 			}
 		},
 		disabled: {
@@ -57,7 +57,7 @@ const meta = {
 			defaultValue: false,
 			table: {
 				type: { summary: 'boolean' },
-				defaultValue: { summary: false }
+				defaultValue: { summary: 'false' }
 			}
 		},
 		prefix: {
