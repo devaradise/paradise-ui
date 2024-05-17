@@ -37,7 +37,7 @@ export const tailwindTextAreaElementClass: ElementClassGenerator<TextAreaElement
 		label: '',
 		secondaryLabel: '',
 		textarea: clsx([
-			'w-full border-box leading-[1.375] block font-[inherit] text-inherit m-0 outline-0 shadow-none disabled:cursor-not-allowed',
+			'w-full border-box leading-[1.375] block font-[inherit] text-inherit m-0 outline-0 disabled:cursor-not-allowed',
 			props.size === 'sm' && 'text-[0.875rem]',
 			props.size === 'sm' &&
 				(props.variant === 'line'
