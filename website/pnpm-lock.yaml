@@ -21,8 +21,8 @@ dependencies:
     specifier: ^3.0.0
     version: 3.0.1(@types/react@18.3.1)(react@18.3.1)
   '@paradise-ui/react':
-    specifier: ^1.0.0-beta.3
-    version: 1.0.0-beta.3(react@18.3.1)
+    specifier: ^1.0.0-beta.4
+    version: 1.0.0-beta.4(react@18.3.1)
   clsx:
     specifier: ^2.0.0
     version: 2.1.1
@@ -2531,8 +2531,8 @@ packages:
       react: 18.3.1
     dev: false
 
-  /@paradise-ui/react@1.0.0-beta.3(react@18.3.1):
-    resolution: {integrity: sha512-pZvYZCtfkVskIKuhHsp1Y2iEoovg9+nWy7GNVCmqgaG8uuVBONyTIjJD31A+8pK3HgZt5JMaccM2EpuMlnznxA==}
+  /@paradise-ui/react@1.0.0-beta.4(react@18.3.1):
+    resolution: {integrity: sha512-n2uXtNVG7zaTnXromdiSQCGj/B3z8Sev9a5KwmlCpH86/O8NJP3pfYmGWfeDHsElRXo26vk8huMQu9cTP4CB6w==}
     peerDependencies:
       react: '>=18'
     dependencies:
