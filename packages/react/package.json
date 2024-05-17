@@ -53,6 +53,7 @@
     "@paradise-ui/common": "workspace:*",
     "@paradise-ui/theme": "workspace:*",
     "@paradise-ui/button": "workspace:*",
+    "@paradise-ui/text-area": "workspace:*",
     "@paradise-ui/text-field": "workspace:*",
     "@paradise-ui/alert": "workspace:*",
     "@paradise-ui/toast": "workspace:*"

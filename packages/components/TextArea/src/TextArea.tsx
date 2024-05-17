@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, forwardRef, useContext, useEffect, useId, useState } from 'react';
+import { FormEvent, forwardRef, useContext, useEffect, useId, useState } from 'react';
 import { TextAreaElementClass, TextAreaElementClassProps, TextAreaProps } from './type';
 import { ElementClassManager, ParadiseUIContext } from '@paradise-ui/common';
 import { defaultTextAreaElementClass, tailwindTextAreaElementClass } from './elementClass';
