@@ -21,8 +21,8 @@ dependencies:
     specifier: ^3.0.0
     version: 3.0.1(@types/react@18.3.1)(react@18.3.1)
   '@paradise-ui/react':
-    specifier: ^1.0.0-beta.2
-    version: 1.0.0-beta.2(react@18.3.1)
+    specifier: ^1.0.0-beta.3
+    version: 1.0.0-beta.3(react@18.3.1)
   clsx:
     specifier: ^2.0.0
     version: 2.1.1
@@ -2503,74 +2503,85 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
 
-  /@paradise-ui/alert@1.0.0-beta.0(react@18.3.1):
-    resolution: {integrity: sha512-lHu+w4n2dndC0dcjkeTOj+uradJxV5ya79Y3uuM/t6pNGtwOqeYPIDuM80f5zg7hSUT7SQbfTUCdzqYBbMxwHQ==}
+  /@paradise-ui/alert@1.0.0-beta.1(react@18.3.1):
+    resolution: {integrity: sha512-JKOemTRghpfuEzpKoXimSzVQeWCo15Zy46Dd6E5qB9eavHz9gq/vZZoWb+rpsm8JDX3fRVFQqXe/EXkIn8hA7Q==}
     peerDependencies:
       react: '>=18'
     dependencies:
-      '@paradise-ui/common': 1.0.0-beta.0(react@18.3.1)
+      '@paradise-ui/common': 1.0.0-beta.1(react@18.3.1)
       clsx: 2.1.1
       react: 18.3.1
     dev: false
 
-  /@paradise-ui/button@1.0.0-beta.0(react@18.3.1):
-    resolution: {integrity: sha512-LBvSxai00EieIuI3Mi+5H+44P1Be5vBT8+2FH5JVbJkzJ4xgRaMLYNjtVylftR6DEsIn/4J8P6XmB9oQmnP3aw==}
+  /@paradise-ui/button@1.0.0-beta.1(react@18.3.1):
+    resolution: {integrity: sha512-bCc1qH6Gsd9twZ7gTXuA9Fkkxfc1XpbxL8jX7LJHEtGmpUiu3HHfsq/qLI3LgpQ2/O/R1gCZW7kxHyCkEX4ZbQ==}
     peerDependencies:
       react: '>=18'
     dependencies:
-      '@paradise-ui/common': 1.0.0-beta.0(react@18.3.1)
+      '@paradise-ui/common': 1.0.0-beta.1(react@18.3.1)
       clsx: 2.1.1
       react: 18.3.1
     dev: false
 
-  /@paradise-ui/common@1.0.0-beta.0(react@18.3.1):
-    resolution: {integrity: sha512-4mf7qSgBHR+M1maRWaDlf9fUgDPJLHlVMoAtBIZP4tSoOlj4CiTXBcE+RVM+mRDepBeSoV2y6kh9IIejNy1HKQ==}
+  /@paradise-ui/common@1.0.0-beta.1(react@18.3.1):
+    resolution: {integrity: sha512-w6ef3cXD7xuVYhRHkXNeSfX0p2avGp3y0F1jHy5RWEq0tFPbCe/ex/0uSV6AMAfjU1UJ4HZU8pgCYeFzrPZhuQ==}
     peerDependencies:
       react: '>=18'
     dependencies:
       react: 18.3.1
     dev: false
 
-  /@paradise-ui/react@1.0.0-beta.2(react@18.3.1):
-    resolution: {integrity: sha512-yyriebys0/d9sgE+BM8z0DANhu9KRLsYCNHU5h86pnONESRAyAWfuiMHWQi/GuINZNjQTMM72GxF7gQhmAEprg==}
+  /@paradise-ui/react@1.0.0-beta.3(react@18.3.1):
+    resolution: {integrity: sha512-pZvYZCtfkVskIKuhHsp1Y2iEoovg9+nWy7GNVCmqgaG8uuVBONyTIjJD31A+8pK3HgZt5JMaccM2EpuMlnznxA==}
     peerDependencies:
       react: '>=18'
     dependencies:
-      '@paradise-ui/alert': 1.0.0-beta.0(react@18.3.1)
-      '@paradise-ui/button': 1.0.0-beta.0(react@18.3.1)
-      '@paradise-ui/common': 1.0.0-beta.0(react@18.3.1)
-      '@paradise-ui/text-field': 1.1.0-beta.1(react@18.3.1)
-      '@paradise-ui/theme': 1.0.0-beta.1(react@18.3.1)
-      '@paradise-ui/toast': 1.0.0-beta.0(react@18.3.1)
+      '@paradise-ui/alert': 1.0.0-beta.1(react@18.3.1)
+      '@paradise-ui/button': 1.0.0-beta.1(react@18.3.1)
+      '@paradise-ui/common': 1.0.0-beta.1(react@18.3.1)
+      '@paradise-ui/text-area': 1.0.0-beta.0(react@18.3.1)
+      '@paradise-ui/text-field': 1.1.0-beta.2(react@18.3.1)
+      '@paradise-ui/theme': 1.0.0-beta.2(react@18.3.1)
+      '@paradise-ui/toast': 1.0.0-beta.1(react@18.3.1)
       react: 18.3.1
     dev: false
 
-  /@paradise-ui/text-field@1.1.0-beta.1(react@18.3.1):
-    resolution: {integrity: sha512-FwKTrwXnxiKdtOXgKKUgDTGk/GUYSY6eRxmmBCBLJ9MmM3a1g4nBZ2HRwDhL0xmWIX2iEp6gdHYvjj7mmRJG8g==}
+  /@paradise-ui/text-area@1.0.0-beta.0(react@18.3.1):
+    resolution: {integrity: sha512-HiLw+kY/DxW7umL7/uHFuoctvxGaBDC+rD2LhG2hUSjl6pCcDD4F2UPQmFyQCetZ5XH02riVR6SpTxwN93ZgqQ==}
     peerDependencies:
       react: '>=18'
     dependencies:
-      '@paradise-ui/common': 1.0.0-beta.0(react@18.3.1)
+      '@paradise-ui/common': 1.0.0-beta.1(react@18.3.1)
       clsx: 2.1.1
       react: 18.3.1
     dev: false
 
-  /@paradise-ui/theme@1.0.0-beta.1(react@18.3.1):
-    resolution: {integrity: sha512-YHM6UXlSYK0mRYyqsmvBcokF70+aIif1JVoRM6sOmIXmwYuG//TFhXrKT2U9X9coWpZacDcdYwLu/9aRuox6AQ==}
+  /@paradise-ui/text-field@1.1.0-beta.2(react@18.3.1):
+    resolution: {integrity: sha512-+nKyz94MXm+SRT4FzCLSE3r8FKOVjX1dEdXRPrdmbc0Q9/0+HR35pl8fT3faaod2uREgoq7bpMxdatj/fa7MCw==}
     peerDependencies:
       react: '>=18'
     dependencies:
-      '@paradise-ui/common': 1.0.0-beta.0(react@18.3.1)
+      '@paradise-ui/common': 1.0.0-beta.1(react@18.3.1)
+      clsx: 2.1.1
       react: 18.3.1
     dev: false
 
-  /@paradise-ui/toast@1.0.0-beta.0(react@18.3.1):
-    resolution: {integrity: sha512-xF6aCZkNHF4klX/+95m5I+GtRWKq7R/MeM7qc4ZmVEoX4vPJ91RQXATlOO8W/OnaWuZvlEtzR8jdnyTSQC/kBQ==}
+  /@paradise-ui/theme@1.0.0-beta.2(react@18.3.1):
+    resolution: {integrity: sha512-o0tuICeduwz7QqI6lxHpDLndqxSrueTgNJSoDq2iUVxjR4LNj1sU9KubhQ6B7bIn+KCCWeOkzlgshX3NkvPbsg==}
     peerDependencies:
       react: '>=18'
     dependencies:
-      '@paradise-ui/alert': 1.0.0-beta.0(react@18.3.1)
-      '@paradise-ui/common': 1.0.0-beta.0(react@18.3.1)
+      '@paradise-ui/common': 1.0.0-beta.1(react@18.3.1)
+      react: 18.3.1
+    dev: false
+
+  /@paradise-ui/toast@1.0.0-beta.1(react@18.3.1):
+    resolution: {integrity: sha512-vU7f/fqEMXHJQE8T09mUbOkpvMcfCsCD0jsb31VMKqMEhIPsE4XvrV5jfbuCK+Bhl/TNE7HB/RduF3+30DbPZQ==}
+    peerDependencies:
+      react: '>=18'
+    dependencies:
+      '@paradise-ui/alert': 1.0.0-beta.1(react@18.3.1)
+      '@paradise-ui/common': 1.0.0-beta.1(react@18.3.1)
       clsx: 2.1.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)

@@ -4,6 +4,7 @@ export * from './useThemeMode';
 export * from '@paradise-ui/common';
 export * from '@paradise-ui/theme';
 export * from '@paradise-ui/button';
+export * from '@paradise-ui/text-area';
 export * from '@paradise-ui/text-field';
 export * from '@paradise-ui/alert';
 export * from '@paradise-ui/toast';
