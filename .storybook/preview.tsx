@@ -3,14 +3,6 @@ import type { Preview } from "@storybook/react";
 import { useGlobals } from '@storybook/preview-api';
 import { Primary, Controls } from '@storybook/blocks';
 import '../tailwind.css'
-import ReactGA from "react-ga4";
-
-ReactGA.initialize('G-WEQ0VLBX8H', {
-  gtagOptions: { 
-    debug_mode: true,
-    content_group: 'storybook'
-  }
-});
 
 const preview: Preview = {
   parameters: {
