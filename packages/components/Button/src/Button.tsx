@@ -63,13 +63,13 @@ export const Button = forwardRef<
 			{loading && loaderPosition === 'left' ? (
 				<div className={clsx(buttonElementClass.loader, extraElementClass?.loader)}>{loader}</div>
 			) : (
-				<div>{leftIcon}</div>
+				leftIcon && <div className={clsx(buttonElementClass.icon, extraElementClass?.icon)}>{leftIcon}</div>
 			)}
 			<span className={clsx(buttonElementClass.label, extraElementClass?.label)}>{children}</span>
 			{loading && loaderPosition === 'right' ? (
 				<div className={clsx(buttonElementClass.loader, extraElementClass?.loader)}>{loader}</div>
 			) : (
-				<div>{rightIcon}</div>
+				rightIcon && <div className={clsx(buttonElementClass.icon, extraElementClass?.icon)}>{rightIcon}</div>
 			)}
 		</>
 	);

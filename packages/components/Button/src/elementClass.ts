@@ -5,16 +5,18 @@ export const defaultButtonElementClass = (props: ButtonElementClassProps): Butto
 	return {
 		root: clsx([
 			'pui-button',
-			`pui-button-${props.color}`,
-			`pui-button-${props.variant}`,
-			`pui-button-${props.size}`,
-			props.disabled ? `pui-button-disabled` : '',
-			props.loading ? `pui-button-loading` : '',
-			props.rounded ? `pui-button-rounded` : '',
+			`pui-button--${props.color}`,
+			`pui-button--${props.variant}`,
+			`pui-button--${props.size}`,
+			props.disabled ? `pui-button--disabled` : '',
+			props.loading ? `pui-button--loading` : '',
+			props.rounded ? `pui-button--rounded` : '',
+			props.fullWidth ? `pui-button--full-width` : '',
 			props.className
 		]),
-		loader: clsx(['pui-button-loader', `pui-button-loader-${props.loaderPosition}`]),
-		label: 'pui-button-label'
+		icon: 'pui-button-icon',
+		loader: clsx(['pui-button__loader', `pui-button__loader--${props.loaderPosition}`]),
+		label: 'pui-button__label'
 	};
 };
 
@@ -62,12 +64,13 @@ export const tailwindButtonElementClass = (props: ButtonElementClassProps): Butt
 	return {
 		root: clsx([
 			'font-inherit color-inherit font-semibold leading-none',
-			'relative flex border-box w-max gap-2 items-center justify-center overflow-hidden',
+			'relative flex border-box gap-[.5em] items-center overflow-hidden',
 			'outline-none shadow-none rounded-[.375rem] cursor-pointer z-[1] transition-all duration-300',
 			'before:content-[""] before:transition-all before:duration-300 before:absolute before:left-0 before:top-0 before:right-0 before:bottom-0 before:z-[-1]',
-			'[&_svg]:shrink-0 [&_svg]:w-[1.37em] [&_svg]:h-[1.37em]',
+			'[&_svg]:shrink-0 [&_svg]:w-[auto] [&_svg]:h-[1.25em]',
 			!props.disabled && !props.loading ? 'hover:before:bg-[rgba(200,200,200,.1)] cursor-pointer' : 'opacity-75',
 			props.rounded && 'rounded-[100px]',
+			props.fullWidth && 'w-full',
 			props.loading && 'cursor-default',
 			props.disabled && 'cursor-not-allowed',
 			sizes[props.size || 'md'],
@@ -75,6 +78,7 @@ export const tailwindButtonElementClass = (props: ButtonElementClassProps): Butt
 			props.loading && props.loaderPosition === 'overlay' && '[&_:not(.pui-button-loader-overlay)]:text-transparent',
 			props.className
 		]),
+		icon: 'shrink-0',
 		loader: clsx([
 			props.loading && `flex justify-center items-center`,
 			props.loading && props.loaderPosition === 'overlay' && 'absolute left-0 right-0 top-0 bottom-0',
@@ -95,6 +99,6 @@ export const tailwindButtonElementClass = (props: ButtonElementClassProps): Butt
 				]),
 			props.loading && props.disabled && `[&_svg]:stroke-[#979797] text-[#979797]`
 		]),
-		label: 'whitespace-nowrap'
+		label: 'whitespace-nowrap grow'
 	};
 };

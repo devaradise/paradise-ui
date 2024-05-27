@@ -21,6 +21,8 @@ export interface ButtonProps
 	rightIcon?: ReactNode;
 	/** Does the button has rounded edges? */
 	rounded?: boolean;
+	/** Does the button has full width? */
+	fullWidth?: boolean;
 	/** Indicate if button is in disabled state */
 	disabled?: boolean;
 	/** Indicate if button is in loading state */

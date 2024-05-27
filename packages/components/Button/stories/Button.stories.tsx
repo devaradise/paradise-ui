@@ -74,19 +74,25 @@ const meta = {
 		rounded: {
 			type: 'boolean',
 			table: {
-				defaultValue: { summary: false }
+				defaultValue: { summary: 'false' }
+			}
+		},
+		fullWidth: {
+			type: 'boolean',
+			table: {
+				defaultValue: { summary: 'false' }
 			}
 		},
 		disabled: {
 			type: 'boolean',
 			table: {
-				defaultValue: { summary: false }
+				defaultValue: { summary: 'false' }
 			}
 		},
 		loading: {
 			type: 'boolean',
 			table: {
-				defaultValue: { summary: false }
+				defaultValue: { summary: 'false' }
 			}
 		},
 		loader: {
@@ -116,7 +122,6 @@ const meta = {
 		}
 	},
 	parameters: {
-		layout: 'centered',
 		controls: {
 			disable: true
 		}
@@ -143,10 +148,18 @@ export const Usage: Story = {
 		leftIcon: <PaperPlaneTilt />,
 		rightIcon: '',
 		rounded: false,
+		fullWidth: false,
 		disabled: false,
 		loading: false,
 		loaderPosition: 'overlay',
 		children: 'Button'
+	},
+	render: (args) => {
+		return (
+			<div className='w-[300px] mx-auto flex justify-center'>
+				<Button {...args} />
+			</div>
+		);
 	}
 };
 
@@ -167,13 +180,18 @@ export const UsageWithTailwindClass: Story = {
 		leftIcon: <PaperPlaneTilt />,
 		rightIcon: '',
 		rounded: false,
+		fullWidth: false,
 		disabled: false,
 		loading: false,
 		loaderPosition: 'overlay',
 		children: 'Button'
 	},
 	render: (args) => {
-		return <Button {...args} elementClass={tailwindButtonElementClass} />;
+		return (
+			<div className='w-[300px] mx-auto flex justify-center'>
+				<Button {...args} elementClass={tailwindButtonElementClass} />
+			</div>
+		);
 	}
 };
 

@@ -7,9 +7,9 @@ $colors: (
   'error': #e74747
 );
 $sizes: 
-  'sm' 2rem .75rem .375rem .825rem,
+  'sm' 2rem .75rem .375rem .75rem,
   'md' 2.5rem .875rem .375rem 1rem,
-  'lg' 3rem 1rem .375rem 1.125rem;
+  'lg' 3rem 1rem .375rem 1.25rem;
 $disabledColor: #979797;
 
 .pui-button {
@@ -24,11 +24,10 @@ $disabledColor: #979797;
   position: relative;
   display: flex;
   width: max-content;
-  gap:.5rem;
+  gap:.5em;
   align-items: center;
   background-color: transparent;
   color: inherit;
-  justify-content: center;
   text-decoration: none;
   overflow: hidden;
   line-height: 1;
@@ -47,73 +46,79 @@ $disabledColor: #979797;
     bottom:0;
     z-index:-1;
   }
-  .pui-button-label {
+  .pui-button__label {
+    flex-grow: 1;
     white-space: nowrap;
+  }
+  .pui-button__icon {
+    flex-shrink: 0;
   }
   svg {
     flex-shrink: 0;
-    width: 1.37em;
-    height: 1.37em;
+    width: auto;
+    height: 1.25em;
   }
-  &:not(.pui-button-disabled, .pui-button-loading):hover::before {
+  &:not(.pui-button--disabled, .pui-button--loading):hover::before {
     background-color: rgba(200,200,200, .1);
   }
-
-  &.pui-button-rounded {
+  &--rounded {
     border-radius: 100px;
   }
-  &.pui-button-loading {
+  &--full-width {
+    width: 100%;
+  }
+  &--loading {
     cursor: default;
     opacity: 0.75;
-    .pui-button-loader {
+    .pui-button__loader {
       display: flex;
       justify-content: center;
       align-items: center;
-      &.pui-button-loader-overlay {
+      &.pui-button__loader--overlay {
         position: absolute;
         left: 0;
         right: 0;
         top: 0;
         bottom: 0;
       }
-      &.pui-button-loader-overlay ~ * {
+      &.pui-button__loader--overlay ~ * {
         color: transparent;
       }
 
     }
   }
-  &.pui-button-disabled {
+  &--disabled {
     cursor: not-allowed;
     opacity: .75;
   }
 
   @each $btnSize, $btnHeight, $btnFont, $btnPaddingY, $btnPaddingX in $sizes {
-    &.pui-button-#{$btnSize} {
+    &--#{$btnSize} {
       height: $btnHeight;
       font-size: $btnFont;
       padding:$btnPaddingY $btnPaddingX;
     }
   }
 
-  &.pui-button-solid {
+  &--solid {
     @each $colorName, $colorHex in $colors {
-      &.pui-button-#{$colorName} {
+      &.pui-button--#{$colorName} {
         border: 1px solid var(--pui-#{$colorName}, $colorHex);
         background-color: var(--pui-#{$colorName}, $colorHex);
         color: #fafafa;
         &:hover {
           color: #fff;
         }
-        &.pui-button-disabled {
+        &.pui-button--disabled {
           color: $disabledColor;
           border-color: transparent;
           background-color: rgba($disabledColor, .3);
         }
-        &:not(.pui-button-disabled):hover::before {
+        &:not(.pui-button--disabled):hover::before {
           background-color: rgba(100,100,100, .1);
         }
-        &.pui-button-loading {
-          .pui-button-loader {
+        &.pui-button--loading {
+          .pui-button__loader {
             color:#fff;
             svg {
               stroke: #fff;
@@ -125,11 +130,11 @@ $disabledColor: #979797;
           &:hover {
             color: #000
           }
-          &:not(.pui-button-disabled):hover::before {
+          &:not(.pui-button--disabled):hover::before {
             background-color: rgba(250,250,250, .1);
           }
-          &.pui-button-loading {
-            .pui-button-loader {
+          &.pui-button--loading {
+            .pui-button__loader {
               color:#000;
               svg {
                 stroke: #000;
@@ -141,17 +146,17 @@ $disabledColor: #979797;
     }
   }
 
-  &.pui-button-outlined {
+  &--outlined {
     @each $colorName, $colorHex in $colors {
-      &.pui-button-#{$colorName} {
+      &.pui-button--#{$colorName} {
         border: 1px solid var(--pui-#{$colorName}, $colorHex);
         color: var(--pui-#{$colorName}, $colorHex);
-        &.pui-button-disabled {
+        &.pui-button--disabled {
           border-color: $disabledColor;
           color: $disabledColor;
         }
-        &.pui-button-loading {
-          .pui-button-loader {
+        &.pui-button--loading {
+          .pui-button__loader {
             color:var(--pui-#{$colorName}, $colorHex);;
             svg {
               stroke: var(--pui-#{$colorName}, $colorHex);;
@@ -162,15 +167,15 @@ $disabledColor: #979797;
     }
   }
 
-  &.pui-button-text {
+  &--text {
     @each $colorName, $colorHex in $colors {
-      &.pui-button-#{$colorName} {
+      &.pui-button--#{$colorName} {
         border: 1px solid transparent;
         color: var(--pui-#{$colorName}, $colorHex);
-        &.pui-button-disabled {
+        &.pui-button--disabled {
           color: $disabledColor;
         }
-        .pui-button-loader {
+        .pui-button__loader {
           color:var(--pui-#{$colorName}, $colorHex);;
           svg {
             stroke: var(--pui-#{$colorName}, $colorHex);;
@@ -180,8 +185,8 @@ $disabledColor: #979797;
     }
   }
 
-  &.pui-button-disabled.pui-button-loading {
-    .pui-button-loader {
+  &--disabled.pui-button--loading {
+    .pui-button__loader {
       color: $disabledColor;
       svg {
         stroke: $disabledColor !important;
