@@ -5,7 +5,6 @@ import { PropsWithChildren, createContext, useContext, useEffect, useState } fro
 import { ToastContextProps, ToastElementClass, ToastProps } from './type';
 import { Toast } from './Toast';
 import { defaultToastElementClass, tailwindToastElementClass } from './elementClass';
-import './style.scss';
 
 export const ToastContext = createContext({} as ToastContextProps);
 

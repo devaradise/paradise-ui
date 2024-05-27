@@ -1,5 +1,4 @@
 import { ButtonElementClass, ButtonElementClassProps, ButtonProps } from './type';
-import './style.scss';
 import { PropsWithChildren, forwardRef, useContext, useEffect, useState } from 'react';
 import { Spinner } from './Spinner';
 import { ElementClassManager, ParadiseUIContext } from '@paradise-ui/common';

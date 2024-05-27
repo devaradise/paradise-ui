@@ -1,7 +1,6 @@
 import { PropsWithChildren, useEffect } from 'react';
 import { ThemeProviderProps } from './type';
 import { defaultColors, injectCssVariables, useMediaQuery } from '@paradise-ui/common';
-import './style.scss';
 
 export const ThemeProvider = (props: PropsWithChildren<ThemeProviderProps>) => {
 	const defaultMode = useMediaQuery('(prefers-color-scheme: dark)') ? 'dark' : 'light';

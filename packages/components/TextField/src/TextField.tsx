@@ -3,7 +3,6 @@ import { TextFieldElementClass, TextFieldElementClassProps, TextFieldProps } fro
 import { ElementClassManager, ParadiseUIContext } from '@paradise-ui/common';
 import { defaultTextFieldElementClass, tailwindTextFieldElementClass } from './elementClass';
 import clsx from 'clsx';
-import './style.scss';
 
 export const TextField = forwardRef<
 	HTMLInputElement,

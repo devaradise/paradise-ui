@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import type { Preview } from "@storybook/react";
 import { useGlobals } from '@storybook/preview-api';
 import { Primary, Controls } from '@storybook/blocks';
-import '../tailwind.css'
+import '../style.scss'
 
 const preview: Preview = {
   parameters: {

@@ -1,9 +1,7 @@
 import { ToastProps } from './type';
 import { Alert, defaultAlertElementClass, tailwindAlertElementClass } from '@paradise-ui/alert';
-import '@paradise-ui/alert/style';
 import { useContext } from 'react';
 import { ToastContext } from './ToastProvider';
-
 export const Toast = (props: ToastProps) => {
 	const {
 		id,

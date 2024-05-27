@@ -4,7 +4,6 @@ import { AlertElementClass, AlertElementClassProps, AlertProps } from './type';
 import { CloseIcon, ErrorIcon, InfoIcon, SuccessIcon, WarningIcon } from './Icons';
 import { ElementClassManager, ParadiseUIContext } from '@paradise-ui/common';
 import { defaultAlertElementClass, tailwindAlertElementClass } from './elementClass';
-import './style.scss';
 
 export const Alert = (props: PropsWithChildren<AlertProps & ElementClassManager<AlertElementClassProps, AlertElementClass>>) => {
 	const { variant = 'subtle', type = 'info', icon, closeable = false, onClose, elementClass, extraElementClass, children } = props;

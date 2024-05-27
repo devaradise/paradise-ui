@@ -3,7 +3,6 @@ import { TextAreaElementClass, TextAreaElementClassProps, TextAreaProps } from '
 import { ElementClassManager, ParadiseUIContext } from '@paradise-ui/common';
 import { defaultTextAreaElementClass, tailwindTextAreaElementClass } from './elementClass';
 import clsx from 'clsx';
-import './style.scss';
 
 export const TextArea = forwardRef<
 	HTMLTextAreaElement,
