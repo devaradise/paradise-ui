@@ -38,7 +38,7 @@ export const tailwindTextAreaElementClass: ElementClassGenerator<TextAreaElement
 		secondaryLabel: 'text-[var(--pui-text-secondary,#63636e)] dark:text-[var(--pui-text-secondary-in-dark,#a4a4ad)]',
 		textarea: clsx([
 			'w-full border-box leading-[1.375] block font-[inherit] text-inherit m-0 outline-0 disabled:cursor-not-allowed antialiased',
-			'placeholder:text-[var(--pui-input-placeholder,#adb5bd)] dark:placeholder:[var(--pui-input-placeholder-dark,#696969)]',
+			'placeholder:text-[var(--pui-input-placeholder,#adb5bd)] dark:placeholder:text-[var(--pui-input-placeholder-dark,#696969)]',
 			props.size === 'sm' && 'text-[0.875rem]',
 			props.size === 'sm' &&
 				(props.variant === 'line'
