@@ -5,14 +5,14 @@ export const defaultAlertElementClass = (props: AlertElementClassProps): AlertEl
 	return {
 		root: clsx([
 			'pui-alert',
-			`pui-alert-${props.variant}`,
-			`pui-alert-${props.type}`,
-			props.isFadingOut || props.isFadingIn ? 'pui-alert-hidden' : '',
+			`pui-alert--${props.variant}`,
+			`pui-alert--${props.type}`,
+			props.isFadingOut || props.isFadingIn ? 'pui-alert--hidden' : '',
 			props.className
 		]),
-		icon: 'pui-alert-icon',
-		content: 'pui-alert-content',
-		closeIcon: 'pui-alert-close-icon'
+		icon: 'pui-alert__icon',
+		content: 'pui-alert__content',
+		closeIcon: 'pui-alert__close-icon'
 	};
 };
 
@@ -64,7 +64,7 @@ export const tailwindAlertElementClass = (props: AlertElementClassProps): AlertE
 			]
 		),
 		outlined: clsx(
-			'border',
+			'border border-solid',
 			props.type === 'info' && [
 				'[&_svg]:fill-[var(--pui-info,#008DDA)] border-[var(--pui-info,#008DDA)] text-[var(--pui-info-darken,#001521)]',
 				'dark:[&_.pui-alert-close-icon_svg]:fill-[var(--pui-info-lighten,#d9eef9)] dark:text-[var(--pui-info-lighten,#d9eef9)]'
@@ -83,7 +83,7 @@ export const tailwindAlertElementClass = (props: AlertElementClassProps): AlertE
 			]
 		),
 		'left-bordered': clsx(
-			'border-l-[5px]',
+			'border-0 border-solid border-l-[5px]',
 			props.type === 'info' && [
 				'border-[var(--pui-info,#008DDA)] bg-[var(--pui-info-lighten,#d9eef9)] text-[var(--pui-info-darken,#001521)]',
 				'dark:bg-[var(--pui-info-darken,#001521)] dark:text-[var(--pui-info-lighten,#d9eef9)]',
@@ -124,7 +124,7 @@ export const tailwindAlertElementClass = (props: AlertElementClassProps): AlertE
 		content: 'text-[.875rem] leading-[1.625] grow',
 		closeIcon: clsx(
 			'pui-alert-close-icon',
-			'shrink-0 h-[1.5rem] w-[1.5rem] p-[.2rem] cursor-pointer flex justify-center items-center rounded-[100%]',
+			'bg-transparent outline-none border-0 shrink-0 h-[1.5rem] w-[1.5rem] p-[.2rem] cursor-pointer flex justify-center items-center rounded-[100%]',
 			'[&_svg]:w-full [&_svg]:h-full hover:bg-[rgba(100,100,100,.075)] dark:hover:bg-[rgba(255,255,255,.075)]'
 		)
 	};

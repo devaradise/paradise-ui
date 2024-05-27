@@ -20,7 +20,7 @@ $colors:
   * {
     box-sizing: border-box;
   }
-  .pui-alert-icon {
+  &__icon {
     flex-shrink: 0;
     height:1.5rem;
     width: 1.5rem;
@@ -29,12 +29,12 @@ $colors:
       height: 100%;
     }
   }
-  .pui-alert-content {
+  &__content {
     font-size: .875rem;
     line-height: 1.625;
     flex-grow: 1;
   }
-  .pui-alert-close-icon {
+  &__close-icon {
     flex-shrink: 0;
     height:1.5rem;
     width: 1.5rem;
@@ -56,43 +56,43 @@ $colors:
     }
   }
 
-  &.pui-alert-hidden {
+  &--hidden {
     opacity: 0;
     padding-top: 0;
     padding-bottom: 0;
     max-height: 0;
   }
 
-  &.pui-alert-subtle {
+  &--subtle {
     @each $colorName, $colorHex, $lighten, $darken in $colors {
-      &.pui-alert-#{$colorName} {
+      &.pui-alert--#{$colorName} {
         background-color: var(--pui-#{$colorName}-lighten, $lighten);
         color: var(--pui-#{$colorName}-darken, $darken);
-        .pui-alert-icon svg {
+        .pui-alert__icon svg {
           fill: var(--pui-#{$colorName}, $colorHex);
         }
-        .pui-alert-close-icon svg{
+        .pui-alert__close-icon svg{
           fill:  var(--pui-#{$colorName}-darken, $darken);
         }
       } 
     }
   }
 
-  &.pui-alert-solid {
+  &--solid {
     color: #fff;
-    .pui-alert-icon svg, .pui-alert-close-icon svg {
+    .pui-alert__icon svg, .pui-alert__close-icon svg {
       fill: #fff;
     }
     @each $colorName, $colorHex, $lighten, $darken in $colors {
-      &.pui-alert-#{$colorName} {
+      &.pui-alert--#{$colorName} {
         background-color: var(--pui-#{$colorName}, $colorHex);
       } 
     }
   }
 
-  &.pui-alert-outlined {
+  &--outlined {
     @each $colorName, $colorHex, $lighten, $darken in $colors {
-      &.pui-alert-#{$colorName} {
+      &.pui-alert--#{$colorName} {
         border:1px solid var(--pui-#{$colorName}, $colorHex);
         color: var(--pui--#{$colorName}-darken, $darken);
         svg {
@@ -102,16 +102,16 @@ $colors:
     }
   }
 
-  &.pui-alert-left-bordered {
+  &--left-bordered {
     @each $colorName, $colorHex, $lighten, $darken in $colors {
-      &.pui-alert-#{$colorName} {
+      &.pui-alert--#{$colorName} {
         border-left: 5px solid var(--pui-#{$colorName}, $colorHex);
         background-color: var(--pui-#{$colorName}-lighten, $lighten);
         color: var(--pui-#{$colorName}-darken, $darken);
-        .pui-alert-icon svg {
+        .pui-alert__icon svg {
           fill: var(--pui-#{$colorName}, $colorHex);
         }
-        .pui-alert-close-icon svg{
+        .pui-alert__close-icon svg{
           fill:  var(--pui-#{$colorName}-darken, $darken);
         }
       }
@@ -120,37 +120,37 @@ $colors:
 
 
   .pui-dark-mode & {
-    .pui-alert-close-icon {
+    &__close-icon {
       &:hover {
         background-color: rgba(255,255,255, .075);
       }
     }
-    &.pui-alert-subtle, &.pui-alert-left-bordered {
+    &--subtle, &--left-bordered {
       @each $colorName, $colorHex, $lighten, $darken in $colors {
-        &.pui-alert-#{$colorName} {
+        &.pui-alert--#{$colorName} {
           background-color: var(--pui-#{$colorName}-darken, $darken);
           color: var(--pui-#{$colorName}-lighten, $lighten);
-          .pui-alert-close-icon svg{
+          .pui-alert__close-icon svg{
             fill:  var(--pui-#{$colorName}-lighten, $lighten);
           }
         }
       } 
     }
-    &.pui-alert-solid {
+    &--solid {
       @each $colorName, $colorHex, $lighten, $darken in $colors {
-        &.pui-alert-#{$colorName} {
+        &.pui-alert--#{$colorName} {
           color: var(--pui-#{$colorName}-darken, $darken);
-          .pui-alert-icon svg, .pui-alert-close-icon svg {
+          .pui-alert__icon svg, .pui-alert__close-icon svg {
             fill:  var(--pui-#{$colorName}-darken, $darken);
           }
         }
       }
     }
-    &.pui-alert-outlined {
+    &--outlined {
       @each $colorName, $colorHex, $lighten, $darken in $colors {
-        &.pui-alert-#{$colorName} {
+        &.pui-alert--#{$colorName} {
           color: var(--pui-#{$colorName}-lighten, $lighten);
-          .pui-alert-close-icon svg {
+          .pui-alert__close-icon svg {
             fill:  var(--pui-#{$colorName}-lighten, $lighten);
           }
         }
