@@ -1,5 +1,13 @@
 # @paradise-ui/theme
 
+## 1.0.0-beta.3
+
+### Patch Changes
+
+- Changed Toast component style import
+- Updated dependencies
+  - @paradise-ui/common@1.0.0-beta.2
+
 ## 1.0.0-beta.2
 
 ### Patch Changes

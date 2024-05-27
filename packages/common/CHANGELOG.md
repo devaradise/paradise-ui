@@ -1,5 +1,11 @@
 # @paradise-ui/common
 
+## 1.0.0-beta.2
+
+### Patch Changes
+
+- Added inputPlaceholder color variable
+
 ## 1.0.0-beta.1
 
 ### Patch Changes

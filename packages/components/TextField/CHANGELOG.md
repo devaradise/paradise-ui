@@ -1,5 +1,14 @@
 # @paradise-ui/text-field
 
+## 1.1.0-beta.3
+
+### Patch Changes
+
+- Changed component classess to BEM convention
+- Updated styling
+- Updated dependencies
+  - @paradise-ui/common@1.0.0-beta.2
+
 ## 1.1.0-beta.2
 
 ### Patch Changes

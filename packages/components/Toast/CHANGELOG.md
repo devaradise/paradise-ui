@@ -1,5 +1,14 @@
 # @paradise-ui/toast
 
+## 1.0.0-beta.2
+
+### Patch Changes
+
+- Changed component classess to BEM convention
+- Updated dependencies
+  - @paradise-ui/common@1.0.0-beta.2
+  - @paradise-ui/alert@1.0.0-beta.2
+
 ## 1.0.0-beta.1
 
 ### Patch Changes
