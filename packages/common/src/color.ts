@@ -15,6 +15,8 @@ export const defaultColors: Colors = {
 	themeBackgroundDark: '#101317',
 	componentSurface: '#fff',
 	componentSurfaceDark: '#212327',
+	inputPlaceholder: '#adb5bd',
+	inputPlaceholderDark: '#696969',
 	inputFiller: '#f0f0f2',
 	inputFillerDark: '#313437',
 	border: '#c3c7d0',

@@ -59,6 +59,8 @@ export interface Colors {
 	themeBackgroundDark?: string;
 	componentSurface?: string;
 	componentSurfaceDark?: string;
+	inputPlaceholder?: string;
+	inputPlaceholderDark?: string;
 	inputFiller?: string;
 	inputFillerDark?: string;
 	border?: string;
