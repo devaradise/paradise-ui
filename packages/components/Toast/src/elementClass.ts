@@ -3,12 +3,12 @@ import { ToastElementClass, ToastElementClassProps } from './type';
 // @ts-ignore
 export const defaultToastElementClass = (props: ToastElementClassProps): ToastElementClass => {
 	return {
-		topLeftContainer: 'pui-toast-container pui-top-left-toast-container',
-		topCenterContainer: 'pui-toast-container pui-top-center-toast-container',
-		topRightContainer: 'pui-toast-container pui-top-right-toast-container',
-		bottomLeftContainer: 'pui-toast-container pui-bottom-left-toast-container',
-		bottomCenterContainer: 'pui-toast-container pui-bottom-center-toast-container',
-		bottomRightContainer: 'pui-toast-container pui-bottom-right-toast-container',
+		topLeftContainer: 'pui-toast__container pui-toast__container--top-left',
+		topCenterContainer: 'pui-toast__container pui-toast__container--top-center',
+		topRightContainer: 'pui-toast__container pui-toast__container--top-right',
+		bottomLeftContainer: 'pui-toast__container pui-toast__container--bottom-left',
+		bottomCenterContainer: 'pui-toast__container pui-toast__container--bottom-center',
+		bottomRightContainer: 'pui-toast__container pui-toast__container--bottom-right',
 		toast: 'pui-toast'
 	};
 };
