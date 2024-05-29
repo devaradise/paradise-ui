@@ -311,22 +311,22 @@ importers:
         specifier: 3.2.1
         version: 3.2.1(@docusaurus/types@3.2.1)
       '@mdx-js/react':
-        specifier: ^3.0.0
+        specifier: ^3.0.1
         version: 3.0.1(@types/react@18.3.1)(react@18.3.1)
       '@paradise-ui/react':
-        specifier: ^1.0.0-beta.4
+        specifier: 1.0.0-beta.5
         version: link:../packages/react
       clsx:
-        specifier: ^2.0.0
+        specifier: ^2.1.1
         version: 2.1.1
       prism-react-renderer:
-        specifier: ^2.3.0
+        specifier: ^2.3.1
         version: 2.3.1(react@18.3.1)
       react:
-        specifier: ^18.0.0
+        specifier: ^18.3.1
         version: 18.3.1
       react-dom:
-        specifier: ^18.0.0
+        specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
     devDependencies:
       '@docusaurus/module-type-aliases':
